@@ -1,0 +1,9 @@
+c:\users\gabriel.poltronieri\documents\visual studio 2017\Projects\VendeBemVeiculos\VendeBemVeiculos\bin\Debug\VendeBemVeiculos.exe.config
+c:\users\gabriel.poltronieri\documents\visual studio 2017\Projects\VendeBemVeiculos\VendeBemVeiculos\bin\Debug\VendeBemVeiculos.exe
+c:\users\gabriel.poltronieri\documents\visual studio 2017\Projects\VendeBemVeiculos\VendeBemVeiculos\bin\Debug\VendeBemVeiculos.pdb
+c:\users\gabriel.poltronieri\documents\visual studio 2017\Projects\VendeBemVeiculos\VendeBemVeiculos\obj\Debug\VendeBemVeiculos.csprojResolveAssemblyReference.cache
+c:\users\gabriel.poltronieri\documents\visual studio 2017\Projects\VendeBemVeiculos\VendeBemVeiculos\obj\Debug\VendeBemVeiculos.Properties.Resources.resources
+c:\users\gabriel.poltronieri\documents\visual studio 2017\Projects\VendeBemVeiculos\VendeBemVeiculos\obj\Debug\VendeBemVeiculos.csproj.GenerateResource.Cache
+c:\users\gabriel.poltronieri\documents\visual studio 2017\Projects\VendeBemVeiculos\VendeBemVeiculos\obj\Debug\VendeBemVeiculos.exe
+c:\users\gabriel.poltronieri\documents\visual studio 2017\Projects\VendeBemVeiculos\VendeBemVeiculos\obj\Debug\VendeBemVeiculos.pdb
+c:\Users\gabriel.poltronieri\Documents\Visual Studio 2017\Projects\VendeBemVeiculos\VendeBemVeiculos\obj\Debug\VendeBemVeiculos.FormularioVenda.resources
