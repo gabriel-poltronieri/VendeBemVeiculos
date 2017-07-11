@@ -12,20 +12,29 @@ namespace VendeBemVeiculos
 {
     public partial class FormularioVenda : Form
     {
+
+        //Devinindo as Propriedades e Atributos
         HashSet<Veiculo> veiculos = new HashSet<Veiculo>();
-        HashSet<Veiculo> filtroVeiculo = new HashSet<Veiculo>();
-        HashSet<Veiculo> filtroMarca = new HashSet<Veiculo>();
-        HashSet<Veiculo> filtroModelo = new HashSet<Veiculo>();
+        private HashSet<Veiculo> filtroVeiculo = new HashSet<Veiculo>();
+        private HashSet<Veiculo> filtroMarca = new HashSet<Veiculo>();
+        private HashSet<Veiculo> filtroModelo = new HashSet<Veiculo>();
+        public Vendedor Vendedor { get; set; }
+        public Veiculo Veiculo { get; set; }
+        private FormularioPrincipal formPrincipal;
 
 
-
-        public FormularioVenda()
+        public FormularioVenda(FormularioPrincipal formPrincipal)
         {
+            this.formPrincipal = formPrincipal;
             InitializeComponent();
         }
+        
+        
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void FormularioVenda_Load(object sender, EventArgs e)
         {
+
+            this.formPrincipal.Hide();
 
             //adicionando vendedores
             Vendedor joao = new Vendedor("Joao");
@@ -35,10 +44,12 @@ namespace VendeBemVeiculos
             vendedores.Add(joao);
             vendedores.Add(pedro);
             vendedores.Add(carlos);
-
+            //Definindo a propriedade como nula até que um vendedor seja selecionado
+            this.Vendedor = null;
+            //Passa os vendedores para o combobox de vendedores
             foreach(Vendedor v in vendedores)
             {
-                comboVendedor.Items.Add(v.Nome);
+                comboVendedor.Items.Add(v);
             }
 
             //Adicionando veículos iniciais
@@ -52,11 +63,15 @@ namespace VendeBemVeiculos
             veiculos.Add(uno);
             veiculos.Add(palio);
             veiculos.Add(fiesta);
+            //Definindo a propriedade como nula até que um veículo seja selecionado
+            this.Veiculo = null;
 
-
+            //coloca valores no combobox
             comboVeiculo.Items.Add("Carros");
             comboVeiculo.Items.Add("Motos");
         }
+
+
 
         private void comboVeiculo_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -160,7 +175,28 @@ namespace VendeBemVeiculos
             }
 
             labelValor.Text = "R$" + selecionado.Preco ;
+            this.Veiculo = selecionado;
             
+        }
+
+        private void botaoPagamento_Click(object sender, EventArgs e)
+        {
+            if ((this.Vendedor != null) && (this.Veiculo != null))
+            {
+                FormularioPagamento formPagamento = new FormularioPagamento(this);
+                formPagamento.ShowDialog();
+            }
+        }
+
+        private void comboVendedor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.Vendedor = (Vendedor)comboVendedor.SelectedItem;
+        }
+
+        private void botaoCancelar_Click(object sender, EventArgs e)
+        {
+            this.formPrincipal.Show();
+            this.Close();
         }
     }
 }

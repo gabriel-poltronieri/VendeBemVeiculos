@@ -46,6 +46,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Carro.cs" />
+    <Compile Include="Cliente.cs" />
+    <Compile Include="FormularioConfirmação.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormularioConfirmação.Designer.cs">
+      <DependentUpon>FormularioConfirmação.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormularioPagamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormularioPagamento.Designer.cs">
+      <DependentUpon>FormularioPagamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormularioPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormularioPrincipal.Designer.cs">
+      <DependentUpon>FormularioPrincipal.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormularioVenda.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -57,6 +76,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Veiculo.cs" />
     <Compile Include="Vendedor.cs" />
+    <EmbeddedResource Include="FormularioConfirmação.resx">
+      <DependentUpon>FormularioConfirmação.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormularioPagamento.resx">
+      <DependentUpon>FormularioPagamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormularioPrincipal.resx">
+      <DependentUpon>FormularioPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormularioVenda.resx">
       <DependentUpon>FormularioVenda.cs</DependentUpon>
     </EmbeddedResource>

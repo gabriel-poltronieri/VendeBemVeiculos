@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VendeBemVeiculos
 {
-    abstract class Veiculo
+    public abstract class Veiculo
     {
         public string Marca { get; protected set; }
         public string Modelo { get; protected set; }

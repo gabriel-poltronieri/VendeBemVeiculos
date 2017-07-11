@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VendeBemVeiculos
 {
-    class Vendedor
+    public class Vendedor
     {
         public string Nome { get; private set; }
         public int Registro { get; }
@@ -29,6 +29,11 @@ namespace VendeBemVeiculos
         public void AlterarNome(string nome)
         {
             this.Nome = nome;
+        }
+
+        public override string ToString()
+        {
+            return this.Nome;
         }
     }
 }
