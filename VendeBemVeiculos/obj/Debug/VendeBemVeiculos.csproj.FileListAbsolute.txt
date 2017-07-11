@@ -9,4 +9,5 @@ c:\users\gabriel.poltronieri\documents\visual studio 2017\Projects\VendeBemVeicu
 c:\Users\gabriel.poltronieri\Documents\Visual Studio 2017\Projects\VendeBemVeiculos\VendeBemVeiculos\obj\Debug\VendeBemVeiculos.FormularioVenda.resources
 C:\Users\gabriel.poltronieri\Documents\Visual Studio 2017\Projects\VendeBemVeiculos\VendeBemVeiculos\obj\Debug\VendeBemVeiculos.FormularioPagamento.resources
 C:\Users\gabriel.poltronieri\Documents\Visual Studio 2017\Projects\VendeBemVeiculos\VendeBemVeiculos\obj\Debug\VendeBemVeiculos.FormularioPrincipal.resources
-C:\Users\gabriel.poltronieri\Documents\Visual Studio 2017\Projects\VendeBemVeiculos\VendeBemVeiculos\obj\Debug\VendeBemVeiculos.FormularioConfirmação.resources
+C:\Users\gabriel.poltronieri\Documents\Visual Studio 2017\Projects\VendeBemVeiculos\VendeBemVeiculos\obj\Debug\VendeBemVeiculos.FormularioCliente.resources
+C:\Users\gabriel.poltronieri\Documents\Visual Studio 2017\Projects\VendeBemVeiculos\VendeBemVeiculos\obj\Debug\VendeBemVeiculos.FormularioConfirmacao.resources

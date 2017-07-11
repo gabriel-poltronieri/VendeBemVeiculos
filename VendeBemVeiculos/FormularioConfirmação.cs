@@ -10,13 +10,13 @@ using System.Windows.Forms;
 
 namespace VendeBemVeiculos
 {
-    public partial class FormularioConfirmação : Form
+    public partial class FormularioConfirmacao : Form
     {
         private FormularioPagamento formPagamento;
         private Vendedor vendedor;
         private string senha;
 
-        public FormularioConfirmação(FormularioPagamento formPagamento, Vendedor vendedor)
+        public FormularioConfirmacao(FormularioPagamento formPagamento, Vendedor vendedor)
         {
             this.formPagamento = formPagamento;
             this.vendedor = vendedor;

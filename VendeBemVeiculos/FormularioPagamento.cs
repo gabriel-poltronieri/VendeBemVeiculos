@@ -40,7 +40,7 @@ namespace VendeBemVeiculos
 
         private void button1_Click(object sender, EventArgs e)
         {
-            FormularioConfirmação formConfirma = new FormularioConfirmação(this, this.vendedor);
+            FormularioConfirmacao formConfirma = new FormularioConfirmacao(this, this.vendedor);
             formConfirma.Show();
         }
     }

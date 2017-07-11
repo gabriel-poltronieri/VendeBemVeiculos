@@ -32,9 +32,6 @@
             this.labelVendedor = new System.Windows.Forms.Label();
             this.labelCliente = new System.Windows.Forms.Label();
             this.groupClienteVendedor = new System.Windows.Forms.GroupBox();
-            this.labelCpf = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textoCliente = new System.Windows.Forms.TextBox();
             this.comboVendedor = new System.Windows.Forms.ComboBox();
             this.groupVeiculo = new System.Windows.Forms.GroupBox();
             this.botaoCancelar = new System.Windows.Forms.Button();
@@ -49,6 +46,8 @@
             this.labelModelo = new System.Windows.Forms.Label();
             this.labelMarca = new System.Windows.Forms.Label();
             this.labelVeiculo = new System.Windows.Forms.Label();
+            this.botaoBuscaCliente = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupClienteVendedor.SuspendLayout();
             this.groupVeiculo.SuspendLayout();
             this.SuspendLayout();
@@ -82,9 +81,8 @@
             // 
             // groupClienteVendedor
             // 
-            this.groupClienteVendedor.Controls.Add(this.labelCpf);
             this.groupClienteVendedor.Controls.Add(this.textBox1);
-            this.groupClienteVendedor.Controls.Add(this.textoCliente);
+            this.groupClienteVendedor.Controls.Add(this.botaoBuscaCliente);
             this.groupClienteVendedor.Controls.Add(this.comboVendedor);
             this.groupClienteVendedor.Controls.Add(this.labelVendedor);
             this.groupClienteVendedor.Controls.Add(this.labelCliente);
@@ -94,29 +92,6 @@
             this.groupClienteVendedor.TabIndex = 3;
             this.groupClienteVendedor.TabStop = false;
             this.groupClienteVendedor.Text = "Cliente/Vendedor";
-            // 
-            // labelCpf
-            // 
-            this.labelCpf.AutoSize = true;
-            this.labelCpf.Location = new System.Drawing.Point(17, 112);
-            this.labelCpf.Name = "labelCpf";
-            this.labelCpf.Size = new System.Drawing.Size(27, 13);
-            this.labelCpf.TabIndex = 7;
-            this.labelCpf.Text = "CPF";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(89, 109);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(249, 20);
-            this.textBox1.TabIndex = 6;
-            // 
-            // textoCliente
-            // 
-            this.textoCliente.Location = new System.Drawing.Point(89, 68);
-            this.textoCliente.Name = "textoCliente";
-            this.textoCliente.Size = new System.Drawing.Size(249, 20);
-            this.textoCliente.TabIndex = 5;
             // 
             // comboVendedor
             // 
@@ -258,6 +233,24 @@
             this.labelVeiculo.TabIndex = 6;
             this.labelVeiculo.Text = "Veículo";
             // 
+            // botaoBuscaCliente
+            // 
+            this.botaoBuscaCliente.Location = new System.Drawing.Point(239, 105);
+            this.botaoBuscaCliente.Name = "botaoBuscaCliente";
+            this.botaoBuscaCliente.Size = new System.Drawing.Size(99, 23);
+            this.botaoBuscaCliente.TabIndex = 6;
+            this.botaoBuscaCliente.Text = "Buscar Cliente";
+            this.botaoBuscaCliente.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(89, 68);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(249, 20);
+            this.textBox1.TabIndex = 7;
+            this.textBox1.Text = "Cliente";
+            // 
             // FormularioVenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -296,11 +289,10 @@
         private System.Windows.Forms.ComboBox comboMarca;
         private System.Windows.Forms.Button botaoCancelar;
         private System.Windows.Forms.Button botaoPagamento;
-        private System.Windows.Forms.Label labelCpf;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textoCliente;
         private System.Windows.Forms.ComboBox comboVeiculo;
         private System.Windows.Forms.Label labelVeiculo;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button botaoBuscaCliente;
     }
 }
 
