@@ -53,11 +53,17 @@
     <Compile Include="FormularioCliente.Designer.cs">
       <DependentUpon>FormularioCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormularioConfirmação.cs">
+    <Compile Include="FormularioEstoque.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormularioConfirmação.Designer.cs">
-      <DependentUpon>FormularioConfirmação.cs</DependentUpon>
+    <Compile Include="FormularioEstoque.Designer.cs">
+      <DependentUpon>FormularioEstoque.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormularioNovoCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormularioNovoCliente.Designer.cs">
+      <DependentUpon>FormularioNovoCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="FormularioPagamento.cs">
       <SubType>Form</SubType>
@@ -77,6 +83,12 @@
     <Compile Include="FormularioVenda.Designer.cs">
       <DependentUpon>FormularioVenda.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormulárioNovoVeiculo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormulárioNovoVeiculo.Designer.cs">
+      <DependentUpon>FormulárioNovoVeiculo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Moto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -85,8 +97,11 @@
     <EmbeddedResource Include="FormularioCliente.resx">
       <DependentUpon>FormularioCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormularioConfirmação.resx">
-      <DependentUpon>FormularioConfirmação.cs</DependentUpon>
+    <EmbeddedResource Include="FormularioEstoque.resx">
+      <DependentUpon>FormularioEstoque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormularioNovoCliente.resx">
+      <DependentUpon>FormularioNovoCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormularioPagamento.resx">
       <DependentUpon>FormularioPagamento.cs</DependentUpon>
@@ -96,6 +111,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormularioVenda.resx">
       <DependentUpon>FormularioVenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormulárioNovoVeiculo.resx">
+      <DependentUpon>FormulárioNovoVeiculo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

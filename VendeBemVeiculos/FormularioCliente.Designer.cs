@@ -28,39 +28,42 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.listaClientes = new System.Windows.Forms.ListBox();
+            this.botaoSeleciona = new System.Windows.Forms.Button();
+            this.botaoNovo = new System.Windows.Forms.Button();
             this.labeCpf = new System.Windows.Forms.Label();
-            this.textCpf = new System.Windows.Forms.TextBox();
+            this.textoCpf = new System.Windows.Forms.TextBox();
             this.botaoBusca = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // listBox1
+            // listaClientes
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(12, 12);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(260, 173);
-            this.listBox1.TabIndex = 0;
+            this.listaClientes.FormattingEnabled = true;
+            this.listaClientes.Location = new System.Drawing.Point(12, 12);
+            this.listaClientes.Name = "listaClientes";
+            this.listaClientes.Size = new System.Drawing.Size(260, 173);
+            this.listaClientes.TabIndex = 0;
+            this.listaClientes.SelectedIndexChanged += new System.EventHandler(this.listaClientes_SelectedIndexChanged);
             // 
-            // button1
+            // botaoSeleciona
             // 
-            this.button1.Location = new System.Drawing.Point(35, 225);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Seleciona";
-            this.button1.UseVisualStyleBackColor = true;
+            this.botaoSeleciona.Location = new System.Drawing.Point(35, 225);
+            this.botaoSeleciona.Name = "botaoSeleciona";
+            this.botaoSeleciona.Size = new System.Drawing.Size(75, 23);
+            this.botaoSeleciona.TabIndex = 1;
+            this.botaoSeleciona.Text = "Seleciona";
+            this.botaoSeleciona.UseVisualStyleBackColor = true;
+            this.botaoSeleciona.Click += new System.EventHandler(this.botaoSeleciona_Click);
             // 
-            // button2
+            // botaoNovo
             // 
-            this.button2.Location = new System.Drawing.Point(166, 225);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(82, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Novo Cliente";
-            this.button2.UseVisualStyleBackColor = true;
+            this.botaoNovo.Location = new System.Drawing.Point(166, 225);
+            this.botaoNovo.Name = "botaoNovo";
+            this.botaoNovo.Size = new System.Drawing.Size(82, 23);
+            this.botaoNovo.TabIndex = 2;
+            this.botaoNovo.Text = "Novo Cliente";
+            this.botaoNovo.UseVisualStyleBackColor = true;
+            this.botaoNovo.Click += new System.EventHandler(this.botaoNovo_Click);
             // 
             // labeCpf
             // 
@@ -71,12 +74,12 @@
             this.labeCpf.TabIndex = 3;
             this.labeCpf.Text = "CPF:";
             // 
-            // textCpf
+            // textoCpf
             // 
-            this.textCpf.Location = new System.Drawing.Point(57, 189);
-            this.textCpf.Name = "textCpf";
-            this.textCpf.Size = new System.Drawing.Size(134, 20);
-            this.textCpf.TabIndex = 4;
+            this.textoCpf.Location = new System.Drawing.Point(57, 189);
+            this.textoCpf.Name = "textoCpf";
+            this.textoCpf.Size = new System.Drawing.Size(134, 20);
+            this.textoCpf.TabIndex = 4;
             // 
             // botaoBusca
             // 
@@ -86,6 +89,7 @@
             this.botaoBusca.TabIndex = 5;
             this.botaoBusca.Text = "Buscar";
             this.botaoBusca.UseVisualStyleBackColor = true;
+            this.botaoBusca.Click += new System.EventHandler(this.botaoBusca_Click);
             // 
             // FormularioCliente
             // 
@@ -93,13 +97,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 258);
             this.Controls.Add(this.botaoBusca);
-            this.Controls.Add(this.textCpf);
+            this.Controls.Add(this.textoCpf);
             this.Controls.Add(this.labeCpf);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.botaoNovo);
+            this.Controls.Add(this.botaoSeleciona);
+            this.Controls.Add(this.listaClientes);
             this.Name = "FormularioCliente";
             this.Text = "FormularioCliente";
+            this.Load += new System.EventHandler(this.FormularioCliente_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -107,11 +112,11 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ListBox listaClientes;
+        private System.Windows.Forms.Button botaoSeleciona;
+        private System.Windows.Forms.Button botaoNovo;
         private System.Windows.Forms.Label labeCpf;
-        private System.Windows.Forms.TextBox textCpf;
+        private System.Windows.Forms.TextBox textoCpf;
         private System.Windows.Forms.Button botaoBusca;
     }
 }

@@ -8,6 +8,6 @@ namespace VendeBemVeiculos
 {
     class Carro : Veiculo
     {
-        public Carro(string marca, string modelo, int ano, double preco, int quantidade) : base(marca, modelo, ano, preco, quantidade) { }
+        public Carro(string marca, string modelo, string ano, double preco, int quantidade) : base(marca, modelo, ano, preco, quantidade) { }
     }
 }

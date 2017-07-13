@@ -12,6 +12,7 @@ namespace VendeBemVeiculos
         public int Registro { get; }
         public static int NumeroVendedores { get; private set; }
         public string Senha { get; private set; }
+        public int Vendas { get; set; }
 
         public Vendedor(string nome, string senha="123")
         {
@@ -19,6 +20,13 @@ namespace VendeBemVeiculos
             this.Nome = nome;
             NumeroVendedores++;
             this.Registro = NumeroVendedores;
+        }
+
+        public void Vende(Veiculo veiculo, Cliente cliente)
+        {
+            veiculo.Exclui();
+            cliente.Compras++;
+            this.Vendas++;
         }
 
         public void CadastrarSenha(string senha)

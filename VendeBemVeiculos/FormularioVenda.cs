@@ -13,19 +13,23 @@ namespace VendeBemVeiculos
     public partial class FormularioVenda : Form
     {
 
-        //Devinindo as Propriedades e Atributos
-        HashSet<Veiculo> veiculos = new HashSet<Veiculo>();
-        private HashSet<Veiculo> filtroVeiculo = new HashSet<Veiculo>();
-        private HashSet<Veiculo> filtroMarca = new HashSet<Veiculo>();
-        private HashSet<Veiculo> filtroModelo = new HashSet<Veiculo>();
-        public Vendedor Vendedor { get; set; }
-        public Veiculo Veiculo { get; set; }
+        //private HashSet<Veiculo> filtroVeiculo = new HashSet<Veiculo>();
+       private HashSet<Veiculo> filtro = new HashSet<Veiculo>();
+        //private HashSet<Veiculo> filtroModelo = new HashSet<Veiculo>();
+
+        public Vendedor Vendedor { get; private set; }
+        public Veiculo Veiculo { get; private set; }
+        public Cliente Cliente { get; set; }
+        public bool selecionouForma = false;
+
         private FormularioPrincipal formPrincipal;
+        
 
 
-        public FormularioVenda(FormularioPrincipal formPrincipal)
+        public FormularioVenda(FormularioPrincipal formPrincipal, Veiculo veiculo = null)
         {
             this.formPrincipal = formPrincipal;
+            this.Veiculo = veiculo;
             InitializeComponent();
         }
         
@@ -35,106 +39,78 @@ namespace VendeBemVeiculos
         {
 
             this.formPrincipal.Hide();
-
-            //adicionando vendedores
-            Vendedor joao = new Vendedor("Joao");
-            Vendedor pedro = new Vendedor("Pedro");
-            Vendedor carlos = new Vendedor("Carlos");
-            List<Vendedor> vendedores = new List<Vendedor>();
-            vendedores.Add(joao);
-            vendedores.Add(pedro);
-            vendedores.Add(carlos);
+            
             //Definindo a propriedade como nula até que um vendedor seja selecionado
             this.Vendedor = null;
             //Passa os vendedores para o combobox de vendedores
-            foreach(Vendedor v in vendedores)
+            foreach(Vendedor v in FormularioPrincipal.Vendedores)
             {
                 comboVendedor.Items.Add(v);
             }
 
-            //Adicionando veículos iniciais
-            Veiculo spin = new Carro("Volkswagen", "Gol", 2015,  35000.0, 4);
-            Veiculo honda = new Carro("Volkswagen", "Gol", 2013, 40000.0, 3);
-            Veiculo uno = new Carro("Fiat", "Uno", 2012, 30000, 3);
-            Veiculo palio = new Carro("Fiat", "Palio", 2013, 30000, 7);
-            Veiculo fiesta = new Carro("Ford", "Fiesta", 2016, 40000, 2);
-            veiculos.Add(spin);
-            veiculos.Add(honda);
-            veiculos.Add(uno);
-            veiculos.Add(palio);
-            veiculos.Add(fiesta);
-            //Definindo a propriedade como nula até que um veículo seja selecionado
-            this.Veiculo = null;
+            if (this.Veiculo != null)
+            {
+                comboModelo.Text = this.Veiculo.Modelo;
+                comboMarca.Text = this.Veiculo.Marca;
+                comboAno.Text = this.Veiculo.Ano;
+                labelValor.Text = Convert.ToString(this.Veiculo.Preco);
 
-            //coloca valores no combobox
-            comboVeiculo.Items.Add("Carros");
-            comboVeiculo.Items.Add("Motos");
+            }
+
+            radioCarro.Checked = true;
+
+
+
+            
+            comboPagamento.Items.Add("Em Dinheiro");
+            comboPagamento.Items.Add("Débito");
+            comboPagamento.Items.Add("Crédito");
         }
 
-
-
-        private void comboVeiculo_SelectedIndexChanged(object sender, EventArgs e)
+        public void Atualiza()
         {
             comboMarca.Items.Clear();
-            comboMarca.Text = "";      
+            comboMarca.Text = "";
             comboModelo.Items.Clear();
             comboModelo.Text = "";
             comboAno.Items.Clear();
             comboAno.Text = "";
-            filtroVeiculo.Clear();
             labelValor.Text = "R$----";
 
-
-         
-            foreach(Veiculo v in veiculos)
+            foreach (Veiculo v in this.filtro)
             {
-                switch (comboVeiculo.SelectedIndex)
+                if (!(comboMarca.Items.Contains(v.Marca)))
                 {
-                    case 0:
-                        if(v is Carro)
-                        {
-                            filtroVeiculo.Add(v);
-                            if (!(comboMarca.Items.Contains(v.Marca)))
-                            {
-                                comboMarca.Items.Add(v.Marca);
-                            }
-                        }
-                        break;
-                    case 1:
-                        if(v is Moto)
-                        {
-                            filtroVeiculo.Add(v);
-                            if (!(comboMarca.Items.Contains(v.Marca)))
-                            {
-                                comboMarca.Items.Add(v.Marca);
-                            }
-                        }
-                        break;
+                    comboMarca.Items.Add(v.Marca);
                 }
             }
             
         }
 
+        public void SelecionaCliente(Cliente cliente)
+        {
+            this.Cliente = cliente;
+            this.textoCliente.Text = this.Cliente.Nome;
+        }
+
+        private void ComboVendedor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.Vendedor = (Vendedor)comboVendedor.SelectedItem;
+        }
+
+
         private void comboMarca_SelectedIndexChanged(object sender, EventArgs e)
         {
-            comboModelo.Items.Clear();
-            comboModelo.Text = "";
-            comboAno.Items.Clear();
-            comboAno.Text = "";
-            filtroMarca.Clear();
-            labelValor.Text = "R$----";
-
-
+            
             string marca = (string)comboMarca.SelectedItem;
-            foreach(Veiculo v in filtroVeiculo)
+            var filtroMarca = this.filtro.Where(v => v.Marca == marca).ToList();
+            this.filtro.Clear();
+            foreach(Veiculo v in filtroMarca)
             {
-                if(v.Marca == marca)
+                this.filtro.Add(v);
+                if (!(comboModelo.Items.Contains(v.Modelo)))
                 {
-                    filtroMarca.Add(v);
-                    if (!(comboModelo.Items.Contains(v.Modelo)))
-                    {
-                        comboModelo.Items.Add(v.Modelo);
-                    }
+                    comboModelo.Items.Add(v.Modelo);
                 }
             }
          
@@ -144,20 +120,18 @@ namespace VendeBemVeiculos
         {
             comboAno.Items.Clear();
             comboAno.Text = "";
-            filtroModelo.Clear();
             labelValor.Text = "R$----";
 
 
             string modelo = (string)comboModelo.SelectedItem;
-            foreach (Veiculo v in filtroMarca)
+            var filtroModelo = this.filtro.Where(w => w.Modelo == modelo).ToList();
+            this.filtro.Clear();
+            foreach (Veiculo v in filtroModelo)
             {
-                if (v.Modelo == modelo)
+                this.filtro.Add(v);
+                if (!(comboAno.Items.Contains(v.Ano)))
                 {
-                    filtroModelo.Add(v);
-                    if (!(comboAno.Items.Contains(v.Ano)))
-                    {
-                        comboAno.Items.Add(v.Ano);
-                    }
+                    comboAno.Items.Add(v.Ano);
                 }
             }
             
@@ -165,14 +139,10 @@ namespace VendeBemVeiculos
 
         private void comboAno_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Veiculo selecionado = new Carro("","",0,0,0);
-            foreach (Veiculo v in filtroModelo)
-            {
-                if (v.Ano == (int)comboAno.SelectedItem)
-                {
-                    selecionado = v;
-                }
-            }
+            Veiculo selecionado = new Carro("","","",0,0);
+            string ano = (string)comboAno.SelectedItem;
+            var filtroAno = this.filtro.Where(v => v.Ano == ano);
+            selecionado = filtroAno.ElementAt(0);
 
             labelValor.Text = "R$" + selecionado.Preco ;
             this.Veiculo = selecionado;
@@ -181,22 +151,67 @@ namespace VendeBemVeiculos
 
         private void botaoPagamento_Click(object sender, EventArgs e)
         {
-            if ((this.Vendedor != null) && (this.Veiculo != null))
+            if ((this.Vendedor != null) && (this.Veiculo != null) && (this.Cliente != null) && (selecionouForma))
             {
-                FormularioPagamento formPagamento = new FormularioPagamento(this);
-                formPagamento.ShowDialog();
+                FormularioPagamento formPagamento = new FormularioPagamento(this,comboPagamento.Text);
+                formPagamento.Show();
+            }
+            else
+            {
+                MessageBox.Show("Informe todos os dados");
             }
         }
 
-        private void comboVendedor_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            this.Vendedor = (Vendedor)comboVendedor.SelectedItem;
-        }
-
+       
         private void botaoCancelar_Click(object sender, EventArgs e)
         {
             this.formPrincipal.Show();
             this.Close();
+        }
+
+        private void botaoBuscaCliente_Click(object sender, EventArgs e)
+        {
+            FormularioCliente formCliente = new FormularioCliente(this);
+            formCliente.Show();
+        }
+
+        private void comboPagamento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            selecionouForma = true;
+        }
+
+        private void radioCarro_CheckedChanged(object sender, EventArgs e)
+        {
+            this.filtro.Clear();
+
+            foreach(Veiculo v in FormularioPrincipal.Veiculos)
+            {
+                if(v is Carro)
+                {
+                    this.filtro.Add(v);
+                }
+            }
+
+            Atualiza();
+        }
+
+        private void radioMoto_CheckedChanged(object sender, EventArgs e)
+        {
+            this.filtro.Clear();
+            foreach (Veiculo v in FormularioPrincipal.Veiculos)
+            {
+                if (v is Moto)
+                {
+                    this.filtro.Add(v);
+                }
+            }
+
+            Atualiza();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
