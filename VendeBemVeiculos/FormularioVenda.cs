@@ -101,7 +101,11 @@ namespace VendeBemVeiculos
 
         private void comboMarca_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            comboModelo.Items.Clear();
+            comboModelo.Text = "";
+            comboAno.Items.Clear();
+            comboAno.Text = "";
+            labelValor.Text = "R$----";
             string marca = (string)comboMarca.SelectedItem;
             var filtroMarca = this.filtro.Where(v => v.Marca == marca).ToList();
             this.filtro.Clear();
