@@ -36,6 +36,8 @@
             this.botaoBuscaCliente = new System.Windows.Forms.Button();
             this.comboVendedor = new System.Windows.Forms.ComboBox();
             this.groupVeiculo = new System.Windows.Forms.GroupBox();
+            this.radioMoto = new System.Windows.Forms.RadioButton();
+            this.radioCarro = new System.Windows.Forms.RadioButton();
             this.comboPagamento = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.botaoCancelar = new System.Windows.Forms.Button();
@@ -48,8 +50,6 @@
             this.labelAno = new System.Windows.Forms.Label();
             this.labelModelo = new System.Windows.Forms.Label();
             this.labelMarca = new System.Windows.Forms.Label();
-            this.radioCarro = new System.Windows.Forms.RadioButton();
-            this.radioMoto = new System.Windows.Forms.RadioButton();
             this.groupClienteVendedor.SuspendLayout();
             this.groupVeiculo.SuspendLayout();
             this.SuspendLayout();
@@ -146,6 +146,28 @@
             this.groupVeiculo.TabStop = false;
             this.groupVeiculo.Text = "Veículo";
             // 
+            // radioMoto
+            // 
+            this.radioMoto.AutoSize = true;
+            this.radioMoto.Location = new System.Drawing.Point(221, 19);
+            this.radioMoto.Name = "radioMoto";
+            this.radioMoto.Size = new System.Drawing.Size(49, 17);
+            this.radioMoto.TabIndex = 22;
+            this.radioMoto.Text = "Moto";
+            this.radioMoto.UseVisualStyleBackColor = true;
+            this.radioMoto.CheckedChanged += new System.EventHandler(this.radioMoto_CheckedChanged);
+            // 
+            // radioCarro
+            // 
+            this.radioCarro.AutoSize = true;
+            this.radioCarro.Location = new System.Drawing.Point(67, 19);
+            this.radioCarro.Name = "radioCarro";
+            this.radioCarro.Size = new System.Drawing.Size(50, 17);
+            this.radioCarro.TabIndex = 21;
+            this.radioCarro.Text = "Carro";
+            this.radioCarro.UseVisualStyleBackColor = true;
+            this.radioCarro.CheckedChanged += new System.EventHandler(this.radioCarro_CheckedChanged);
+            // 
             // comboPagamento
             // 
             this.comboPagamento.FormattingEnabled = true;
@@ -163,7 +185,6 @@
             this.label1.Size = new System.Drawing.Size(61, 13);
             this.label1.TabIndex = 19;
             this.label1.Text = "Pagamento";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // botaoCancelar
             // 
@@ -256,30 +277,6 @@
             this.labelMarca.Size = new System.Drawing.Size(37, 13);
             this.labelMarca.TabIndex = 7;
             this.labelMarca.Text = "Marca";
-            // 
-            // radioCarro
-            // 
-            this.radioCarro.AutoSize = true;
-            this.radioCarro.Location = new System.Drawing.Point(67, 19);
-            this.radioCarro.Name = "radioCarro";
-            this.radioCarro.Size = new System.Drawing.Size(50, 17);
-            this.radioCarro.TabIndex = 21;
-            this.radioCarro.TabStop = true;
-            this.radioCarro.Text = "Carro";
-            this.radioCarro.UseVisualStyleBackColor = true;
-            this.radioCarro.CheckedChanged += new System.EventHandler(this.radioCarro_CheckedChanged);
-            // 
-            // radioMoto
-            // 
-            this.radioMoto.AutoSize = true;
-            this.radioMoto.Location = new System.Drawing.Point(221, 19);
-            this.radioMoto.Name = "radioMoto";
-            this.radioMoto.Size = new System.Drawing.Size(49, 17);
-            this.radioMoto.TabIndex = 22;
-            this.radioMoto.TabStop = true;
-            this.radioMoto.Text = "Moto";
-            this.radioMoto.UseVisualStyleBackColor = true;
-            this.radioMoto.CheckedChanged += new System.EventHandler(this.radioMoto_CheckedChanged);
             // 
             // FormularioVenda
             // 

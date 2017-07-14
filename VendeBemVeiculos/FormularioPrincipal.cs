@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -45,20 +46,18 @@ namespace VendeBemVeiculos
             Veiculo uno = new Carro("Fiat", "Uno", "2012", 30000, 3);
             Veiculo palio = new Carro("Fiat", "Palio", "2013", 30000, 7);
             Veiculo fiesta = new Carro("Ford", "Fiesta", "2016", 40000, 2);
+            Veiculo yamaha = new Moto("Yamaha", "XT660R", "2010", 20000, 4);
+            Veiculo moto = new Moto("Honda", "CBR 450", "1995", 11000, 4);
 
             veiculos.Add(spin);
             veiculos.Add(honda);
             veiculos.Add(uno);
             veiculos.Add(palio);
             veiculos.Add(fiesta);
-            //adiciona clientes inciais
-            Cliente rafael = new Cliente("Rafael", "14523698769", "11997845687", "Rua Tanto faz, 100");
-            Cliente fabio = new Cliente("Fabrio", "14523965874", "11997863789", "Rua Tanto faz, 23");
-            Cliente fabricio = new Cliente("Fabricio", "14536956622", "11997841234", "Rua Tanto faz, 45");
-            clientes.Add(rafael);
-            clientes.Add(fabio);
-            clientes.Add(fabricio);
+            Veiculos.Add(yamaha);
+            Veiculos.Add(moto);
 
+            CarregarClientes();
         }
 
         public static List<Vendedor> Vendedores
@@ -82,6 +81,48 @@ namespace VendeBemVeiculos
             get
             {
                 return clientes;
+            }
+        }
+
+        public static void SalvarClientes()
+        {
+            if (!(Clientes.Count == 0))
+            {
+                FileStream clientes = File.Open("Clientes.txt", FileMode.Create);
+                StreamWriter escritor = new StreamWriter(clientes);
+                string todosClientes = "";
+                foreach (Cliente c in Clientes)
+                {
+                    todosClientes += c.Nome + "%" + c.Cpf + "%" + c.Telefone + "%" + c.Endereco + "\n";
+                }
+                escritor.WriteLine(todosClientes);
+                escritor.Close();
+                clientes.Close();
+            }
+            else
+            {
+                File.Delete("Clientes.txt");
+            }
+        }
+
+        private static void CarregarClientes()
+        {
+            //Verifica inicialmente se o arquivo txt existe
+            if (File.Exists("Clientes.txt"))
+            {
+                Stream clientes = File.Open("Clientes.txt", FileMode.Open);
+                StreamReader leitor = new StreamReader(clientes);
+                string linha = leitor.ReadLine();
+                while(linha != null && linha != "")
+                {
+                    string[] dados = linha.Split('%');
+                    Cliente cliente = new Cliente(dados[0], dados[1], dados[2], dados[3]);
+                    Clientes.Add(cliente);
+                    linha = leitor.ReadLine();
+                }
+
+                leitor.Close();
+                clientes.Close();
             }
         }
         

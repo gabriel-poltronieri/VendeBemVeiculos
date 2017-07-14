@@ -34,6 +34,7 @@
             this.labeCpf = new System.Windows.Forms.Label();
             this.textoCpf = new System.Windows.Forms.TextBox();
             this.botaoBusca = new System.Windows.Forms.Button();
+            this.botaoExclui = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listaClientes
@@ -47,7 +48,7 @@
             // 
             // botaoSeleciona
             // 
-            this.botaoSeleciona.Location = new System.Drawing.Point(35, 225);
+            this.botaoSeleciona.Location = new System.Drawing.Point(28, 225);
             this.botaoSeleciona.Name = "botaoSeleciona";
             this.botaoSeleciona.Size = new System.Drawing.Size(75, 23);
             this.botaoSeleciona.TabIndex = 1;
@@ -57,7 +58,7 @@
             // 
             // botaoNovo
             // 
-            this.botaoNovo.Location = new System.Drawing.Point(166, 225);
+            this.botaoNovo.Location = new System.Drawing.Point(190, 225);
             this.botaoNovo.Name = "botaoNovo";
             this.botaoNovo.Size = new System.Drawing.Size(82, 23);
             this.botaoNovo.TabIndex = 2;
@@ -91,11 +92,22 @@
             this.botaoBusca.UseVisualStyleBackColor = true;
             this.botaoBusca.Click += new System.EventHandler(this.botaoBusca_Click);
             // 
+            // botaoExclui
+            // 
+            this.botaoExclui.Location = new System.Drawing.Point(109, 225);
+            this.botaoExclui.Name = "botaoExclui";
+            this.botaoExclui.Size = new System.Drawing.Size(75, 23);
+            this.botaoExclui.TabIndex = 6;
+            this.botaoExclui.Text = "Excluir";
+            this.botaoExclui.UseVisualStyleBackColor = true;
+            this.botaoExclui.Click += new System.EventHandler(this.botaoExclui_Click);
+            // 
             // FormularioCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 258);
+            this.Controls.Add(this.botaoExclui);
             this.Controls.Add(this.botaoBusca);
             this.Controls.Add(this.textoCpf);
             this.Controls.Add(this.labeCpf);
@@ -118,5 +130,6 @@
         private System.Windows.Forms.Label labeCpf;
         private System.Windows.Forms.TextBox textoCpf;
         private System.Windows.Forms.Button botaoBusca;
+        private System.Windows.Forms.Button botaoExclui;
     }
 }
