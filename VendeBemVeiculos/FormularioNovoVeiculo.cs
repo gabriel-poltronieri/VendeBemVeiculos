@@ -24,21 +24,21 @@ namespace VendeBemVeiculos
         private void FormulárioNovoVeiculo_Load(object sender, EventArgs e)
         {
             //Adiciona items ao comboBox
-            comboVeiculo.Items.Add("Carro");
-            comboVeiculo.Items.Add("Moto");
-            textoAno.MaxLength = 4;
+            ComboVeiculo.Items.Add("Carro");
+            ComboVeiculo.Items.Add("Moto");
+            TextoAno.MaxLength = 4;
         }
         //Ao selecionar ComboBox
         private void comboVeiculo_SelectedIndexChanged(object sender, EventArgs e)
         {
             //Muda o valor do inteiro que representa a seleção
-            this.carroMoto = comboVeiculo.SelectedIndex;
+            this.carroMoto = ComboVeiculo.SelectedIndex;
         }
         //Ações dos botões
         private void botaoAdicionar_Click(object sender, EventArgs e)
         {
             //Verifica se todos os campos foram preenchidos
-            if (textoMarca.Text == "" || textoModelo.Text == "" || textoAno.Text == "" || textoPreco.Text == "" || textoQuantidade.Text == "")
+            if (TextoMarca.Text == "" || TextoModelo.Text == "" || TextoAno.Text == "" || TextoPreco.Text == "" || TextoQuantidade.Text == "")
             {
                 MessageBox.Show("Preencha todos os dados");
             }
@@ -52,11 +52,11 @@ namespace VendeBemVeiculos
             {
                 try
                 {
-                    double preco = Convert.ToDouble(textoPreco.Text);
-                    int quantidade = Convert.ToInt32(textoQuantidade.Text);
-                    string marca = textoMarca.Text;
-                    string modelo = textoModelo.Text;
-                    string ano = textoAno.Text;
+                    double preco = Convert.ToDouble(TextoPreco.Text);
+                    int quantidade = Convert.ToInt32(TextoQuantidade.Text);
+                    string marca = TextoMarca.Text;
+                    string modelo = TextoModelo.Text;
+                    string ano = TextoAno.Text;
                     Veiculo veiculo = new Carro("", "", "", 0, 0);
                     switch (this.carroMoto)
                     {

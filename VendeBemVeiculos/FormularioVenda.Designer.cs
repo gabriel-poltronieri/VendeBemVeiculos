@@ -32,19 +32,19 @@
             this.labelVendedor = new System.Windows.Forms.Label();
             this.labelCliente = new System.Windows.Forms.Label();
             this.groupClienteVendedor = new System.Windows.Forms.GroupBox();
-            this.textoCliente = new System.Windows.Forms.TextBox();
-            this.botaoBuscaCliente = new System.Windows.Forms.Button();
-            this.comboVendedor = new System.Windows.Forms.ComboBox();
+            this.TextoCliente = new System.Windows.Forms.TextBox();
+            this.BotaoBuscaCliente = new System.Windows.Forms.Button();
+            this.ComboVendedor = new System.Windows.Forms.ComboBox();
             this.groupVeiculo = new System.Windows.Forms.GroupBox();
-            this.radioMoto = new System.Windows.Forms.RadioButton();
-            this.radioCarro = new System.Windows.Forms.RadioButton();
-            this.botaoCancelar = new System.Windows.Forms.Button();
-            this.botaoPagamento = new System.Windows.Forms.Button();
+            this.RadioMoto = new System.Windows.Forms.RadioButton();
+            this.RadioCarro = new System.Windows.Forms.RadioButton();
+            this.BotaoCancelar = new System.Windows.Forms.Button();
+            this.BotaoPagamento = new System.Windows.Forms.Button();
             this.labelValor = new System.Windows.Forms.Label();
             this.labelPreco = new System.Windows.Forms.Label();
-            this.comboAno = new System.Windows.Forms.ComboBox();
-            this.comboModelo = new System.Windows.Forms.ComboBox();
-            this.comboMarca = new System.Windows.Forms.ComboBox();
+            this.ComboAno = new System.Windows.Forms.ComboBox();
+            this.ComboModelo = new System.Windows.Forms.ComboBox();
+            this.ComboMarca = new System.Windows.Forms.ComboBox();
             this.labelAno = new System.Windows.Forms.Label();
             this.labelModelo = new System.Windows.Forms.Label();
             this.labelMarca = new System.Windows.Forms.Label();
@@ -81,9 +81,9 @@
             // 
             // groupClienteVendedor
             // 
-            this.groupClienteVendedor.Controls.Add(this.textoCliente);
-            this.groupClienteVendedor.Controls.Add(this.botaoBuscaCliente);
-            this.groupClienteVendedor.Controls.Add(this.comboVendedor);
+            this.groupClienteVendedor.Controls.Add(this.TextoCliente);
+            this.groupClienteVendedor.Controls.Add(this.BotaoBuscaCliente);
+            this.groupClienteVendedor.Controls.Add(this.ComboVendedor);
             this.groupClienteVendedor.Controls.Add(this.labelVendedor);
             this.groupClienteVendedor.Controls.Add(this.labelCliente);
             this.groupClienteVendedor.Location = new System.Drawing.Point(12, 25);
@@ -93,45 +93,45 @@
             this.groupClienteVendedor.TabStop = false;
             this.groupClienteVendedor.Text = "Cliente/Vendedor";
             // 
-            // textoCliente
+            // TextoCliente
             // 
-            this.textoCliente.Location = new System.Drawing.Point(89, 68);
-            this.textoCliente.Name = "textoCliente";
-            this.textoCliente.ReadOnly = true;
-            this.textoCliente.Size = new System.Drawing.Size(249, 20);
-            this.textoCliente.TabIndex = 7;
-            this.textoCliente.Text = "Cliente";
+            this.TextoCliente.Location = new System.Drawing.Point(89, 68);
+            this.TextoCliente.Name = "TextoCliente";
+            this.TextoCliente.ReadOnly = true;
+            this.TextoCliente.Size = new System.Drawing.Size(249, 20);
+            this.TextoCliente.TabIndex = 7;
+            this.TextoCliente.Text = "Cliente";
             // 
-            // botaoBuscaCliente
+            // BotaoBuscaCliente
             // 
-            this.botaoBuscaCliente.Location = new System.Drawing.Point(239, 105);
-            this.botaoBuscaCliente.Name = "botaoBuscaCliente";
-            this.botaoBuscaCliente.Size = new System.Drawing.Size(99, 23);
-            this.botaoBuscaCliente.TabIndex = 6;
-            this.botaoBuscaCliente.Text = "Buscar Cliente";
-            this.botaoBuscaCliente.UseVisualStyleBackColor = true;
-            this.botaoBuscaCliente.Click += new System.EventHandler(this.botaoBuscaCliente_Click);
+            this.BotaoBuscaCliente.Location = new System.Drawing.Point(239, 105);
+            this.BotaoBuscaCliente.Name = "BotaoBuscaCliente";
+            this.BotaoBuscaCliente.Size = new System.Drawing.Size(99, 23);
+            this.BotaoBuscaCliente.TabIndex = 6;
+            this.BotaoBuscaCliente.Text = "Buscar Cliente";
+            this.BotaoBuscaCliente.UseVisualStyleBackColor = true;
+            this.BotaoBuscaCliente.Click += new System.EventHandler(this.BotaoBuscaCliente_Click);
             // 
-            // comboVendedor
+            // ComboVendedor
             // 
-            this.comboVendedor.FormattingEnabled = true;
-            this.comboVendedor.Location = new System.Drawing.Point(89, 29);
-            this.comboVendedor.Name = "comboVendedor";
-            this.comboVendedor.Size = new System.Drawing.Size(249, 21);
-            this.comboVendedor.TabIndex = 4;
-            this.comboVendedor.SelectedIndexChanged += new System.EventHandler(this.ComboVendedor_SelectedIndexChanged);
+            this.ComboVendedor.FormattingEnabled = true;
+            this.ComboVendedor.Location = new System.Drawing.Point(89, 29);
+            this.ComboVendedor.Name = "ComboVendedor";
+            this.ComboVendedor.Size = new System.Drawing.Size(249, 21);
+            this.ComboVendedor.TabIndex = 4;
+            this.ComboVendedor.SelectedIndexChanged += new System.EventHandler(this.ComboVendedor_SelectedIndexChanged);
             // 
             // groupVeiculo
             // 
-            this.groupVeiculo.Controls.Add(this.radioMoto);
-            this.groupVeiculo.Controls.Add(this.radioCarro);
-            this.groupVeiculo.Controls.Add(this.botaoCancelar);
-            this.groupVeiculo.Controls.Add(this.botaoPagamento);
+            this.groupVeiculo.Controls.Add(this.RadioMoto);
+            this.groupVeiculo.Controls.Add(this.RadioCarro);
+            this.groupVeiculo.Controls.Add(this.BotaoCancelar);
+            this.groupVeiculo.Controls.Add(this.BotaoPagamento);
             this.groupVeiculo.Controls.Add(this.labelValor);
             this.groupVeiculo.Controls.Add(this.labelPreco);
-            this.groupVeiculo.Controls.Add(this.comboAno);
-            this.groupVeiculo.Controls.Add(this.comboModelo);
-            this.groupVeiculo.Controls.Add(this.comboMarca);
+            this.groupVeiculo.Controls.Add(this.ComboAno);
+            this.groupVeiculo.Controls.Add(this.ComboModelo);
+            this.groupVeiculo.Controls.Add(this.ComboMarca);
             this.groupVeiculo.Controls.Add(this.labelAno);
             this.groupVeiculo.Controls.Add(this.labelModelo);
             this.groupVeiculo.Controls.Add(this.labelMarca);
@@ -142,47 +142,47 @@
             this.groupVeiculo.TabStop = false;
             this.groupVeiculo.Text = "Veículo";
             // 
-            // radioMoto
+            // RadioMoto
             // 
-            this.radioMoto.AutoSize = true;
-            this.radioMoto.Location = new System.Drawing.Point(221, 19);
-            this.radioMoto.Name = "radioMoto";
-            this.radioMoto.Size = new System.Drawing.Size(49, 17);
-            this.radioMoto.TabIndex = 22;
-            this.radioMoto.Text = "Moto";
-            this.radioMoto.UseVisualStyleBackColor = true;
-            this.radioMoto.CheckedChanged += new System.EventHandler(this.radioMoto_CheckedChanged);
+            this.RadioMoto.AutoSize = true;
+            this.RadioMoto.Location = new System.Drawing.Point(221, 19);
+            this.RadioMoto.Name = "RadioMoto";
+            this.RadioMoto.Size = new System.Drawing.Size(49, 17);
+            this.RadioMoto.TabIndex = 22;
+            this.RadioMoto.Text = "Moto";
+            this.RadioMoto.UseVisualStyleBackColor = true;
+            this.RadioMoto.CheckedChanged += new System.EventHandler(this.RadioMoto_CheckedChanged);
             // 
-            // radioCarro
+            // RadioCarro
             // 
-            this.radioCarro.AutoSize = true;
-            this.radioCarro.Location = new System.Drawing.Point(67, 19);
-            this.radioCarro.Name = "radioCarro";
-            this.radioCarro.Size = new System.Drawing.Size(50, 17);
-            this.radioCarro.TabIndex = 21;
-            this.radioCarro.Text = "Carro";
-            this.radioCarro.UseVisualStyleBackColor = true;
-            this.radioCarro.CheckedChanged += new System.EventHandler(this.radioCarro_CheckedChanged);
+            this.RadioCarro.AutoSize = true;
+            this.RadioCarro.Location = new System.Drawing.Point(67, 19);
+            this.RadioCarro.Name = "RadioCarro";
+            this.RadioCarro.Size = new System.Drawing.Size(50, 17);
+            this.RadioCarro.TabIndex = 21;
+            this.RadioCarro.Text = "Carro";
+            this.RadioCarro.UseVisualStyleBackColor = true;
+            this.RadioCarro.CheckedChanged += new System.EventHandler(this.RadioCarro_CheckedChanged);
             // 
-            // botaoCancelar
+            // BotaoCancelar
             // 
-            this.botaoCancelar.Location = new System.Drawing.Point(221, 122);
-            this.botaoCancelar.Name = "botaoCancelar";
-            this.botaoCancelar.Size = new System.Drawing.Size(75, 23);
-            this.botaoCancelar.TabIndex = 18;
-            this.botaoCancelar.Text = "Cancelar";
-            this.botaoCancelar.UseVisualStyleBackColor = true;
-            this.botaoCancelar.Click += new System.EventHandler(this.botaoCancelar_Click);
+            this.BotaoCancelar.Location = new System.Drawing.Point(221, 122);
+            this.BotaoCancelar.Name = "BotaoCancelar";
+            this.BotaoCancelar.Size = new System.Drawing.Size(75, 23);
+            this.BotaoCancelar.TabIndex = 18;
+            this.BotaoCancelar.Text = "Cancelar";
+            this.BotaoCancelar.UseVisualStyleBackColor = true;
+            this.BotaoCancelar.Click += new System.EventHandler(this.BotaoCancelar_Click);
             // 
-            // botaoPagamento
+            // BotaoPagamento
             // 
-            this.botaoPagamento.Location = new System.Drawing.Point(67, 122);
-            this.botaoPagamento.Name = "botaoPagamento";
-            this.botaoPagamento.Size = new System.Drawing.Size(75, 23);
-            this.botaoPagamento.TabIndex = 17;
-            this.botaoPagamento.Text = "Pagamento";
-            this.botaoPagamento.UseVisualStyleBackColor = true;
-            this.botaoPagamento.Click += new System.EventHandler(this.botaoPagamento_Click);
+            this.BotaoPagamento.Location = new System.Drawing.Point(67, 122);
+            this.BotaoPagamento.Name = "BotaoPagamento";
+            this.BotaoPagamento.Size = new System.Drawing.Size(75, 23);
+            this.BotaoPagamento.TabIndex = 17;
+            this.BotaoPagamento.Text = "Pagamento";
+            this.BotaoPagamento.UseVisualStyleBackColor = true;
+            this.BotaoPagamento.Click += new System.EventHandler(this.BotaoPagamento_Click);
             // 
             // labelValor
             // 
@@ -202,32 +202,32 @@
             this.labelPreco.TabIndex = 15;
             this.labelPreco.Text = "Preço";
             // 
-            // comboAno
+            // ComboAno
             // 
-            this.comboAno.FormattingEnabled = true;
-            this.comboAno.Location = new System.Drawing.Point(67, 69);
-            this.comboAno.Name = "comboAno";
-            this.comboAno.Size = new System.Drawing.Size(99, 21);
-            this.comboAno.TabIndex = 13;
-            this.comboAno.SelectedIndexChanged += new System.EventHandler(this.comboAno_SelectedIndexChanged);
+            this.ComboAno.FormattingEnabled = true;
+            this.ComboAno.Location = new System.Drawing.Point(67, 69);
+            this.ComboAno.Name = "ComboAno";
+            this.ComboAno.Size = new System.Drawing.Size(99, 21);
+            this.ComboAno.TabIndex = 13;
+            this.ComboAno.SelectedIndexChanged += new System.EventHandler(this.ComboAno_SelectedIndexChanged);
             // 
-            // comboModelo
+            // ComboModelo
             // 
-            this.comboModelo.FormattingEnabled = true;
-            this.comboModelo.Location = new System.Drawing.Point(239, 47);
-            this.comboModelo.Name = "comboModelo";
-            this.comboModelo.Size = new System.Drawing.Size(104, 21);
-            this.comboModelo.TabIndex = 12;
-            this.comboModelo.SelectedIndexChanged += new System.EventHandler(this.comboModelo_SelectedIndexChanged);
+            this.ComboModelo.FormattingEnabled = true;
+            this.ComboModelo.Location = new System.Drawing.Point(239, 47);
+            this.ComboModelo.Name = "ComboModelo";
+            this.ComboModelo.Size = new System.Drawing.Size(104, 21);
+            this.ComboModelo.TabIndex = 12;
+            this.ComboModelo.SelectedIndexChanged += new System.EventHandler(this.ComboModelo_SelectedIndexChanged);
             // 
-            // comboMarca
+            // ComboMarca
             // 
-            this.comboMarca.FormattingEnabled = true;
-            this.comboMarca.Location = new System.Drawing.Point(67, 42);
-            this.comboMarca.Name = "comboMarca";
-            this.comboMarca.Size = new System.Drawing.Size(99, 21);
-            this.comboMarca.TabIndex = 11;
-            this.comboMarca.SelectedIndexChanged += new System.EventHandler(this.comboMarca_SelectedIndexChanged);
+            this.ComboMarca.FormattingEnabled = true;
+            this.ComboMarca.Location = new System.Drawing.Point(67, 42);
+            this.ComboMarca.Name = "ComboMarca";
+            this.ComboMarca.Size = new System.Drawing.Size(99, 21);
+            this.ComboMarca.TabIndex = 11;
+            this.ComboMarca.SelectedIndexChanged += new System.EventHandler(this.ComboMarca_SelectedIndexChanged);
             // 
             // labelAno
             // 
@@ -282,22 +282,22 @@
         private System.Windows.Forms.Label labelVendedor;
         private System.Windows.Forms.Label labelCliente;
         private System.Windows.Forms.GroupBox groupClienteVendedor;
-        private System.Windows.Forms.ComboBox comboVendedor;
+        private System.Windows.Forms.ComboBox ComboVendedor;
         private System.Windows.Forms.GroupBox groupVeiculo;
         private System.Windows.Forms.Label labelAno;
         private System.Windows.Forms.Label labelModelo;
         private System.Windows.Forms.Label labelMarca;
         private System.Windows.Forms.Label labelValor;
         private System.Windows.Forms.Label labelPreco;
-        private System.Windows.Forms.ComboBox comboAno;
-        private System.Windows.Forms.ComboBox comboModelo;
-        private System.Windows.Forms.ComboBox comboMarca;
-        private System.Windows.Forms.Button botaoCancelar;
-        private System.Windows.Forms.Button botaoPagamento;
-        private System.Windows.Forms.TextBox textoCliente;
-        private System.Windows.Forms.Button botaoBuscaCliente;
-        private System.Windows.Forms.RadioButton radioMoto;
-        private System.Windows.Forms.RadioButton radioCarro;
+        private System.Windows.Forms.ComboBox ComboAno;
+        private System.Windows.Forms.ComboBox ComboModelo;
+        private System.Windows.Forms.ComboBox ComboMarca;
+        private System.Windows.Forms.Button BotaoCancelar;
+        private System.Windows.Forms.Button BotaoPagamento;
+        private System.Windows.Forms.TextBox TextoCliente;
+        private System.Windows.Forms.Button BotaoBuscaCliente;
+        private System.Windows.Forms.RadioButton RadioMoto;
+        private System.Windows.Forms.RadioButton RadioCarro;
     }
 }
 

@@ -28,7 +28,6 @@ namespace VendeBemVeiculos
             this.Vendedor = vendedor;
             InitializeComponent();
         }
-
         //O que acontece quando o formulário carrega
         private void FormularioVenda_Load(object sender, EventArgs e)
         {
@@ -36,71 +35,69 @@ namespace VendeBemVeiculos
             //Verifica se o construtor possui vendedor
             if(this.Vendedor != null)
             {
-                comboVendedor.Text = this.Vendedor.ToString();
+                ComboVendedor.Text = this.Vendedor.ToString();
             }
 
             //Passa os vendedores para o combobox de vendedores
             foreach(Vendedor v in FormularioPrincipal.Vendedores)
             {
-                comboVendedor.Items.Add(v);
+                ComboVendedor.Items.Add(v);
             }
 
             //Verifica se o construtor trouxe um veículo já selecionado
             if (this.Veiculo != null)
             {
                 //Carrega os dados do veículo nos campos
-                comboModelo.Text = this.Veiculo.Modelo;
-                comboMarca.Text = this.Veiculo.Marca;
-                comboAno.Text = this.Veiculo.Ano;
+                ComboModelo.Text = this.Veiculo.Modelo;
+                ComboMarca.Text = this.Veiculo.Marca;
+                ComboAno.Text = this.Veiculo.Ano;
                 labelValor.Text = Convert.ToString(this.Veiculo.Preco);
             }
             //no padrão, o carro fica selecionado
             else
             {
-                radioCarro.Checked = true;
+                RadioCarro.Checked = true;
             }
         }
-
         //Seleção de RadioButtons
-        private void radioCarro_CheckedChanged(object sender, EventArgs e)
+        private void RadioCarro_CheckedChanged(object sender, EventArgs e)
         {
             //Quando selecionado, o Radio Button deve indicar que foi selecionado com o int correto, realizar o filtro e limpar os campos
             radioButton = 0;
             FiltrarVeiculo(radioButton, true, true, true);
             Limpar(true, true);
         }
-        private void radioMoto_CheckedChanged(object sender, EventArgs e)
+        private void RadioMoto_CheckedChanged(object sender, EventArgs e)
         {
                 //Quando selecionado, o Radio Button deve indicar que foi selecionado com o int correto, realizar o filtro e limpar os campos
                 radioButton = 1;
                 FiltrarVeiculo(radioButton, true, true, true);
                 Limpar(true, true);           
         }
-
         //Mudanças no ComboBox
         private void ComboVendedor_SelectedIndexChanged(object sender, EventArgs e)
         {
             //Seleciona diretamente um vendedor a partir do combo box
-            this.Vendedor = (Vendedor)comboVendedor.SelectedItem;
+            this.Vendedor = (Vendedor)ComboVendedor.SelectedItem;
         }
-        private void comboMarca_SelectedIndexChanged(object sender, EventArgs e)
+        private void ComboMarca_SelectedIndexChanged(object sender, EventArgs e)
         {
             //realiza um filtro para o tipo de veículo e outro para a marca, além de limpar os campos do modelo, ano e preço
             FiltrarVeiculo(radioButton, false, true, true);
             Limpar(true, false);
         }
-        private void comboModelo_SelectedIndexChanged(object sender, EventArgs e)
+        private void ComboModelo_SelectedIndexChanged(object sender, EventArgs e)
         {
             //realiza um filtro para o tipo de veículo, para a marca e para o modelo, além de limpar os campos do ano e preço
             FiltrarVeiculo(radioButton, false, false, true);
             Limpar(false, false);
         }
-        private void comboAno_SelectedIndexChanged(object sender, EventArgs e)
+        private void ComboAno_SelectedIndexChanged(object sender, EventArgs e)
         {
             //cria um veículo genérico que possa receber o objeto final filtrado
             Veiculo selecionado = new Carro("", "", "", 0, 0);
             //obtém o ano selecionado e realiza o filtro
-            string ano = (string)comboAno.SelectedItem;
+            string ano = (string)ComboAno.SelectedItem;
             var filtroAno = this.filtro.Where(v => v.Ano == ano);
             //só pode existir um objeto com todas as características do filtro, por isso o seleciono a partir da posição zero
             selecionado = filtroAno.ElementAt(0);
@@ -108,17 +105,15 @@ namespace VendeBemVeiculos
             labelValor.Text = "R$" + selecionado.Preco;
             this.Veiculo = selecionado;
 
-        }
-       
-
+        }  
         //Selção de botões
-        private void botaoBuscaCliente_Click(object sender, EventArgs e)
+        private void BotaoBuscaCliente_Click(object sender, EventArgs e)
         {
             //Instancia um formulário que retornará o cliente selecionado
             FormularioCliente formCliente = new FormularioCliente(this);
             formCliente.Show();
         }
-        private void botaoPagamento_Click(object sender, EventArgs e)
+        private void BotaoPagamento_Click(object sender, EventArgs e)
         {
             //Deve verificar se todos os dados foram fornecidos corretamente antes de instanciar o formulário da forma de pagamento
             if ((this.Vendedor != null) && (this.Veiculo != null) && (this.Cliente != null))
@@ -132,13 +127,12 @@ namespace VendeBemVeiculos
                 MessageBox.Show("Informe todos os dados");
             }
         }
-        private void botaoCancelar_Click(object sender, EventArgs e)
+        private void BotaoCancelar_Click(object sender, EventArgs e)
         {
             //fecha esse formulário e retorna o principal
             this.formPrincipal.Show();
             this.Close();
         }
-
         //Outros métodos         
         private void FiltrarVeiculo(int radioButton, bool filtroRadio, bool filtroMarca, bool filtroModelo)
         {         
@@ -166,19 +160,19 @@ namespace VendeBemVeiculos
             //Esse filtro será verdadeiro caso deseje que não tenha itens no comboMarca
             if (filtroRadio)
             {
-                comboMarca.Items.Clear();
+                ComboMarca.Items.Clear();
             }
             //Passa os veículos da primeira peneira para o comboMarca
             foreach (Veiculo v in this.filtro)
             {
-                if (!(comboMarca.Items.Contains(v.Marca)))
+                if (!(ComboMarca.Items.Contains(v.Marca)))
                 {
-                    comboMarca.Items.Add(v.Marca);
+                    ComboMarca.Items.Add(v.Marca);
                 }
             }
             
             //Obtém a string da marca selecionada
-            string marca = (string)comboMarca.SelectedItem;
+            string marca = (string)ComboMarca.SelectedItem;
             //Realiza a segunda peneira: apenas veículos da marca selecionada passam
             var sohMarca = this.filtro.Where(v => v.Marca == marca).ToList();
             //Limpa o filtro para que adicionar os itens nele novamente
@@ -186,19 +180,19 @@ namespace VendeBemVeiculos
             //Se a filtroMarca for Verdadeira, apagará os itens de comboModelo. Não desejamos que isso aconteça caso um novo modelo ou ano seja selecionado.
             if (filtroMarca)
             {
-                comboModelo.Items.Clear();
+                ComboModelo.Items.Clear();
             }
             //Passa os valores para o comboModelo
             foreach (Veiculo v in sohMarca)
             {
                 this.filtro.Add(v);
-                if (!(comboModelo.Items.Contains(v.Modelo)))
+                if (!(ComboModelo.Items.Contains(v.Modelo)))
                 {
-                    comboModelo.Items.Add(v.Modelo);
+                    ComboModelo.Items.Add(v.Modelo);
                 }
             }
             //Pega o modelo
-            string modelo = (string)comboModelo.SelectedItem;
+            string modelo = (string)ComboModelo.SelectedItem;
             //Realiza a terceira peneira
             var fsohModelo = this.filtro.Where(w => w.Modelo == modelo).ToList();
             //Limpa o filtro para que adicionar os itens nele novamente
@@ -206,15 +200,15 @@ namespace VendeBemVeiculos
             //Se a filtroModelo for Verdadeira, apagará os itens de comboAno. Não desejamos que isso aconteça caso um novo ano seja selecionado.
             if (filtroModelo)
             {
-                comboAno.Items.Clear();
+                ComboAno.Items.Clear();
             }
             //Passa os valores para comboAno
             foreach (Veiculo v in fsohModelo)
             {
                 this.filtro.Add(v);
-                if (!(comboAno.Items.Contains(v.Ano)))
+                if (!(ComboAno.Items.Contains(v.Ano)))
                 {
-                    comboAno.Items.Add(v.Ano);
+                    ComboAno.Items.Add(v.Ano);
                 }
             }
             
@@ -223,14 +217,14 @@ namespace VendeBemVeiculos
         private void Limpar(bool limpaModelo, bool limpaMarca)
         {
             //Método para limpar os campos necessários sempre que um novo filtro é selecionado
-            comboAno.Text = "";
+            ComboAno.Text = "";
             labelValor.Text = "R$----";
             if (limpaModelo)
             {
-                comboModelo.Text = "";
+                ComboModelo.Text = "";
                 if (limpaMarca)
                 {
-                    comboMarca.Text = "";
+                    ComboMarca.Text = "";
                 }
             }
         }
@@ -238,13 +232,7 @@ namespace VendeBemVeiculos
         {
             //Método para selecionar o cliente que pode ser acessado por outras classes
             this.Cliente = cliente;
-            this.textoCliente.Text = this.Cliente.Nome;
-        }
-
-        
-
-       
-
-      
+            this.TextoCliente.Text = this.Cliente.Nome;
+        }    
     }
 }

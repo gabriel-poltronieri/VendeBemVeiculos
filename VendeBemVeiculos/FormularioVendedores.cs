@@ -28,7 +28,7 @@ namespace VendeBemVeiculos
         //Quando um vendedor é selecionado, o atributo o recebe
         private void listaVendedores_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.vendedor = (Vendedor)listaVendedores.SelectedItem;
+            this.vendedor = (Vendedor)ListaVendedores.SelectedItem;
         }
         //Botões do formulário
         private void BotaoSeleciona_Click(object sender, EventArgs e)
@@ -50,7 +50,7 @@ namespace VendeBemVeiculos
             //instancia um int para ser usado nos blocos
             int registro = 0;
             //Pega o registro digitado na busca e verifica se ele é vazio
-            if (textoRegistro.Text == "")
+            if (TextoRegistro.Text == "")
             {
                 //caso seja, atualiza a lista de forma a mostrar todos os vendedores
                 Atualiza();
@@ -60,7 +60,7 @@ namespace VendeBemVeiculos
                 try
                 {
                     //pega o registro
-                    registro = Convert.ToInt32(textoRegistro.Text);
+                    registro = Convert.ToInt32(TextoRegistro.Text);
                     //Realiza um filtro dos vendedores com base no registro digitado
                     var filtro = FormularioPrincipal.Vendedores.Where(c => c.Registro == registro);
                     try
@@ -68,8 +68,8 @@ namespace VendeBemVeiculos
                         //Só existe um Registro para cada vendedor. Se ele existir, ele será o elemento zero do filtro
                         Vendedor selecionado = (Vendedor)filtro.ElementAt(0);
                         //limpa a lista e mostra apenas o selecionado
-                        this.listaVendedores.Items.Clear();
-                        listaVendedores.Items.Add(selecionado);
+                        this.ListaVendedores.Items.Clear();
+                        ListaVendedores.Items.Add(selecionado);
                     }
                     catch
                     {
@@ -93,10 +93,10 @@ namespace VendeBemVeiculos
         //método para carregar todos os vendedores da hashset
         public void Atualiza()
         {
-            listaVendedores.Items.Clear();
+            ListaVendedores.Items.Clear();
             foreach (Vendedor v in FormularioPrincipal.Vendedores)
             {
-                listaVendedores.Items.Add(v);
+                ListaVendedores.Items.Add(v);
             }
         }
 

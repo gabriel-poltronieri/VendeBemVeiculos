@@ -33,12 +33,12 @@
             this.labelVeiculo = new System.Windows.Forms.Label();
             this.labelValor = new System.Windows.Forms.Label();
             this.groupPagamento = new System.Windows.Forms.GroupBox();
-            this.valorPreco = new System.Windows.Forms.Label();
-            this.valorVeiculo = new System.Windows.Forms.Label();
-            this.valorVendedor = new System.Windows.Forms.Label();
-            this.valorCliente = new System.Windows.Forms.Label();
-            this.butaoEfetiva = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.ValorPreco = new System.Windows.Forms.Label();
+            this.ValorVeiculo = new System.Windows.Forms.Label();
+            this.ValorVendedor = new System.Windows.Forms.Label();
+            this.ValorCliente = new System.Windows.Forms.Label();
+            this.BotaoEfetiva = new System.Windows.Forms.Button();
+            this.BotaoCancela = new System.Windows.Forms.Button();
             this.groupPagamento.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,10 +80,10 @@
             // 
             // groupPagamento
             // 
-            this.groupPagamento.Controls.Add(this.valorPreco);
-            this.groupPagamento.Controls.Add(this.valorVeiculo);
-            this.groupPagamento.Controls.Add(this.valorVendedor);
-            this.groupPagamento.Controls.Add(this.valorCliente);
+            this.groupPagamento.Controls.Add(this.ValorPreco);
+            this.groupPagamento.Controls.Add(this.ValorVeiculo);
+            this.groupPagamento.Controls.Add(this.ValorVendedor);
+            this.groupPagamento.Controls.Add(this.ValorCliente);
             this.groupPagamento.Controls.Add(this.labelCliente);
             this.groupPagamento.Controls.Add(this.labelVendedor);
             this.groupPagamento.Controls.Add(this.labelValor);
@@ -95,69 +95,69 @@
             this.groupPagamento.TabStop = false;
             this.groupPagamento.Text = "Pagamento";
             // 
-            // valorPreco
+            // ValorPreco
             // 
-            this.valorPreco.AutoSize = true;
-            this.valorPreco.Location = new System.Drawing.Point(123, 86);
-            this.valorPreco.Name = "valorPreco";
-            this.valorPreco.Size = new System.Drawing.Size(35, 13);
-            this.valorPreco.TabIndex = 8;
-            this.valorPreco.Text = "Preco";
+            this.ValorPreco.AutoSize = true;
+            this.ValorPreco.Location = new System.Drawing.Point(123, 86);
+            this.ValorPreco.Name = "ValorPreco";
+            this.ValorPreco.Size = new System.Drawing.Size(35, 13);
+            this.ValorPreco.TabIndex = 8;
+            this.ValorPreco.Text = "Preco";
             // 
-            // valorVeiculo
+            // ValorVeiculo
             // 
-            this.valorVeiculo.AutoSize = true;
-            this.valorVeiculo.Location = new System.Drawing.Point(123, 64);
-            this.valorVeiculo.Name = "valorVeiculo";
-            this.valorVeiculo.Size = new System.Drawing.Size(42, 13);
-            this.valorVeiculo.TabIndex = 7;
-            this.valorVeiculo.Text = "Veiculo";
+            this.ValorVeiculo.AutoSize = true;
+            this.ValorVeiculo.Location = new System.Drawing.Point(123, 64);
+            this.ValorVeiculo.Name = "ValorVeiculo";
+            this.ValorVeiculo.Size = new System.Drawing.Size(42, 13);
+            this.ValorVeiculo.TabIndex = 7;
+            this.ValorVeiculo.Text = "Veiculo";
             // 
-            // valorVendedor
+            // ValorVendedor
             // 
-            this.valorVendedor.AutoSize = true;
-            this.valorVendedor.Location = new System.Drawing.Point(123, 40);
-            this.valorVendedor.Name = "valorVendedor";
-            this.valorVendedor.Size = new System.Drawing.Size(53, 13);
-            this.valorVendedor.TabIndex = 6;
-            this.valorVendedor.Text = "Vendedor";
+            this.ValorVendedor.AutoSize = true;
+            this.ValorVendedor.Location = new System.Drawing.Point(123, 40);
+            this.ValorVendedor.Name = "ValorVendedor";
+            this.ValorVendedor.Size = new System.Drawing.Size(53, 13);
+            this.ValorVendedor.TabIndex = 6;
+            this.ValorVendedor.Text = "Vendedor";
             // 
-            // valorCliente
+            // ValorCliente
             // 
-            this.valorCliente.AutoSize = true;
-            this.valorCliente.Location = new System.Drawing.Point(123, 16);
-            this.valorCliente.Name = "valorCliente";
-            this.valorCliente.Size = new System.Drawing.Size(39, 13);
-            this.valorCliente.TabIndex = 5;
-            this.valorCliente.Text = "Cliente";
+            this.ValorCliente.AutoSize = true;
+            this.ValorCliente.Location = new System.Drawing.Point(123, 16);
+            this.ValorCliente.Name = "ValorCliente";
+            this.ValorCliente.Size = new System.Drawing.Size(39, 13);
+            this.ValorCliente.TabIndex = 5;
+            this.ValorCliente.Text = "Cliente";
             // 
-            // butaoEfetiva
+            // BotaoEfetiva
             // 
-            this.butaoEfetiva.Location = new System.Drawing.Point(24, 125);
-            this.butaoEfetiva.Name = "butaoEfetiva";
-            this.butaoEfetiva.Size = new System.Drawing.Size(111, 23);
-            this.butaoEfetiva.TabIndex = 6;
-            this.butaoEfetiva.Text = "Efetivar Compra";
-            this.butaoEfetiva.UseVisualStyleBackColor = true;
-            this.butaoEfetiva.Click += new System.EventHandler(this.BotaoEfetiva_Click);
+            this.BotaoEfetiva.Location = new System.Drawing.Point(24, 125);
+            this.BotaoEfetiva.Name = "BotaoEfetiva";
+            this.BotaoEfetiva.Size = new System.Drawing.Size(111, 23);
+            this.BotaoEfetiva.TabIndex = 6;
+            this.BotaoEfetiva.Text = "Efetivar Compra";
+            this.BotaoEfetiva.UseVisualStyleBackColor = true;
+            this.BotaoEfetiva.Click += new System.EventHandler(this.BotaoEfetiva_Click);
             // 
-            // button2
+            // BotaoCancela
             // 
-            this.button2.Location = new System.Drawing.Point(183, 125);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Cancelar";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.BotaoCancela_Click);
+            this.BotaoCancela.Location = new System.Drawing.Point(183, 125);
+            this.BotaoCancela.Name = "BotaoCancela";
+            this.BotaoCancela.Size = new System.Drawing.Size(75, 23);
+            this.BotaoCancela.TabIndex = 7;
+            this.BotaoCancela.Text = "Cancelar";
+            this.BotaoCancela.UseVisualStyleBackColor = true;
+            this.BotaoCancela.Click += new System.EventHandler(this.BotaoCancela_Click);
             // 
             // FormularioPagamento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 158);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.butaoEfetiva);
+            this.Controls.Add(this.BotaoCancela);
+            this.Controls.Add(this.BotaoEfetiva);
             this.Controls.Add(this.groupPagamento);
             this.Name = "FormularioPagamento";
             this.Text = "FormularioPagamento";
@@ -175,11 +175,11 @@
         private System.Windows.Forms.Label labelVeiculo;
         private System.Windows.Forms.Label labelValor;
         private System.Windows.Forms.GroupBox groupPagamento;
-        private System.Windows.Forms.Button butaoEfetiva;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label valorPreco;
-        private System.Windows.Forms.Label valorVeiculo;
-        private System.Windows.Forms.Label valorVendedor;
-        private System.Windows.Forms.Label valorCliente;
+        private System.Windows.Forms.Button BotaoEfetiva;
+        private System.Windows.Forms.Button BotaoCancela;
+        private System.Windows.Forms.Label ValorPreco;
+        private System.Windows.Forms.Label ValorVeiculo;
+        private System.Windows.Forms.Label ValorVendedor;
+        private System.Windows.Forms.Label ValorCliente;
     }
 }

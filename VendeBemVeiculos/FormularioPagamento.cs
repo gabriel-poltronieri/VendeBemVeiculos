@@ -27,10 +27,10 @@ namespace VendeBemVeiculos
         //Ao carregar, os dados da compra são todos apresentados ao usuário
         private void FormularioPagamento_Load(object sender, EventArgs e)
         {
-            valorCliente.Text = this.cliente.Nome;
-            valorVendedor.Text = this.vendedor.Nome;
-            valorVeiculo.Text = this.veiculo.Marca + " " + this.veiculo.Modelo + " " + this.veiculo.Ano;
-            valorPreco.Text = "R$" + this.veiculo.Preco;
+            ValorCliente.Text = this.cliente.Nome;
+            ValorVendedor.Text = this.vendedor.Nome;
+            ValorVeiculo.Text = this.veiculo.Marca + " " + this.veiculo.Modelo + " " + this.veiculo.Ano;
+            ValorPreco.Text = "R$" + this.veiculo.Preco;
         }
         //Botoes do formulario
         private void BotaoEfetiva_Click(object sender, EventArgs e)

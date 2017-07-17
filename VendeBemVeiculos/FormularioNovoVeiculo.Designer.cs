@@ -34,14 +34,14 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.comboVeiculo = new System.Windows.Forms.ComboBox();
-            this.textoMarca = new System.Windows.Forms.TextBox();
-            this.textoModelo = new System.Windows.Forms.TextBox();
-            this.textoAno = new System.Windows.Forms.TextBox();
-            this.textoPreco = new System.Windows.Forms.TextBox();
-            this.textoQuantidade = new System.Windows.Forms.TextBox();
-            this.botaoAdicionar = new System.Windows.Forms.Button();
-            this.botaoCancelar = new System.Windows.Forms.Button();
+            this.ComboVeiculo = new System.Windows.Forms.ComboBox();
+            this.TextoMarca = new System.Windows.Forms.TextBox();
+            this.TextoModelo = new System.Windows.Forms.TextBox();
+            this.TextoAno = new System.Windows.Forms.TextBox();
+            this.TextoPreco = new System.Windows.Forms.TextBox();
+            this.TextoQuantidade = new System.Windows.Forms.TextBox();
+            this.BotaoAdicionar = new System.Windows.Forms.Button();
+            this.BotaoCancelar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -98,90 +98,90 @@
             this.label6.TabIndex = 5;
             this.label6.Text = "Quantidade:";
             // 
-            // comboVeiculo
+            // ComboVeiculo
             // 
-            this.comboVeiculo.FormattingEnabled = true;
-            this.comboVeiculo.Location = new System.Drawing.Point(91, 6);
-            this.comboVeiculo.Name = "comboVeiculo";
-            this.comboVeiculo.Size = new System.Drawing.Size(181, 21);
-            this.comboVeiculo.TabIndex = 6;
-            this.comboVeiculo.SelectedIndexChanged += new System.EventHandler(this.comboVeiculo_SelectedIndexChanged);
+            this.ComboVeiculo.FormattingEnabled = true;
+            this.ComboVeiculo.Location = new System.Drawing.Point(91, 6);
+            this.ComboVeiculo.Name = "ComboVeiculo";
+            this.ComboVeiculo.Size = new System.Drawing.Size(181, 21);
+            this.ComboVeiculo.TabIndex = 6;
+            this.ComboVeiculo.SelectedIndexChanged += new System.EventHandler(this.comboVeiculo_SelectedIndexChanged);
             // 
-            // textoMarca
+            // TextoMarca
             // 
-            this.textoMarca.Location = new System.Drawing.Point(91, 31);
-            this.textoMarca.Name = "textoMarca";
-            this.textoMarca.Size = new System.Drawing.Size(181, 20);
-            this.textoMarca.TabIndex = 7;
+            this.TextoMarca.Location = new System.Drawing.Point(91, 31);
+            this.TextoMarca.Name = "TextoMarca";
+            this.TextoMarca.Size = new System.Drawing.Size(181, 20);
+            this.TextoMarca.TabIndex = 7;
             // 
-            // textoModelo
+            // TextoModelo
             // 
-            this.textoModelo.Location = new System.Drawing.Point(91, 57);
-            this.textoModelo.Name = "textoModelo";
-            this.textoModelo.Size = new System.Drawing.Size(181, 20);
-            this.textoModelo.TabIndex = 8;
+            this.TextoModelo.Location = new System.Drawing.Point(91, 57);
+            this.TextoModelo.Name = "TextoModelo";
+            this.TextoModelo.Size = new System.Drawing.Size(181, 20);
+            this.TextoModelo.TabIndex = 8;
             // 
-            // textoAno
+            // TextoAno
             // 
-            this.textoAno.Location = new System.Drawing.Point(91, 83);
-            this.textoAno.Name = "textoAno";
-            this.textoAno.Size = new System.Drawing.Size(181, 20);
-            this.textoAno.TabIndex = 9;
+            this.TextoAno.Location = new System.Drawing.Point(91, 83);
+            this.TextoAno.Name = "TextoAno";
+            this.TextoAno.Size = new System.Drawing.Size(181, 20);
+            this.TextoAno.TabIndex = 9;
             // 
-            // textoPreco
+            // TextoPreco
             // 
-            this.textoPreco.Location = new System.Drawing.Point(91, 109);
-            this.textoPreco.Name = "textoPreco";
-            this.textoPreco.Size = new System.Drawing.Size(181, 20);
-            this.textoPreco.TabIndex = 10;
+            this.TextoPreco.Location = new System.Drawing.Point(91, 109);
+            this.TextoPreco.Name = "TextoPreco";
+            this.TextoPreco.Size = new System.Drawing.Size(181, 20);
+            this.TextoPreco.TabIndex = 10;
             // 
-            // textoQuantidade
+            // TextoQuantidade
             // 
-            this.textoQuantidade.Location = new System.Drawing.Point(91, 135);
-            this.textoQuantidade.Name = "textoQuantidade";
-            this.textoQuantidade.Size = new System.Drawing.Size(181, 20);
-            this.textoQuantidade.TabIndex = 11;
+            this.TextoQuantidade.Location = new System.Drawing.Point(91, 135);
+            this.TextoQuantidade.Name = "TextoQuantidade";
+            this.TextoQuantidade.Size = new System.Drawing.Size(181, 20);
+            this.TextoQuantidade.TabIndex = 11;
             // 
-            // botaoAdicionar
+            // BotaoAdicionar
             // 
-            this.botaoAdicionar.Location = new System.Drawing.Point(43, 161);
-            this.botaoAdicionar.Name = "botaoAdicionar";
-            this.botaoAdicionar.Size = new System.Drawing.Size(75, 23);
-            this.botaoAdicionar.TabIndex = 12;
-            this.botaoAdicionar.Text = "Adicionar";
-            this.botaoAdicionar.UseVisualStyleBackColor = true;
-            this.botaoAdicionar.Click += new System.EventHandler(this.botaoAdicionar_Click);
+            this.BotaoAdicionar.Location = new System.Drawing.Point(43, 161);
+            this.BotaoAdicionar.Name = "BotaoAdicionar";
+            this.BotaoAdicionar.Size = new System.Drawing.Size(75, 23);
+            this.BotaoAdicionar.TabIndex = 12;
+            this.BotaoAdicionar.Text = "Adicionar";
+            this.BotaoAdicionar.UseVisualStyleBackColor = true;
+            this.BotaoAdicionar.Click += new System.EventHandler(this.botaoAdicionar_Click);
             // 
-            // botaoCancelar
+            // BotaoCancelar
             // 
-            this.botaoCancelar.Location = new System.Drawing.Point(179, 161);
-            this.botaoCancelar.Name = "botaoCancelar";
-            this.botaoCancelar.Size = new System.Drawing.Size(75, 23);
-            this.botaoCancelar.TabIndex = 13;
-            this.botaoCancelar.Text = "Cancelar";
-            this.botaoCancelar.UseVisualStyleBackColor = true;
-            this.botaoCancelar.Click += new System.EventHandler(this.botaoCancelar_Click);
+            this.BotaoCancelar.Location = new System.Drawing.Point(179, 161);
+            this.BotaoCancelar.Name = "BotaoCancelar";
+            this.BotaoCancelar.Size = new System.Drawing.Size(75, 23);
+            this.BotaoCancelar.TabIndex = 13;
+            this.BotaoCancelar.Text = "Cancelar";
+            this.BotaoCancelar.UseVisualStyleBackColor = true;
+            this.BotaoCancelar.Click += new System.EventHandler(this.botaoCancelar_Click);
             // 
-            // FormulárioNovoVeiculo
+            // FormularioNovoVeiculo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 190);
-            this.Controls.Add(this.botaoCancelar);
-            this.Controls.Add(this.botaoAdicionar);
-            this.Controls.Add(this.textoQuantidade);
-            this.Controls.Add(this.textoPreco);
-            this.Controls.Add(this.textoAno);
-            this.Controls.Add(this.textoModelo);
-            this.Controls.Add(this.textoMarca);
-            this.Controls.Add(this.comboVeiculo);
+            this.Controls.Add(this.BotaoCancelar);
+            this.Controls.Add(this.BotaoAdicionar);
+            this.Controls.Add(this.TextoQuantidade);
+            this.Controls.Add(this.TextoPreco);
+            this.Controls.Add(this.TextoAno);
+            this.Controls.Add(this.TextoModelo);
+            this.Controls.Add(this.TextoMarca);
+            this.Controls.Add(this.ComboVeiculo);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "FormulárioNovoVeiculo";
+            this.Name = "FormularioNovoVeiculo";
             this.Load += new System.EventHandler(this.FormulárioNovoVeiculo_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -196,13 +196,13 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox comboVeiculo;
-        private System.Windows.Forms.TextBox textoMarca;
-        private System.Windows.Forms.TextBox textoModelo;
-        private System.Windows.Forms.TextBox textoAno;
-        private System.Windows.Forms.TextBox textoPreco;
-        private System.Windows.Forms.TextBox textoQuantidade;
-        private System.Windows.Forms.Button botaoAdicionar;
-        private System.Windows.Forms.Button botaoCancelar;
+        private System.Windows.Forms.ComboBox ComboVeiculo;
+        private System.Windows.Forms.TextBox TextoMarca;
+        private System.Windows.Forms.TextBox TextoModelo;
+        private System.Windows.Forms.TextBox TextoAno;
+        private System.Windows.Forms.TextBox TextoPreco;
+        private System.Windows.Forms.TextBox TextoQuantidade;
+        private System.Windows.Forms.Button BotaoAdicionar;
+        private System.Windows.Forms.Button BotaoCancelar;
     }
 }

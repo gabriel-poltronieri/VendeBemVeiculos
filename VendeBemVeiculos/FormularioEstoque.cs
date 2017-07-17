@@ -25,7 +25,7 @@ namespace VendeBemVeiculos
         //Ao carregar, altera o valor doradiochecked e, consequentemente, chama o método RadioCarro_CheckedChanged
         private void FormularioEstoque_Load(object sender, EventArgs e)
         {
-            radioCarro.Checked = true;
+            RadioCarro.Checked = true;
         }
         //Botões do formulário
         private void BotaoSeleciona_Click(object sender, EventArgs e)
@@ -47,12 +47,12 @@ namespace VendeBemVeiculos
             //lista usada como filtro para retornar a busca
             HashSet<Veiculo> filtro = new HashSet<Veiculo>();
             //limpa os itens visíveis
-            this.listaVeiculos.Items.Clear();
+            this.ListaVeiculos.Items.Clear();
             //verifica se algum texto foi inserido
-            if (textoModelo.Text != "")
+            if (TextoModelo.Text != "")
             {
                 //em caso positivo, realiza o filtro
-                string modelo = textoModelo.Text;
+                string modelo = TextoModelo.Text;
                 var f = FormularioPrincipal.Veiculos.Where(v => v.Modelo == modelo);
                 foreach(Veiculo v in f)
                 {
@@ -67,7 +67,7 @@ namespace VendeBemVeiculos
             //por fim, os valores são passados para serem vistos na lista
             foreach (Veiculo v in filtro)
             {
-                listaVeiculos.Items.Add(v);
+                ListaVeiculos.Items.Add(v);
             }
         }
         private void BotaoNovo_Click(object sender, EventArgs e)
@@ -103,7 +103,7 @@ namespace VendeBemVeiculos
         //ao selecionar um item, a propriedade veiculo muda para seu valor
         private void ListaVeiculos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.veiculo = (Veiculo)listaVeiculos.SelectedItem;
+            this.veiculo = (Veiculo)ListaVeiculos.SelectedItem;
         }
         //Os dois RadioButton funcionam de forma similar, filtrando o tipo de veículo para carro ou moto
         private void RadioCarro_CheckedChange(object sender, EventArgs e)
@@ -134,10 +134,10 @@ namespace VendeBemVeiculos
         public void AtualizaLista()
         {
             //limpa os itens da lista e os carrega novamente
-            listaVeiculos.Items.Clear();
+            ListaVeiculos.Items.Clear();
             foreach (Veiculo c in this.lista)
             {
-                listaVeiculos.Items.Add(c);
+                ListaVeiculos.Items.Add(c);
             }
         }
         public void AdicionaItem(Veiculo veiculo)

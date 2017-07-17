@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.Titulo = new System.Windows.Forms.Label();
-            this.botaoVenda = new System.Windows.Forms.Button();
-            this.botaoEstoque = new System.Windows.Forms.Button();
-            this.botaoVendedores = new System.Windows.Forms.Button();
+            this.BotaoVenda = new System.Windows.Forms.Button();
+            this.BotaoEstoque = new System.Windows.Forms.Button();
+            this.BotaoVendedores = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Titulo
@@ -43,44 +43,44 @@
             this.Titulo.TabIndex = 0;
             this.Titulo.Text = "Vende Bem Veículos";
             // 
-            // botaoVenda
+            // BotaoVenda
             // 
-            this.botaoVenda.Location = new System.Drawing.Point(29, 24);
-            this.botaoVenda.Name = "botaoVenda";
-            this.botaoVenda.Size = new System.Drawing.Size(208, 57);
-            this.botaoVenda.TabIndex = 1;
-            this.botaoVenda.Text = "Realizar Venda";
-            this.botaoVenda.UseVisualStyleBackColor = true;
-            this.botaoVenda.Click += new System.EventHandler(this.BotaoVenda_Click);
+            this.BotaoVenda.Location = new System.Drawing.Point(29, 24);
+            this.BotaoVenda.Name = "BotaoVenda";
+            this.BotaoVenda.Size = new System.Drawing.Size(208, 57);
+            this.BotaoVenda.TabIndex = 1;
+            this.BotaoVenda.Text = "Realizar Venda";
+            this.BotaoVenda.UseVisualStyleBackColor = true;
+            this.BotaoVenda.Click += new System.EventHandler(this.BotaoVenda_Click);
             // 
-            // botaoEstoque
+            // BotaoEstoque
             // 
-            this.botaoEstoque.Location = new System.Drawing.Point(29, 87);
-            this.botaoEstoque.Name = "botaoEstoque";
-            this.botaoEstoque.Size = new System.Drawing.Size(208, 57);
-            this.botaoEstoque.TabIndex = 2;
-            this.botaoEstoque.Text = "Estoque de Veículos";
-            this.botaoEstoque.UseVisualStyleBackColor = true;
-            this.botaoEstoque.Click += new System.EventHandler(this.BotaoEstoque_Click);
+            this.BotaoEstoque.Location = new System.Drawing.Point(29, 87);
+            this.BotaoEstoque.Name = "BotaoEstoque";
+            this.BotaoEstoque.Size = new System.Drawing.Size(208, 57);
+            this.BotaoEstoque.TabIndex = 2;
+            this.BotaoEstoque.Text = "Estoque de Veículos";
+            this.BotaoEstoque.UseVisualStyleBackColor = true;
+            this.BotaoEstoque.Click += new System.EventHandler(this.BotaoEstoque_Click);
             // 
-            // botaoVendedores
+            // BotaoVendedores
             // 
-            this.botaoVendedores.Location = new System.Drawing.Point(29, 150);
-            this.botaoVendedores.Name = "botaoVendedores";
-            this.botaoVendedores.Size = new System.Drawing.Size(208, 57);
-            this.botaoVendedores.TabIndex = 3;
-            this.botaoVendedores.Text = "Registro de Vendedores";
-            this.botaoVendedores.UseVisualStyleBackColor = true;
-            this.botaoVendedores.Click += new System.EventHandler(this.BotaoVendedores_Click);
+            this.BotaoVendedores.Location = new System.Drawing.Point(29, 150);
+            this.BotaoVendedores.Name = "BotaoVendedores";
+            this.BotaoVendedores.Size = new System.Drawing.Size(208, 57);
+            this.BotaoVendedores.TabIndex = 3;
+            this.BotaoVendedores.Text = "Registro de Vendedores";
+            this.BotaoVendedores.UseVisualStyleBackColor = true;
+            this.BotaoVendedores.Click += new System.EventHandler(this.BotaoVendedores_Click);
             // 
             // FormularioPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(269, 231);
-            this.Controls.Add(this.botaoVendedores);
-            this.Controls.Add(this.botaoEstoque);
-            this.Controls.Add(this.botaoVenda);
+            this.Controls.Add(this.BotaoVendedores);
+            this.Controls.Add(this.BotaoEstoque);
+            this.Controls.Add(this.BotaoVenda);
             this.Controls.Add(this.Titulo);
             this.Name = "FormularioPrincipal";
             this.Text = "Vende Bem Veículos";
@@ -93,8 +93,8 @@
         #endregion
 
         private System.Windows.Forms.Label Titulo;
-        private System.Windows.Forms.Button botaoVenda;
-        private System.Windows.Forms.Button botaoEstoque;
-        private System.Windows.Forms.Button botaoVendedores;
+        private System.Windows.Forms.Button BotaoVenda;
+        private System.Windows.Forms.Button BotaoEstoque;
+        private System.Windows.Forms.Button BotaoVendedores;
     }
 }
