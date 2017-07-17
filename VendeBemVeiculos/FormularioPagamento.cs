@@ -36,9 +36,16 @@ namespace VendeBemVeiculos
         private void BotaoEfetiva_Click(object sender, EventArgs e)
         {
             //chama-se o método Vende da classe vendedor, registra a venda no txt, mostra uma mensagem de venda efetivada e fecha
-            this.vendedor.Vende(this.veiculo, this.cliente);
-            FormularioPrincipal.RegistrarVenda(this.vendedor, this.cliente, this.veiculo);
-            MessageBox.Show("Compra Efetuada com Sucesso");
+            try
+            {
+                FormularioPrincipal.RegistrarVenda(this.vendedor, this.cliente, this.veiculo);
+                this.vendedor.Vende(this.veiculo, this.cliente);
+                MessageBox.Show("Compra Efetuada com Sucesso");
+            }
+            catch
+            {
+                MessageBox.Show("Venda cancelada. Falha ao registrar");
+            }
             this.Close();
 
         }

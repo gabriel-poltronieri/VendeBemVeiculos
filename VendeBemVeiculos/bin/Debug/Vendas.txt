@@ -1,0 +1,4 @@
+17/07/17
+Vendedor:     1     Pedro Vendebem
+Cliente:     José Quercomprar
+Carro:     Ford     Fiesta       2010

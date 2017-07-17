@@ -46,11 +46,7 @@ namespace VendeBemVeiculos
         }
         //Ao carregar o formulário, carrega-se também os veiculos, clientes e vendedores
         private void FormularioPrincipal_Load(object sender, EventArgs e)
-        {
-            if (!(File.Exists("Vendas.txt")))
-            {
-                File.Create("Vendas.txt");
-            }
+        {            
             CarregarVendedores();
             CarregarVeiculos();
             CarregarClientes();
@@ -234,10 +230,9 @@ namespace VendeBemVeiculos
         }
         //Método para registrar venda
         public static void RegistrarVenda(Vendedor vendedor, Cliente cliente, Veiculo veiculo)
-        {            
+        {
             string tipo = "";
             string data = DateTime.Today.ToString("dd/MM/yy");
-            //string nome = data + "Vendas.txt";
             if (veiculo is Carro)
             {
                 tipo = "Carro:     ";
@@ -246,15 +241,17 @@ namespace VendeBemVeiculos
             {
                 tipo = "Moto:     ";
             }
-           // Stream vendas = File.AppendAllText(    //.Open(nome, FileMode.Create);            
-            //StreamWriter escritor = new StreamWriter(vendas);
             string venda = data  + "\r\n" + "Vendedor:     " + vendedor.Registro + "     " + vendedor.Nome + "\r\n";
             venda += "Cliente:     " + cliente.Nome + "\r\n";
             venda += tipo + veiculo.Marca + "     " + veiculo.Modelo + "       " + veiculo.Ano + "\r\n";
-            //escritor.Write(venda);
-            //escritor.Close();
-            //vendas.Close();
-            File.AppendAllText("Vendas.txt", venda);
+            try
+            {
+                File.AppendAllText("Vendas.txt", venda);
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }
