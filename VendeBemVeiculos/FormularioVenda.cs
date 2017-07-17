@@ -17,15 +17,15 @@ namespace VendeBemVeiculos
         public Vendedor Vendedor { get; private set; }  //vendedor precisa ser não nulo para ir pro formulário de pagamentos
         public Veiculo Veiculo { get; private set; }    //veículo precisa ser não nulo para ir pro formulário de pagamentos
         public Cliente Cliente { get; set; }            //cliente precisa ser não nulo para ir pro formulário de pagamentos
-        public bool selecionouForma = false;            //indica se a forma de pagamento foi selecionada ou não
         private FormularioPrincipal formPrincipal;      //formulário principal
         private int radioButton = 0;                    //indica se o radioButton será para um filtro de carros/motos
 
         //Construtor que pode aceitar veículo
-        public FormularioVenda(FormularioPrincipal formPrincipal, Veiculo veiculo = null)
+        public FormularioVenda(FormularioPrincipal formPrincipal, Veiculo veiculo = null, Vendedor vendedor = null)
         {
             this.formPrincipal = formPrincipal;
             this.Veiculo = veiculo;
+            this.Vendedor = vendedor;
             InitializeComponent();
         }
 
@@ -33,19 +33,17 @@ namespace VendeBemVeiculos
         private void FormularioVenda_Load(object sender, EventArgs e)
         {
            
-            //Definindo a propriedade como nula até que um vendedor seja selecionado
-            this.Vendedor = null;
+            //Verifica se o construtor possui vendedor
+            if(this.Vendedor != null)
+            {
+                comboVendedor.Text = this.Vendedor.ToString();
+            }
 
             //Passa os vendedores para o combobox de vendedores
             foreach(Vendedor v in FormularioPrincipal.Vendedores)
             {
                 comboVendedor.Items.Add(v);
             }
-
-            //Carrega os meios de pagamento para seu combobox
-            comboPagamento.Items.Add("Em Dinheiro");
-            comboPagamento.Items.Add("Débito");
-            comboPagamento.Items.Add("Crédito");
 
             //Verifica se o construtor trouxe um veículo já selecionado
             if (this.Veiculo != null)
@@ -111,11 +109,7 @@ namespace VendeBemVeiculos
             this.Veiculo = selecionado;
 
         }
-        private void comboPagamento_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //Indica que um forma de pagamento foi selecionada
-            selecionouForma = true;
-        }
+       
 
         //Selção de botões
         private void botaoBuscaCliente_Click(object sender, EventArgs e)
@@ -127,9 +121,9 @@ namespace VendeBemVeiculos
         private void botaoPagamento_Click(object sender, EventArgs e)
         {
             //Deve verificar se todos os dados foram fornecidos corretamente antes de instanciar o formulário da forma de pagamento
-            if ((this.Vendedor != null) && (this.Veiculo != null) && (this.Cliente != null) && (selecionouForma))
+            if ((this.Vendedor != null) && (this.Veiculo != null) && (this.Cliente != null))
             {
-                FormularioPagamento formPagamento = new FormularioPagamento(this, comboPagamento.Text);
+                FormularioPagamento formPagamento = new FormularioPagamento(this);
                 formPagamento.Show();
             }
             //Mensagem caso não tenha todos os dados

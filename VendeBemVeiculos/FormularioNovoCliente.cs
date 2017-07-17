@@ -12,7 +12,8 @@ namespace VendeBemVeiculos
 {
     public partial class FormularioNovoCliente : Form
     {
-        FormularioCliente formCliente;
+        private FormularioCliente formCliente;
+        //Construtor recebe o formulario de clientes
         public FormularioNovoCliente(FormularioCliente formCliente)
         {
             this.formCliente = formCliente;
@@ -46,7 +47,7 @@ namespace VendeBemVeiculos
                 {
                     //salva o cpf
                     string cpf = TextoCpf.Text;
-                    //verifica se o cpf tem tamanho válido
+                    //verifica se o telefone tem tamanho válido
                     if (10 > TextoTelefone.Text.Length || TextoTelefone.Text.Length > 11)
                     {
                         MessageBox.Show("Valor fora do tamanho do telefone. Não esqueça do código de área");
@@ -69,7 +70,7 @@ namespace VendeBemVeiculos
                         else
                         {
                             MessageBox.Show("CPF já cadastrado");
-                        }                        
+                        }
                     }
                 }
             }

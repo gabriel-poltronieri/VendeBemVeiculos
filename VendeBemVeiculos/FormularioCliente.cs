@@ -78,6 +78,15 @@ namespace VendeBemVeiculos
             FormularioNovoCliente formNovoCliente = new FormularioNovoCliente(this);
             formNovoCliente.Show();
         }
+        private void botaoExclui_Click(object sender, EventArgs e)
+        {
+            if (this.cliente != null)
+            {
+                FormularioPrincipal.Clientes.Remove(this.cliente);
+                FormularioPrincipal.SalvarClientes();
+                AtualizaLista();
+            }
+        }
         //Método para atualizar a lista
         public void AtualizaLista()
         {
@@ -89,14 +98,5 @@ namespace VendeBemVeiculos
             }
         }
 
-        private void botaoExclui_Click(object sender, EventArgs e)
-        {
-            if(this.cliente != null)
-            {
-                FormularioPrincipal.Clientes.Remove(this.cliente);
-                FormularioPrincipal.SalvarClientes();
-                AtualizaLista();
-            }
-        }
     }
 }

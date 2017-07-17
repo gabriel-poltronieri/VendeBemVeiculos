@@ -37,19 +37,17 @@
             // Titulo
             // 
             this.Titulo.AutoSize = true;
-            this.Titulo.Location = new System.Drawing.Point(99, 10);
-            this.Titulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Titulo.Location = new System.Drawing.Point(74, 8);
             this.Titulo.Name = "Titulo";
-            this.Titulo.Size = new System.Drawing.Size(138, 17);
+            this.Titulo.Size = new System.Drawing.Size(107, 13);
             this.Titulo.TabIndex = 0;
             this.Titulo.Text = "Vende Bem Veículos";
             // 
             // botaoVenda
             // 
-            this.botaoVenda.Location = new System.Drawing.Point(39, 30);
-            this.botaoVenda.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.botaoVenda.Location = new System.Drawing.Point(29, 24);
             this.botaoVenda.Name = "botaoVenda";
-            this.botaoVenda.Size = new System.Drawing.Size(277, 70);
+            this.botaoVenda.Size = new System.Drawing.Size(208, 57);
             this.botaoVenda.TabIndex = 1;
             this.botaoVenda.Text = "Realizar Venda";
             this.botaoVenda.UseVisualStyleBackColor = true;
@@ -57,36 +55,33 @@
             // 
             // botaoEstoque
             // 
-            this.botaoEstoque.Location = new System.Drawing.Point(39, 107);
-            this.botaoEstoque.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.botaoEstoque.Location = new System.Drawing.Point(29, 87);
             this.botaoEstoque.Name = "botaoEstoque";
-            this.botaoEstoque.Size = new System.Drawing.Size(277, 70);
+            this.botaoEstoque.Size = new System.Drawing.Size(208, 57);
             this.botaoEstoque.TabIndex = 2;
             this.botaoEstoque.Text = "Estoque de Veículos";
             this.botaoEstoque.UseVisualStyleBackColor = true;
-            this.botaoEstoque.Click += new System.EventHandler(this.botaoEstoque_Click);
+            this.botaoEstoque.Click += new System.EventHandler(this.BotaoEstoque_Click);
             // 
             // botaoVendedores
             // 
-            this.botaoVendedores.Location = new System.Drawing.Point(39, 185);
-            this.botaoVendedores.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.botaoVendedores.Location = new System.Drawing.Point(29, 150);
             this.botaoVendedores.Name = "botaoVendedores";
-            this.botaoVendedores.Size = new System.Drawing.Size(277, 70);
+            this.botaoVendedores.Size = new System.Drawing.Size(208, 57);
             this.botaoVendedores.TabIndex = 3;
             this.botaoVendedores.Text = "Registro de Vendedores";
             this.botaoVendedores.UseVisualStyleBackColor = true;
-            this.botaoVendedores.Click += new System.EventHandler(this.botaoVendedores_Click);
+            this.botaoVendedores.Click += new System.EventHandler(this.BotaoVendedores_Click);
             // 
             // FormularioPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(359, 270);
+            this.ClientSize = new System.Drawing.Size(269, 231);
             this.Controls.Add(this.botaoVendedores);
             this.Controls.Add(this.botaoEstoque);
             this.Controls.Add(this.botaoVenda);
             this.Controls.Add(this.Titulo);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormularioPrincipal";
             this.Text = "Vende Bem Veículos";
             this.Load += new System.EventHandler(this.FormularioPrincipal_Load);

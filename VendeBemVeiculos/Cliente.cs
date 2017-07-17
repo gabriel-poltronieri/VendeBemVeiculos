@@ -8,11 +8,12 @@ namespace VendeBemVeiculos
 {
     public class Cliente
     {
+        //propriedades do cliente
         public string Nome { get; set; }
         public string Cpf { get; set; }
         public string Telefone { get; set; }
         public string Endereco { get; set; }
-
+        //construtor
         public Cliente(string nome, string cpf, string telefone, string endereco)
         {
             this.Nome = nome;
@@ -20,8 +21,7 @@ namespace VendeBemVeiculos
             this.Telefone = telefone;
             this.Endereco = endereco;
         }
-
-        
+        //métodos sobreescritos
         public override bool Equals(object obj)
         {
             if(!(obj is Cliente))
@@ -31,14 +31,11 @@ namespace VendeBemVeiculos
             Cliente compara = (Cliente)obj;
             return this.Cpf == compara.Cpf;
         }
-
         public override string ToString()
         {
             string dados = this.Nome + "    CPF: " + this.Cpf;
             return dados;
         }
-
-
         public override int GetHashCode()
         {
             return base.GetHashCode();

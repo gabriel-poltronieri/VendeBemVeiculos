@@ -49,7 +49,7 @@
             this.botaoBusca.TabIndex = 11;
             this.botaoBusca.Text = "Buscar";
             this.botaoBusca.UseVisualStyleBackColor = true;
-            this.botaoBusca.Click += new System.EventHandler(this.botaoBusca_Click);
+            this.botaoBusca.Click += new System.EventHandler(this.BotaoBusca_Click);
             // 
             // textoModelo
             // 
@@ -78,7 +78,7 @@
             this.botaoExclui.TabIndex = 8;
             this.botaoExclui.Text = "Excluir ";
             this.botaoExclui.UseVisualStyleBackColor = true;
-            this.botaoExclui.Click += new System.EventHandler(this.botaoExclui_Click);
+            this.botaoExclui.Click += new System.EventHandler(this.BotaoExclui_Click);
             // 
             // botaoSeleciona
             // 
@@ -89,7 +89,7 @@
             this.botaoSeleciona.TabIndex = 7;
             this.botaoSeleciona.Text = "Seleciona";
             this.botaoSeleciona.UseVisualStyleBackColor = true;
-            this.botaoSeleciona.Click += new System.EventHandler(this.botaoSeleciona_Click);
+            this.botaoSeleciona.Click += new System.EventHandler(this.BotaoSeleciona_Click);
             // 
             // listaVeiculos
             // 
@@ -100,7 +100,7 @@
             this.listaVeiculos.Name = "listaVeiculos";
             this.listaVeiculos.Size = new System.Drawing.Size(455, 212);
             this.listaVeiculos.TabIndex = 6;
-            this.listaVeiculos.SelectedIndexChanged += new System.EventHandler(this.listaVeiculos_SelectedIndexChanged);
+            this.listaVeiculos.SelectedIndexChanged += new System.EventHandler(this.ListaVeiculos_SelectedIndexChanged);
             // 
             // botaoNovo
             // 
@@ -111,7 +111,7 @@
             this.botaoNovo.TabIndex = 12;
             this.botaoNovo.Text = "Novo";
             this.botaoNovo.UseVisualStyleBackColor = true;
-            this.botaoNovo.Click += new System.EventHandler(this.botaoNovo_Click);
+            this.botaoNovo.Click += new System.EventHandler(this.BotaoNovo_Click);
             // 
             // botaoCancela
             // 
@@ -122,7 +122,7 @@
             this.botaoCancela.TabIndex = 13;
             this.botaoCancela.Text = "Cancela";
             this.botaoCancela.UseVisualStyleBackColor = true;
-            this.botaoCancela.Click += new System.EventHandler(this.botaoCancela_Click);
+            this.botaoCancela.Click += new System.EventHandler(this.BotaoCancela_Click);
             // 
             // radioCarro
             // 
@@ -135,7 +135,7 @@
             this.radioCarro.TabStop = true;
             this.radioCarro.Text = "Carro";
             this.radioCarro.UseVisualStyleBackColor = true;
-            this.radioCarro.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.radioCarro.CheckedChanged += new System.EventHandler(this.RadioCarro_CheckedChange);
             // 
             // radioMoto
             // 
@@ -148,7 +148,7 @@
             this.radioMoto.TabStop = true;
             this.radioMoto.Text = "Moto";
             this.radioMoto.UseVisualStyleBackColor = true;
-            this.radioMoto.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            this.radioMoto.CheckedChanged += new System.EventHandler(this.RadioMoto_CheckedChanged);
             // 
             // FormularioEstoque
             // 

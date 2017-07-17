@@ -11,20 +11,17 @@ namespace VendeBemVeiculos
         public string Nome { get; private set; }
         public int Registro { get; }
         public static int NumeroVendedores { get; private set; }
-        public string Senha { get; private set; }
-
-        public Vendedor(string nome, string senha="123")
+        //Consstrutor para quando cria um novo Vendedor
+        public Vendedor(string nome)
         {
-            CadastrarSenha(senha);
             this.Nome = nome;
             NumeroVendedores++;
             this.Registro = NumeroVendedores;
         }
-
-        public Vendedor(string nome, string senha, int registro)
+        //Construtor para quando carrega um vendedor do arquivo txt
+        public Vendedor(string nome, int registro)
         {
             this.Nome = nome;
-            CadastrarSenha(senha);
             this.Registro = registro;
             NumeroVendedores++;
         }
@@ -32,19 +29,14 @@ namespace VendeBemVeiculos
         public void Vende(Veiculo veiculo, Cliente cliente)
         {
             veiculo.Exclui();
-        }
+        }       
 
-        public void CadastrarSenha(string senha)
-        {
-            this.Senha = senha;
-        }
-
-        
+        //Devolve o registro mais o nome do vendedor
         public override string ToString()
         {
-            return this.Nome;
+            return this.Registro + "     " + this.Nome;
         }
-
+        //Vendedores são iguais se tiverem o mesmo registro
         public override bool Equals(object obj)
         {
             if(!(obj is Vendedor))

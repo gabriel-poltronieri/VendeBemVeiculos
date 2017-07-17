@@ -14,31 +14,34 @@ namespace VendeBemVeiculos
     {
         private FormularioVendedores formVendedores;
         private Vendedor novoVendedor;
+        //Construtor
         public FormularioNovoVendedor(FormularioVendedores formVendedores)
         {
             this.formVendedores = formVendedores;
             InitializeComponent();
         }
-
-        private void BotaoCancela_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
+        //Botões
         private void BotaoCadastra_Click(object sender, EventArgs e)
         {
-            if(TextoNome.Text == "" || TextoSenha.Text == "")
+            //verifica se tem texto inserido
+            if (TextoNome.Text == "")
             {
-                MessageBox.Show("Preencha todos os campos");
+                MessageBox.Show("Preencha com o nome");
             }
             else
             {
-                this.novoVendedor = new Vendedor(TextoNome.Text, TextoSenha.Text);
+                //cria um novo vendedor, adiciona na hashset do formulario principal, salva o hashset, atualiza a lista dos vendedores e fecha
+                this.novoVendedor = new Vendedor(TextoNome.Text);
                 FormularioPrincipal.Vendedores.Add(this.novoVendedor);
                 FormularioPrincipal.SalvarVendedores();
                 this.formVendedores.Atualiza();
                 this.Close();
             }
+        }
+        private void BotaoCancela_Click(object sender, EventArgs e)
+        {
+            //apenas fecha o formulário
+            this.Close();
         }
     }
 }

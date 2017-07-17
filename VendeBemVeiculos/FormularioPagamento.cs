@@ -12,56 +12,40 @@ namespace VendeBemVeiculos
 {
     public partial class FormularioPagamento : Form
     {
-        private FormularioVenda formVenda;
         private Vendedor vendedor;
         private Cliente cliente;
         private Veiculo veiculo;
-        private string senha;
-        private string forma;
-
-        public FormularioPagamento(FormularioVenda formVenda, string pagamento)
+        //Construtor precisa receber o formulario de vendas para pegar suas propriedades
+        public FormularioPagamento(FormularioVenda formVenda)
         {
-            this.formVenda = formVenda;
             this.vendedor = formVenda.Vendedor;
             this.cliente = formVenda.Cliente;
             this.veiculo = formVenda.Veiculo;
-            this.forma = pagamento;
 
             InitializeComponent();
         }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        
+        //Ao carregar, os dados da compra são todos apresentados ao usuário
         private void FormularioPagamento_Load(object sender, EventArgs e)
         {
             valorCliente.Text = this.cliente.Nome;
             valorVendedor.Text = this.vendedor.Nome;
             valorVeiculo.Text = this.veiculo.Marca + " " + this.veiculo.Modelo + " " + this.veiculo.Ano;
-            valorPagamento.Text = this.forma;
             valorPreco.Text = "R$" + this.veiculo.Preco;
-            
         }
-
-        private void botaoEfetiva_Click(object sender, EventArgs e)
+        //Botoes do formulario
+        private void BotaoEfetiva_Click(object sender, EventArgs e)
         {
-            this.senha = textoSenha.Text;
-            if (senha == vendedor.Senha)
-            {
-                this.vendedor.Vende(this.veiculo, this.cliente);
-                FormularioPrincipal.RegistrarVenda(this.vendedor, this.cliente, this.veiculo);
-                MessageBox.Show("Compra Efetuada com Sucesso");
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("Senha Incorreta");
-            }
-        }
+            //chama-se o método Vende da classe vendedor, registra a venda no txt, mostra uma mensagem de venda efetivada e fecha
+            this.vendedor.Vende(this.veiculo, this.cliente);
+            FormularioPrincipal.RegistrarVenda(this.vendedor, this.cliente, this.veiculo);
+            MessageBox.Show("Compra Efetuada com Sucesso");
+            this.Close();
 
-       
+        }
+        private void BotaoCancela_Click(object sender, EventArgs e)
+        {
+            //fecha o formulario
+            this.Close();
+        }
     }
 }

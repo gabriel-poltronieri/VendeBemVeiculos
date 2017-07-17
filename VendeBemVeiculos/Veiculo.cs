@@ -26,6 +26,7 @@ namespace VendeBemVeiculos
 
         public void Exclui()
         {
+            //Diminui o inteiro da quantidade e, caso ela zere, elmina o objeto do hashset
             this.Quantidade--;
             if(this.Quantidade <= 0)
             {
@@ -33,7 +34,7 @@ namespace VendeBemVeiculos
             }
             FormularioPrincipal.SalvarVeiculos();
         }
-
+        //Veículos serão iguais se tiverem mesma marca, modelo e ano
         public override bool Equals(object outro)
         {
             if(!(outro is Veiculo))
@@ -43,12 +44,11 @@ namespace VendeBemVeiculos
             Veiculo novoVeiculo = (Veiculo)outro;
             return (this.Marca == novoVeiculo.Marca) && (this.Modelo == novoVeiculo.Modelo) && (this.Ano == novoVeiculo.Ano);
         }
-
+        //Outros métodos sobrescritos
         public override int GetHashCode()
         {
             return Convert.ToInt32(this.Ano) - this.Modelo.Length;
         }
-
         public override string ToString()
         {
             return this.Marca + "  " + this.Modelo + "  " + this.Ano + "    R$" + this.Preco + "    Quantidade:" + this.Quantidade;

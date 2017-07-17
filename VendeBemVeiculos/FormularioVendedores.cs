@@ -12,30 +12,56 @@ namespace VendeBemVeiculos
 {
     public partial class FormularioVendedores : Form
     {
-        public FormularioVendedores()
+        FormularioPrincipal formPrincipal;
+        Vendedor vendedor;
+        //construtor recebe um formulario principal
+        public FormularioVendedores(FormularioPrincipal formPrincipal)
         {
+            this.formPrincipal = formPrincipal;
             InitializeComponent();
         }
-
+        //Ao carregar, chama o método para atualizar a lista
         private void FormularioVendedores_Load(object sender, EventArgs e)
         {
             Atualiza();
         }
-
-        private void botaoBusca_Click(object sender, EventArgs e)
+        //Quando um vendedor é selecionado, o atributo o recebe
+        private void listaVendedores_SelectedIndexChanged(object sender, EventArgs e)
         {
+            this.vendedor = (Vendedor)listaVendedores.SelectedItem;
+        }
+        //Botões do formulário
+        private void BotaoSeleciona_Click(object sender, EventArgs e)
+        {
+            //Deve verificar se um vendedor foi selecionado e em caso afirmativo, o carrega no formulário de vendas
+            if (this.vendedor != null)
+            {
+                FormularioVenda formVenda = new FormularioVenda(this.formPrincipal, null, this.vendedor);
+                formVenda.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Selecione um vendedor");
+            }
+        }
+        private void BotaoBusca_Click(object sender, EventArgs e)
+        {
+            //instancia um int para ser usado nos blocos
             int registro = 0;
-            //Pega o cpf digitado na busca
+            //Pega o registro digitado na busca e verifica se ele é vazio
             if (textoRegistro.Text == "")
             {
+                //caso seja, atualiza a lista de forma a mostrar todos os vendedores
                 Atualiza();
             }
             else
             {
                 try
                 {
+                    //pega o registro
                     registro = Convert.ToInt32(textoRegistro.Text);
-                    //Caso o cpf tenha o tamanho certo, deve-se colocar um filtro para encontrar o cliente
+                    //Realiza um filtro dos vendedores com base no registro digitado
                     var filtro = FormularioPrincipal.Vendedores.Where(c => c.Registro == registro);
                     try
                     {
@@ -53,17 +79,18 @@ namespace VendeBemVeiculos
                 }
                 catch
                 {
-                    MessageBox.Show("Entre com um valor numérico");
+                    //trata os erros com uma mensagem para o usuário
+                    MessageBox.Show("Entre com um valor numérico válido");
                 }
             }
         }
-
-        private void botaoNovo_Click(object sender, EventArgs e)
+        private void BotaoNovo_Click(object sender, EventArgs e)
         {
+            //inicia um formulário de novo vendedor
             FormularioNovoVendedor formNovoVendedor = new FormularioNovoVendedor(this);
             formNovoVendedor.Show();
         }
-
+        //método para carregar todos os vendedores da hashset
         public void Atualiza()
         {
             listaVendedores.Items.Clear();
@@ -72,5 +99,7 @@ namespace VendeBemVeiculos
                 listaVendedores.Items.Add(v);
             }
         }
+
+
     }
 }

@@ -38,8 +38,6 @@
             this.groupVeiculo = new System.Windows.Forms.GroupBox();
             this.radioMoto = new System.Windows.Forms.RadioButton();
             this.radioCarro = new System.Windows.Forms.RadioButton();
-            this.comboPagamento = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.botaoCancelar = new System.Windows.Forms.Button();
             this.botaoPagamento = new System.Windows.Forms.Button();
             this.labelValor = new System.Windows.Forms.Label();
@@ -127,8 +125,6 @@
             // 
             this.groupVeiculo.Controls.Add(this.radioMoto);
             this.groupVeiculo.Controls.Add(this.radioCarro);
-            this.groupVeiculo.Controls.Add(this.comboPagamento);
-            this.groupVeiculo.Controls.Add(this.label1);
             this.groupVeiculo.Controls.Add(this.botaoCancelar);
             this.groupVeiculo.Controls.Add(this.botaoPagamento);
             this.groupVeiculo.Controls.Add(this.labelValor);
@@ -168,24 +164,6 @@
             this.radioCarro.UseVisualStyleBackColor = true;
             this.radioCarro.CheckedChanged += new System.EventHandler(this.radioCarro_CheckedChanged);
             // 
-            // comboPagamento
-            // 
-            this.comboPagamento.FormattingEnabled = true;
-            this.comboPagamento.Location = new System.Drawing.Point(239, 72);
-            this.comboPagamento.Name = "comboPagamento";
-            this.comboPagamento.Size = new System.Drawing.Size(104, 21);
-            this.comboPagamento.TabIndex = 20;
-            this.comboPagamento.SelectedIndexChanged += new System.EventHandler(this.comboPagamento_SelectedIndexChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(172, 75);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 13);
-            this.label1.TabIndex = 19;
-            this.label1.Text = "Pagamento";
-            // 
             // botaoCancelar
             // 
             this.botaoCancelar.Location = new System.Drawing.Point(221, 122);
@@ -209,7 +187,7 @@
             // labelValor
             // 
             this.labelValor.AutoSize = true;
-            this.labelValor.Location = new System.Drawing.Point(186, 107);
+            this.labelValor.Location = new System.Drawing.Point(239, 77);
             this.labelValor.Name = "labelValor";
             this.labelValor.Size = new System.Drawing.Size(36, 13);
             this.labelValor.TabIndex = 16;
@@ -218,7 +196,7 @@
             // labelPreco
             // 
             this.labelPreco.AutoSize = true;
-            this.labelPreco.Location = new System.Drawing.Point(145, 107);
+            this.labelPreco.Location = new System.Drawing.Point(198, 77);
             this.labelPreco.Name = "labelPreco";
             this.labelPreco.Size = new System.Drawing.Size(35, 13);
             this.labelPreco.TabIndex = 15;
@@ -318,8 +296,6 @@
         private System.Windows.Forms.Button botaoPagamento;
         private System.Windows.Forms.TextBox textoCliente;
         private System.Windows.Forms.Button botaoBuscaCliente;
-        private System.Windows.Forms.ComboBox comboPagamento;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RadioButton radioMoto;
         private System.Windows.Forms.RadioButton radioCarro;
     }

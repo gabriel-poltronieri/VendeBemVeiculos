@@ -26,6 +26,7 @@ namespace VendeBemVeiculos
             //Adiciona items ao comboBox
             comboVeiculo.Items.Add("Carro");
             comboVeiculo.Items.Add("Moto");
+            textoAno.MaxLength = 4;
         }
         //Ao selecionar ComboBox
         private void comboVeiculo_SelectedIndexChanged(object sender, EventArgs e)
@@ -49,29 +50,39 @@ namespace VendeBemVeiculos
             //Caso tudo esteja certo, recebe os valores preenchidos e instancia um carro/moto
             else
             {
-                string marca = textoMarca.Text;
-                string modelo = textoModelo.Text;
-                string ano = textoAno.Text;
-                double preco = Convert.ToDouble(textoPreco.Text);
-                int quantidade = Convert.ToInt32(textoPreco.Text);
-                Veiculo veiculo = new Carro("", "", "", 0, 0);
-                switch (this.carroMoto)
+                try
                 {
-                    case 0:
-                        veiculo = new Carro(marca, modelo, ano, preco, quantidade);                        
-                        break;
-                    case 1:
-                        veiculo = new Moto(marca, modelo, ano, preco, quantidade);
-                        break; 
-                        
-                }
-                //Passa os valores para as listas de interesse e atualiza a visualização no formulario de estoques
-                FormularioPrincipal.Veiculos.Add(veiculo);
-                FormularioPrincipal.SalvarVeiculos();
-                this.formEstoque.AdicionaItem(veiculo);
-                this.formEstoque.AtualizaLista();
-                this.Close();
+                    double preco = Convert.ToDouble(textoPreco.Text);
+                    int quantidade = Convert.ToInt32(textoQuantidade.Text);
+                    string marca = textoMarca.Text;
+                    string modelo = textoModelo.Text;
+                    string ano = textoAno.Text;
+                    Veiculo veiculo = new Carro("", "", "", 0, 0);
+                    switch (this.carroMoto)
+                    {
+                        case 0:
+                            veiculo = new Carro(marca, modelo, ano, preco, quantidade);
+                            break;
+                        case 1:
+                            veiculo = new Moto(marca, modelo, ano, preco, quantidade);
+                            break;
+                    }
+                    //Passa os valores para as listas de interesse e atualiza a visualização no formulario de estoques
+                    FormularioPrincipal.Veiculos.Add(veiculo);
+                    FormularioPrincipal.SalvarVeiculos();
+                    this.formEstoque.AdicionaItem(veiculo);
+                    this.formEstoque.AtualizaLista();
+                    this.Close();
             }
+                catch (Exception ex)
+            {
+                if (ex is FormatException)
+                {
+                    MessageBox.Show("Insira valores numéricos para ano, preço e quantidade");
+                }
+            }
+
+        }
         }
         private void botaoCancelar_Click(object sender, EventArgs e)
         {
