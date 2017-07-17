@@ -52,6 +52,7 @@ namespace VendeBemVeiculos
             if (senha == vendedor.Senha)
             {
                 this.vendedor.Vende(this.veiculo, this.cliente);
+                FormularioPrincipal.RegistrarVenda(this.vendedor, this.cliente, this.veiculo);
                 MessageBox.Show("Compra Efetuada com Sucesso");
                 this.Close();
             }

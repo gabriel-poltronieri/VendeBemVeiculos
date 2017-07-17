@@ -12,7 +12,6 @@ namespace VendeBemVeiculos
         public int Registro { get; }
         public static int NumeroVendedores { get; private set; }
         public string Senha { get; private set; }
-        public int Vendas { get; set; }
 
         public Vendedor(string nome, string senha="123")
         {
@@ -22,11 +21,17 @@ namespace VendeBemVeiculos
             this.Registro = NumeroVendedores;
         }
 
+        public Vendedor(string nome, string senha, int registro)
+        {
+            this.Nome = nome;
+            CadastrarSenha(senha);
+            this.Registro = registro;
+            NumeroVendedores++;
+        }
+
         public void Vende(Veiculo veiculo, Cliente cliente)
         {
             veiculo.Exclui();
-            cliente.Compras++;
-            this.Vendas++;
         }
 
         public void CadastrarSenha(string senha)
@@ -34,14 +39,20 @@ namespace VendeBemVeiculos
             this.Senha = senha;
         }
 
-        public void AlterarNome(string nome)
-        {
-            this.Nome = nome;
-        }
-
+        
         public override string ToString()
         {
             return this.Nome;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if(!(obj is Vendedor))
+            {
+                return false;
+            }
+            Vendedor comparado = (Vendedor)obj;
+            return this.Registro == comparado.Registro;
         }
     }
 }

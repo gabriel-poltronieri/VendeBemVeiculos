@@ -12,7 +12,6 @@ namespace VendeBemVeiculos
         public string Cpf { get; set; }
         public string Telefone { get; set; }
         public string Endereco { get; set; }
-        public int Compras { get; set; }
 
         public Cliente(string nome, string cpf, string telefone, string endereco)
         {

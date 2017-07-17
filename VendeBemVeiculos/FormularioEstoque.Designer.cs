@@ -42,9 +42,10 @@
             // 
             // botaoBusca
             // 
-            this.botaoBusca.Location = new System.Drawing.Point(279, 214);
+            this.botaoBusca.Location = new System.Drawing.Point(372, 263);
+            this.botaoBusca.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.botaoBusca.Name = "botaoBusca";
-            this.botaoBusca.Size = new System.Drawing.Size(75, 23);
+            this.botaoBusca.Size = new System.Drawing.Size(100, 28);
             this.botaoBusca.TabIndex = 11;
             this.botaoBusca.Text = "Buscar";
             this.botaoBusca.UseVisualStyleBackColor = true;
@@ -52,25 +53,28 @@
             // 
             // textoModelo
             // 
-            this.textoModelo.Location = new System.Drawing.Point(57, 216);
+            this.textoModelo.Location = new System.Drawing.Point(76, 266);
+            this.textoModelo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textoModelo.Name = "textoModelo";
-            this.textoModelo.Size = new System.Drawing.Size(216, 20);
+            this.textoModelo.Size = new System.Drawing.Size(287, 22);
             this.textoModelo.TabIndex = 10;
             // 
             // labeModelo
             // 
             this.labeModelo.AutoSize = true;
-            this.labeModelo.Location = new System.Drawing.Point(13, 219);
+            this.labeModelo.Location = new System.Drawing.Point(17, 270);
+            this.labeModelo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labeModelo.Name = "labeModelo";
-            this.labeModelo.Size = new System.Drawing.Size(43, 13);
+            this.labeModelo.Size = new System.Drawing.Size(55, 17);
             this.labeModelo.TabIndex = 9;
             this.labeModelo.Text = "Modeo:";
             // 
             // botaoExclui
             // 
-            this.botaoExclui.Location = new System.Drawing.Point(185, 252);
+            this.botaoExclui.Location = new System.Drawing.Point(247, 310);
+            this.botaoExclui.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.botaoExclui.Name = "botaoExclui";
-            this.botaoExclui.Size = new System.Drawing.Size(82, 23);
+            this.botaoExclui.Size = new System.Drawing.Size(109, 28);
             this.botaoExclui.TabIndex = 8;
             this.botaoExclui.Text = "Excluir ";
             this.botaoExclui.UseVisualStyleBackColor = true;
@@ -78,9 +82,10 @@
             // 
             // botaoSeleciona
             // 
-            this.botaoSeleciona.Location = new System.Drawing.Point(16, 252);
+            this.botaoSeleciona.Location = new System.Drawing.Point(21, 310);
+            this.botaoSeleciona.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.botaoSeleciona.Name = "botaoSeleciona";
-            this.botaoSeleciona.Size = new System.Drawing.Size(75, 23);
+            this.botaoSeleciona.Size = new System.Drawing.Size(100, 28);
             this.botaoSeleciona.TabIndex = 7;
             this.botaoSeleciona.Text = "Seleciona";
             this.botaoSeleciona.UseVisualStyleBackColor = true;
@@ -89,26 +94,31 @@
             // listaVeiculos
             // 
             this.listaVeiculos.FormattingEnabled = true;
-            this.listaVeiculos.Location = new System.Drawing.Point(12, 12);
+            this.listaVeiculos.ItemHeight = 16;
+            this.listaVeiculos.Location = new System.Drawing.Point(16, 15);
+            this.listaVeiculos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.listaVeiculos.Name = "listaVeiculos";
-            this.listaVeiculos.Size = new System.Drawing.Size(342, 173);
+            this.listaVeiculos.Size = new System.Drawing.Size(455, 212);
             this.listaVeiculos.TabIndex = 6;
             this.listaVeiculos.SelectedIndexChanged += new System.EventHandler(this.listaVeiculos_SelectedIndexChanged);
             // 
             // botaoNovo
             // 
-            this.botaoNovo.Location = new System.Drawing.Point(97, 252);
+            this.botaoNovo.Location = new System.Drawing.Point(129, 310);
+            this.botaoNovo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.botaoNovo.Name = "botaoNovo";
-            this.botaoNovo.Size = new System.Drawing.Size(82, 23);
+            this.botaoNovo.Size = new System.Drawing.Size(109, 28);
             this.botaoNovo.TabIndex = 12;
             this.botaoNovo.Text = "Novo";
             this.botaoNovo.UseVisualStyleBackColor = true;
+            this.botaoNovo.Click += new System.EventHandler(this.botaoNovo_Click);
             // 
             // botaoCancela
             // 
-            this.botaoCancela.Location = new System.Drawing.Point(272, 252);
+            this.botaoCancela.Location = new System.Drawing.Point(363, 310);
+            this.botaoCancela.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.botaoCancela.Name = "botaoCancela";
-            this.botaoCancela.Size = new System.Drawing.Size(82, 23);
+            this.botaoCancela.Size = new System.Drawing.Size(109, 28);
             this.botaoCancela.TabIndex = 13;
             this.botaoCancela.Text = "Cancela";
             this.botaoCancela.UseVisualStyleBackColor = true;
@@ -117,9 +127,10 @@
             // radioCarro
             // 
             this.radioCarro.AutoSize = true;
-            this.radioCarro.Location = new System.Drawing.Point(57, 191);
+            this.radioCarro.Location = new System.Drawing.Point(76, 235);
+            this.radioCarro.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.radioCarro.Name = "radioCarro";
-            this.radioCarro.Size = new System.Drawing.Size(50, 17);
+            this.radioCarro.Size = new System.Drawing.Size(64, 21);
             this.radioCarro.TabIndex = 14;
             this.radioCarro.TabStop = true;
             this.radioCarro.Text = "Carro";
@@ -129,9 +140,10 @@
             // radioMoto
             // 
             this.radioMoto.AutoSize = true;
-            this.radioMoto.Location = new System.Drawing.Point(237, 191);
+            this.radioMoto.Location = new System.Drawing.Point(316, 235);
+            this.radioMoto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.radioMoto.Name = "radioMoto";
-            this.radioMoto.Size = new System.Drawing.Size(49, 17);
+            this.radioMoto.Size = new System.Drawing.Size(60, 21);
             this.radioMoto.TabIndex = 15;
             this.radioMoto.TabStop = true;
             this.radioMoto.Text = "Moto";
@@ -140,9 +152,9 @@
             // 
             // FormularioEstoque
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(366, 293);
+            this.ClientSize = new System.Drawing.Size(488, 361);
             this.Controls.Add(this.radioMoto);
             this.Controls.Add(this.radioCarro);
             this.Controls.Add(this.botaoCancela);
@@ -153,6 +165,7 @@
             this.Controls.Add(this.botaoExclui);
             this.Controls.Add(this.botaoSeleciona);
             this.Controls.Add(this.listaVeiculos);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormularioEstoque";
             this.Text = "Estoque de Veículos";
             this.Load += new System.EventHandler(this.FormularioEstoque_Load);

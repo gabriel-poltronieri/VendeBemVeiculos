@@ -24,7 +24,6 @@ namespace VendeBemVeiculos
 
         private void FormularioEstoque_Load(object sender, EventArgs e)
         {
-            AtualizaLista();
             radioCarro.Checked = true;
         }
 
@@ -49,7 +48,7 @@ namespace VendeBemVeiculos
             if (textoModelo.Text != "")
             {
                 string modelo = textoModelo.Text;
-                filtro = FormularioPrincipal.Veiculos.Where(v => v.Modelo == modelo).ToList();   
+                filtro = FormularioPrincipal.Veiculos.Where(v => v.Modelo == modelo).ToList();
             }
             else
             {
@@ -91,9 +90,9 @@ namespace VendeBemVeiculos
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
             this.lista.Clear();
-            foreach(Veiculo v in FormularioPrincipal.Veiculos)
+            foreach (Veiculo v in FormularioPrincipal.Veiculos)
             {
-                if(v is Carro)
+                if (v is Carro)
                 {
                     this.lista.Add(v);
                 }
@@ -112,6 +111,17 @@ namespace VendeBemVeiculos
                 }
             }
             AtualizaLista();
+        }
+
+        private void botaoNovo_Click(object sender, EventArgs e)
+        {
+            FormularioNovoVeiculo formNovoVeiculo = new FormularioNovoVeiculo(this);
+            formNovoVeiculo.Show();
+        }
+
+        public void AdicionaItem(Veiculo veiculo)
+        {
+            this.lista.Add(veiculo);
         }
     }
 }

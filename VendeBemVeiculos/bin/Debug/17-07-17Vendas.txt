@@ -1,0 +1,4 @@
+17-07-17
+Vendedor:     1     Joao
+Cliente:     Pedro
+Carro:     Volkswagen     Gol       2015

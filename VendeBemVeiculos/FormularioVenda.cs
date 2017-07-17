@@ -32,9 +32,7 @@ namespace VendeBemVeiculos
         //O que acontece quando o formulário carrega
         private void FormularioVenda_Load(object sender, EventArgs e)
         {
-            //Esconde o Formulário principal
-            this.formPrincipal.Hide();
-            
+           
             //Definindo a propriedade como nula até que um vendedor seja selecionado
             this.Vendedor = null;
 

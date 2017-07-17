@@ -31,6 +31,7 @@ namespace VendeBemVeiculos
             {
                 FormularioPrincipal.Veiculos.Remove(this);
             }
+            FormularioPrincipal.SalvarVeiculos();
         }
 
         public override bool Equals(object outro)

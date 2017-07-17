@@ -1,6 +1,6 @@
 ﻿namespace VendeBemVeiculos
 {
-    partial class FormulárioNovoVeiculo
+    partial class FormularioNovoVeiculo
     {
         /// <summary>
         /// Required designer variable.
