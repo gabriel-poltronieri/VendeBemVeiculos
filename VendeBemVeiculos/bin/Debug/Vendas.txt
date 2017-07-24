@@ -2,3 +2,11 @@
 Vendedor:     1     Pedro Vendebem
 Cliente:     José Quercomprar
 Carro:     Ford     Fiesta       2010
+17/07/17
+Vendedor:     1     Pedro Vendebem
+Cliente:     José Quercomprar
+Carro:     Ford     Fiesta       2010
+17/07/17
+Vendedor:     2     Carlos
+Cliente:     Pedro
+Carro:     Volkswagen     Gol       2015

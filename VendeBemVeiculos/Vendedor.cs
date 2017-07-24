@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace VendeBemVeiculos
 {
-    public class Vendedor
+    public class Vendedor 
     {
         public string Nome { get; private set; }
         public int Registro { get; }
         public static int NumeroVendedores { get; private set; }
+        public int MyProperty { get; set; }
+
         //Consstrutor para quando cria um novo Vendedor
         public Vendedor(string nome)
         {
@@ -19,11 +21,9 @@ namespace VendeBemVeiculos
             this.Registro = NumeroVendedores;
         }
         //Construtor para quando carrega um vendedor do arquivo txt
-        public Vendedor(string nome, int registro)
+        public Vendedor(string nome, int registro) : this(nome)
         {
-            this.Nome = nome;
             this.Registro = registro;
-            NumeroVendedores++;
         }
 
         public void Vende(Veiculo veiculo, Cliente cliente)

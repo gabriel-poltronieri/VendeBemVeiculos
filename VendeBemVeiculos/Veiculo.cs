@@ -51,7 +51,8 @@ namespace VendeBemVeiculos
         }
         public override string ToString()
         {
-            return this.Marca + "  " + this.Modelo + "  " + this.Ano + "    R$" + this.Preco + "    Quantidade:" + this.Quantidade;
+            return $"{this.Marca} {this.Modelo} {this.Ano} R${this.Preco} QUantidade:{this.Quantidade}";
+            //return this.Marca + "  " + this.Modelo + "  " + this.Ano + "    R$" + this.Preco + "    Quantidade:" + this.Quantidade;
         }
     }
 }

@@ -248,9 +248,9 @@ namespace VendeBemVeiculos
             {
                 File.AppendAllText("Vendas.txt", venda);
             }
-            catch(Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
         }
     }
