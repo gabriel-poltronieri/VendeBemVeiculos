@@ -112,7 +112,6 @@
             this.botaoBuscaCliente.TabIndex = 6;
             this.botaoBuscaCliente.Text = "Buscar Cliente";
             this.botaoBuscaCliente.UseVisualStyleBackColor = true;
-            this.botaoBuscaCliente.Click += new System.EventHandler(this.botaoBuscaCliente_Click);
             // 
             // comboVendedor
             // 
@@ -121,7 +120,6 @@
             this.comboVendedor.Name = "comboVendedor";
             this.comboVendedor.Size = new System.Drawing.Size(249, 21);
             this.comboVendedor.TabIndex = 4;
-            this.comboVendedor.SelectedIndexChanged += new System.EventHandler(this.ComboVendedor_SelectedIndexChanged);
             // 
             // groupVeiculo
             // 
@@ -155,7 +153,6 @@
             this.radioMoto.TabIndex = 22;
             this.radioMoto.Text = "Moto";
             this.radioMoto.UseVisualStyleBackColor = true;
-            this.radioMoto.CheckedChanged += new System.EventHandler(this.radioMoto_CheckedChanged);
             // 
             // radioCarro
             // 
@@ -166,7 +163,6 @@
             this.radioCarro.TabIndex = 21;
             this.radioCarro.Text = "Carro";
             this.radioCarro.UseVisualStyleBackColor = true;
-            this.radioCarro.CheckedChanged += new System.EventHandler(this.radioCarro_CheckedChanged);
             // 
             // comboPagamento
             // 
@@ -175,7 +171,6 @@
             this.comboPagamento.Name = "comboPagamento";
             this.comboPagamento.Size = new System.Drawing.Size(104, 21);
             this.comboPagamento.TabIndex = 20;
-            this.comboPagamento.SelectedIndexChanged += new System.EventHandler(this.comboPagamento_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -194,7 +189,6 @@
             this.botaoCancelar.TabIndex = 18;
             this.botaoCancelar.Text = "Cancelar";
             this.botaoCancelar.UseVisualStyleBackColor = true;
-            this.botaoCancelar.Click += new System.EventHandler(this.botaoCancelar_Click);
             // 
             // botaoPagamento
             // 
@@ -204,7 +198,6 @@
             this.botaoPagamento.TabIndex = 17;
             this.botaoPagamento.Text = "Pagamento";
             this.botaoPagamento.UseVisualStyleBackColor = true;
-            this.botaoPagamento.Click += new System.EventHandler(this.botaoPagamento_Click);
             // 
             // labelValor
             // 
@@ -231,7 +224,6 @@
             this.comboAno.Name = "comboAno";
             this.comboAno.Size = new System.Drawing.Size(99, 21);
             this.comboAno.TabIndex = 13;
-            this.comboAno.SelectedIndexChanged += new System.EventHandler(this.comboAno_SelectedIndexChanged);
             // 
             // comboModelo
             // 
@@ -240,7 +232,6 @@
             this.comboModelo.Name = "comboModelo";
             this.comboModelo.Size = new System.Drawing.Size(104, 21);
             this.comboModelo.TabIndex = 12;
-            this.comboModelo.SelectedIndexChanged += new System.EventHandler(this.comboModelo_SelectedIndexChanged);
             // 
             // comboMarca
             // 
@@ -249,7 +240,6 @@
             this.comboMarca.Name = "comboMarca";
             this.comboMarca.Size = new System.Drawing.Size(99, 21);
             this.comboMarca.TabIndex = 11;
-            this.comboMarca.SelectedIndexChanged += new System.EventHandler(this.comboMarca_SelectedIndexChanged);
             // 
             // labelAno
             // 
@@ -288,7 +278,6 @@
             this.Controls.Add(this.labelTitulo);
             this.Name = "FormularioVenda";
             this.Text = "Dados da venda";
-            this.Load += new System.EventHandler(this.FormularioVenda_Load);
             this.groupClienteVendedor.ResumeLayout(false);
             this.groupClienteVendedor.PerformLayout();
             this.groupVeiculo.ResumeLayout(false);

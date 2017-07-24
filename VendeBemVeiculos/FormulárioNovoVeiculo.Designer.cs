@@ -105,7 +105,6 @@
             this.comboVeiculo.Name = "comboVeiculo";
             this.comboVeiculo.Size = new System.Drawing.Size(181, 21);
             this.comboVeiculo.TabIndex = 6;
-            this.comboVeiculo.SelectedIndexChanged += new System.EventHandler(this.comboVeiculo_SelectedIndexChanged);
             // 
             // textoMarca
             // 
@@ -150,7 +149,6 @@
             this.botaoAdicionar.TabIndex = 12;
             this.botaoAdicionar.Text = "Adicionar";
             this.botaoAdicionar.UseVisualStyleBackColor = true;
-            this.botaoAdicionar.Click += new System.EventHandler(this.botaoAdicionar_Click);
             // 
             // botaoCancelar
             // 
@@ -160,7 +158,6 @@
             this.botaoCancelar.TabIndex = 13;
             this.botaoCancelar.Text = "Cancelar";
             this.botaoCancelar.UseVisualStyleBackColor = true;
-            this.botaoCancelar.Click += new System.EventHandler(this.botaoCancelar_Click);
             // 
             // FormulárioNovoVeiculo
             // 
@@ -182,7 +179,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FormulárioNovoVeiculo";
-            this.Load += new System.EventHandler(this.FormulárioNovoVeiculo_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

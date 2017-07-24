@@ -1,17 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace VendeBemVeiculos
 {
-    public partial class FormularioCliente : Form
+    interface IRegistro
     {
-       
+        void Adiciona(Object item);
+        void Remove(Object item);
+        bool VerificaSeContemObjeto(Object item);
     }
 }

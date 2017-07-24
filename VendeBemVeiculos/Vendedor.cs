@@ -6,42 +6,23 @@ using System.Threading.Tasks;
 
 namespace VendeBemVeiculos
 {
-    public class Vendedor
+    public class Vendedor : IPessoa
     {
-        public string Nome { get; private set; }
-        public int Registro { get; }
-        public static int NumeroVendedores { get; private set; }
-        public string Senha { get; private set; }
-        public int Vendas { get; set; }
+        public string PrimeiroNome { get; set; }
+        public string UltimoNome { get; set; }
+        public string CPF { get; set; }
 
-        public Vendedor(string nome, string senha="123")
+        public Vendedor(string primeiroNome, string ultimoNome, string cpf)
         {
-            CadastrarSenha(senha);
-            this.Nome = nome;
-            NumeroVendedores++;
-            this.Registro = NumeroVendedores;
+            this.PrimeiroNome = primeiroNome;
+            this.UltimoNome = ultimoNome;
+            this.CPF = cpf;
         }
 
-        public void Vende(Veiculo veiculo, Cliente cliente)
+        public override bool Equals(object obj)
         {
-            veiculo.Exclui();
-            cliente.Compras++;
-            this.Vendas++;
+            
         }
 
-        public void CadastrarSenha(string senha)
-        {
-            this.Senha = senha;
-        }
-
-        public void AlterarNome(string nome)
-        {
-            this.Nome = nome;
-        }
-
-        public override string ToString()
-        {
-            return this.Nome;
-        }
     }
 }

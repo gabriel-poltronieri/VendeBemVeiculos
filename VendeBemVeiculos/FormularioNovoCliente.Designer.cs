@@ -112,7 +112,6 @@
             this.BotaoCadastra.TabIndex = 8;
             this.BotaoCadastra.Text = "Cadastrar";
             this.BotaoCadastra.UseVisualStyleBackColor = true;
-            this.BotaoCadastra.Click += new System.EventHandler(this.BotaoCadastra_Click);
             // 
             // BotaoCancela
             // 
@@ -122,7 +121,6 @@
             this.BotaoCancela.TabIndex = 9;
             this.BotaoCancela.Text = "Cancelar";
             this.BotaoCancela.UseVisualStyleBackColor = true;
-            this.BotaoCancela.Click += new System.EventHandler(this.BotaoCancela_Click);
             // 
             // FormularioNovoCliente
             // 
@@ -141,7 +139,6 @@
             this.Controls.Add(this.label1);
             this.Name = "FormularioNovoCliente";
             this.Text = "Novo Cliente";
-            this.Load += new System.EventHandler(this.FormularioNovoCliente_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -6,8 +6,17 @@ using System.Threading.Tasks;
 
 namespace VendeBemVeiculos
 {
-    class Moto : Veiculo
+    class Moto : IVeiculo
     {
-        public Moto(string marca, string modelo, string ano, double preco, int quantidade) : base(marca, modelo, ano, preco, quantidade) { }
+        public string Marca { get; set; }
+        public string Modelo { get; set; }
+        public string Ano { get; set; }
+
+        public Moto(string marca, string modelo, string ano)
+        {
+            this.Marca = marca;
+            this.Modelo = modelo;
+            this.Ano = ano;
+        }
     }
 }

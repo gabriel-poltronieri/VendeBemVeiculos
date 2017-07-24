@@ -48,7 +48,6 @@
             this.botaoBusca.TabIndex = 11;
             this.botaoBusca.Text = "Buscar";
             this.botaoBusca.UseVisualStyleBackColor = true;
-            this.botaoBusca.Click += new System.EventHandler(this.botaoBusca_Click);
             // 
             // textoModelo
             // 
@@ -74,7 +73,6 @@
             this.botaoExclui.TabIndex = 8;
             this.botaoExclui.Text = "Excluir ";
             this.botaoExclui.UseVisualStyleBackColor = true;
-            this.botaoExclui.Click += new System.EventHandler(this.botaoExclui_Click);
             // 
             // botaoSeleciona
             // 
@@ -84,7 +82,6 @@
             this.botaoSeleciona.TabIndex = 7;
             this.botaoSeleciona.Text = "Seleciona";
             this.botaoSeleciona.UseVisualStyleBackColor = true;
-            this.botaoSeleciona.Click += new System.EventHandler(this.botaoSeleciona_Click);
             // 
             // listaVeiculos
             // 
@@ -93,7 +90,6 @@
             this.listaVeiculos.Name = "listaVeiculos";
             this.listaVeiculos.Size = new System.Drawing.Size(342, 173);
             this.listaVeiculos.TabIndex = 6;
-            this.listaVeiculos.SelectedIndexChanged += new System.EventHandler(this.listaVeiculos_SelectedIndexChanged);
             // 
             // botaoNovo
             // 
@@ -112,7 +108,6 @@
             this.botaoCancela.TabIndex = 13;
             this.botaoCancela.Text = "Cancela";
             this.botaoCancela.UseVisualStyleBackColor = true;
-            this.botaoCancela.Click += new System.EventHandler(this.botaoCancela_Click);
             // 
             // radioCarro
             // 
@@ -124,7 +119,6 @@
             this.radioCarro.TabStop = true;
             this.radioCarro.Text = "Carro";
             this.radioCarro.UseVisualStyleBackColor = true;
-            this.radioCarro.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // radioMoto
             // 
@@ -136,7 +130,6 @@
             this.radioMoto.TabStop = true;
             this.radioMoto.Text = "Moto";
             this.radioMoto.UseVisualStyleBackColor = true;
-            this.radioMoto.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
             // FormularioEstoque
             // 
@@ -155,7 +148,6 @@
             this.Controls.Add(this.listaVeiculos);
             this.Name = "FormularioEstoque";
             this.Text = "Estoque de Veículos";
-            this.Load += new System.EventHandler(this.FormularioEstoque_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

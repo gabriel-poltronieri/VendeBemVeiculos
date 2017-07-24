@@ -44,7 +44,6 @@
             this.listaClientes.Name = "listaClientes";
             this.listaClientes.Size = new System.Drawing.Size(260, 173);
             this.listaClientes.TabIndex = 0;
-            this.listaClientes.SelectedIndexChanged += new System.EventHandler(this.listaClientes_SelectedIndexChanged);
             // 
             // botaoSeleciona
             // 
@@ -54,7 +53,6 @@
             this.botaoSeleciona.TabIndex = 1;
             this.botaoSeleciona.Text = "Seleciona";
             this.botaoSeleciona.UseVisualStyleBackColor = true;
-            this.botaoSeleciona.Click += new System.EventHandler(this.botaoSeleciona_Click);
             // 
             // botaoNovo
             // 
@@ -64,7 +62,6 @@
             this.botaoNovo.TabIndex = 2;
             this.botaoNovo.Text = "Novo Cliente";
             this.botaoNovo.UseVisualStyleBackColor = true;
-            this.botaoNovo.Click += new System.EventHandler(this.botaoNovo_Click);
             // 
             // labeCpf
             // 
@@ -90,7 +87,6 @@
             this.botaoBusca.TabIndex = 5;
             this.botaoBusca.Text = "Buscar";
             this.botaoBusca.UseVisualStyleBackColor = true;
-            this.botaoBusca.Click += new System.EventHandler(this.botaoBusca_Click);
             // 
             // botaoExclui
             // 
@@ -100,7 +96,6 @@
             this.botaoExclui.TabIndex = 6;
             this.botaoExclui.Text = "Excluir";
             this.botaoExclui.UseVisualStyleBackColor = true;
-            this.botaoExclui.Click += new System.EventHandler(this.botaoExclui_Click);
             // 
             // FormularioCliente
             // 
@@ -116,7 +111,6 @@
             this.Controls.Add(this.listaClientes);
             this.Name = "FormularioCliente";
             this.Text = "FormularioCliente";
-            this.Load += new System.EventHandler(this.FormularioCliente_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
