@@ -36,8 +36,6 @@
             this.listaVeiculos = new System.Windows.Forms.ListBox();
             this.botaoNovo = new System.Windows.Forms.Button();
             this.botaoCancela = new System.Windows.Forms.Button();
-            this.radioCarro = new System.Windows.Forms.RadioButton();
-            this.radioMoto = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // botaoBusca
@@ -82,6 +80,7 @@
             this.botaoSeleciona.TabIndex = 7;
             this.botaoSeleciona.Text = "Seleciona";
             this.botaoSeleciona.UseVisualStyleBackColor = true;
+            this.botaoSeleciona.Click += new System.EventHandler(this.botaoSeleciona_Click);
             // 
             // listaVeiculos
             // 
@@ -90,6 +89,7 @@
             this.listaVeiculos.Name = "listaVeiculos";
             this.listaVeiculos.Size = new System.Drawing.Size(342, 173);
             this.listaVeiculos.TabIndex = 6;
+            this.listaVeiculos.SelectedIndexChanged += new System.EventHandler(this.listaVeiculos_SelectedIndexChanged);
             // 
             // botaoNovo
             // 
@@ -109,35 +109,11 @@
             this.botaoCancela.Text = "Cancela";
             this.botaoCancela.UseVisualStyleBackColor = true;
             // 
-            // radioCarro
-            // 
-            this.radioCarro.AutoSize = true;
-            this.radioCarro.Location = new System.Drawing.Point(57, 191);
-            this.radioCarro.Name = "radioCarro";
-            this.radioCarro.Size = new System.Drawing.Size(50, 17);
-            this.radioCarro.TabIndex = 14;
-            this.radioCarro.TabStop = true;
-            this.radioCarro.Text = "Carro";
-            this.radioCarro.UseVisualStyleBackColor = true;
-            // 
-            // radioMoto
-            // 
-            this.radioMoto.AutoSize = true;
-            this.radioMoto.Location = new System.Drawing.Point(237, 191);
-            this.radioMoto.Name = "radioMoto";
-            this.radioMoto.Size = new System.Drawing.Size(49, 17);
-            this.radioMoto.TabIndex = 15;
-            this.radioMoto.TabStop = true;
-            this.radioMoto.Text = "Moto";
-            this.radioMoto.UseVisualStyleBackColor = true;
-            // 
             // FormularioEstoque
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(366, 293);
-            this.Controls.Add(this.radioMoto);
-            this.Controls.Add(this.radioCarro);
             this.Controls.Add(this.botaoCancela);
             this.Controls.Add(this.botaoNovo);
             this.Controls.Add(this.botaoBusca);
@@ -148,6 +124,7 @@
             this.Controls.Add(this.listaVeiculos);
             this.Name = "FormularioEstoque";
             this.Text = "Estoque de Veículos";
+            this.Load += new System.EventHandler(this.FormularioEstoque_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -163,7 +140,5 @@
         private System.Windows.Forms.ListBox listaVeiculos;
         private System.Windows.Forms.Button botaoNovo;
         private System.Windows.Forms.Button botaoCancela;
-        private System.Windows.Forms.RadioButton radioCarro;
-        private System.Windows.Forms.RadioButton radioMoto;
     }
 }

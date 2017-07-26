@@ -47,6 +47,8 @@
   <ItemGroup>
     <Compile Include="Carro.cs" />
     <Compile Include="Cliente.cs" />
+    <Compile Include="FiltroDeVeiculo.cs" />
+    <Compile Include="FiltroDePessoa.cs" />
     <Compile Include="FormularioCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,6 +66,12 @@
     </Compile>
     <Compile Include="FormularioNovoCliente.Designer.cs">
       <DependentUpon>FormularioNovoCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormularioNovoVendedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormularioNovoVendedor.Designer.cs">
+      <DependentUpon>FormularioNovoVendedor.cs</DependentUpon>
     </Compile>
     <Compile Include="FormularioPagamento.cs">
       <SubType>Form</SubType>
@@ -90,14 +98,17 @@
       <DependentUpon>FormulárioNovoVeiculo.cs</DependentUpon>
     </Compile>
     <Compile Include="IManipulaTXT.cs" />
-    <Compile Include="ItemDaListaDeVeiculos.cs" />
+    <Compile Include="ItemDoRegistroDeVeiculos.cs" />
     <Compile Include="Moto.cs" />
     <Compile Include="PessoaGenerica.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegistroDeVeiculos.cs" />
+    <Compile Include="RegistroDeVenda.cs" />
     <Compile Include="Veiculo.cs" />
     <Compile Include="RegistroDeDados.cs" />
     <Compile Include="RegistroDePessoas.cs" />
+    <Compile Include="Venda.cs" />
     <Compile Include="Vendedor.cs" />
     <EmbeddedResource Include="FormularioCliente.resx">
       <DependentUpon>FormularioCliente.cs</DependentUpon>
@@ -107,6 +118,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormularioNovoCliente.resx">
       <DependentUpon>FormularioNovoCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormularioNovoVendedor.resx">
+      <DependentUpon>FormularioNovoVendedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormularioPagamento.resx">
       <DependentUpon>FormularioPagamento.cs</DependentUpon>

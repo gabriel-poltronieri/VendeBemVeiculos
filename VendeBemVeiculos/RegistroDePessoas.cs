@@ -9,6 +9,11 @@ namespace VendeBemVeiculos
 {
     class RegistroDePessoas<T> : RegistroDeDados<T> where T : PessoaGenerica
     {   
+        public RegistroDePessoas()
+        {
+            CarregaDadosDoArquivo(typeof(T).Name);
+        }
+
         public override void AdicionaOsObjetosAoConjuntoComAjudaDoStreamReader(StreamReader leitor)
         {
             string linhaLida = leitor.ReadLine();
@@ -20,14 +25,14 @@ namespace VendeBemVeiculos
                 string cpf = PegaCPF(dados);
                 var pessoaInstanciada = (T)Activator.CreateInstance(typeof(T), primeiroNome, ultimoNome, cpf);
                 this.ConjuntoDeDados.Add(pessoaInstanciada);
-                leitor.ReadLine();
+                linhaLida = leitor.ReadLine();
             }
         }
         public override void ColocaItensNaString()
         {
             foreach (T v in this.ConjuntoDeDados)
             {
-                todosOsDadosRegistrados += $"{v.PrimeiroNome}%{v.UltimoNome}%{v.CPF}\n\r";
+                todosOsDadosRegistrados += $"{v.PrimeiroNome}%{v.UltimoNome}%{v.CPF}\r\n";
             }
         }
 

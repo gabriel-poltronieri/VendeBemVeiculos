@@ -32,11 +32,7 @@
             this.labelVendedor = new System.Windows.Forms.Label();
             this.labelVeiculo = new System.Windows.Forms.Label();
             this.labelValor = new System.Windows.Forms.Label();
-            this.labelPagamento = new System.Windows.Forms.Label();
             this.groupPagamento = new System.Windows.Forms.GroupBox();
-            this.textoSenha = new System.Windows.Forms.TextBox();
-            this.labelSenha = new System.Windows.Forms.Label();
-            this.valorPagamento = new System.Windows.Forms.Label();
             this.valorPreco = new System.Windows.Forms.Label();
             this.valorVeiculo = new System.Windows.Forms.Label();
             this.valorVendedor = new System.Windows.Forms.Label();
@@ -82,60 +78,22 @@
             this.labelValor.TabIndex = 3;
             this.labelValor.Text = "Valor: ";
             // 
-            // labelPagamento
-            // 
-            this.labelPagamento.AutoSize = true;
-            this.labelPagamento.Location = new System.Drawing.Point(6, 108);
-            this.labelPagamento.Name = "labelPagamento";
-            this.labelPagamento.Size = new System.Drawing.Size(114, 13);
-            this.labelPagamento.TabIndex = 4;
-            this.labelPagamento.Text = "Forma de Pagamento: ";
-            // 
             // groupPagamento
             // 
-            this.groupPagamento.Controls.Add(this.textoSenha);
-            this.groupPagamento.Controls.Add(this.labelSenha);
-            this.groupPagamento.Controls.Add(this.valorPagamento);
             this.groupPagamento.Controls.Add(this.valorPreco);
             this.groupPagamento.Controls.Add(this.valorVeiculo);
             this.groupPagamento.Controls.Add(this.valorVendedor);
             this.groupPagamento.Controls.Add(this.valorCliente);
             this.groupPagamento.Controls.Add(this.labelCliente);
-            this.groupPagamento.Controls.Add(this.labelPagamento);
             this.groupPagamento.Controls.Add(this.labelVendedor);
             this.groupPagamento.Controls.Add(this.labelValor);
             this.groupPagamento.Controls.Add(this.labelVeiculo);
             this.groupPagamento.Location = new System.Drawing.Point(13, 13);
             this.groupPagamento.Name = "groupPagamento";
-            this.groupPagamento.Size = new System.Drawing.Size(259, 160);
+            this.groupPagamento.Size = new System.Drawing.Size(259, 107);
             this.groupPagamento.TabIndex = 5;
             this.groupPagamento.TabStop = false;
             this.groupPagamento.Text = "Pagamento";
-            // 
-            // textoSenha
-            // 
-            this.textoSenha.Location = new System.Drawing.Point(126, 131);
-            this.textoSenha.Name = "textoSenha";
-            this.textoSenha.Size = new System.Drawing.Size(100, 20);
-            this.textoSenha.TabIndex = 11;
-            // 
-            // labelSenha
-            // 
-            this.labelSenha.AutoSize = true;
-            this.labelSenha.Location = new System.Drawing.Point(6, 134);
-            this.labelSenha.Name = "labelSenha";
-            this.labelSenha.Size = new System.Drawing.Size(38, 13);
-            this.labelSenha.TabIndex = 10;
-            this.labelSenha.Text = "Senha";
-            // 
-            // valorPagamento
-            // 
-            this.valorPagamento.AutoSize = true;
-            this.valorPagamento.Location = new System.Drawing.Point(123, 108);
-            this.valorPagamento.Name = "valorPagamento";
-            this.valorPagamento.Size = new System.Drawing.Size(61, 13);
-            this.valorPagamento.TabIndex = 9;
-            this.valorPagamento.Text = "Pagamento";
             // 
             // valorPreco
             // 
@@ -175,32 +133,35 @@
             // 
             // butaoEfetiva
             // 
-            this.butaoEfetiva.Location = new System.Drawing.Point(22, 179);
+            this.butaoEfetiva.Location = new System.Drawing.Point(22, 126);
             this.butaoEfetiva.Name = "butaoEfetiva";
             this.butaoEfetiva.Size = new System.Drawing.Size(111, 23);
             this.butaoEfetiva.TabIndex = 6;
             this.butaoEfetiva.Text = "Efetivar Compra";
             this.butaoEfetiva.UseVisualStyleBackColor = true;
+            this.butaoEfetiva.Click += new System.EventHandler(this.butaoEfetiva_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(181, 179);
+            this.button2.Location = new System.Drawing.Point(181, 126);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 7;
             this.button2.Text = "Cancelar";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // FormularioPagamento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 211);
+            this.ClientSize = new System.Drawing.Size(284, 159);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.butaoEfetiva);
             this.Controls.Add(this.groupPagamento);
             this.Name = "FormularioPagamento";
             this.Text = "FormularioPagamento";
+            this.Load += new System.EventHandler(this.FormularioPagamento_Load);
             this.groupPagamento.ResumeLayout(false);
             this.groupPagamento.PerformLayout();
             this.ResumeLayout(false);
@@ -213,7 +174,6 @@
         private System.Windows.Forms.Label labelVendedor;
         private System.Windows.Forms.Label labelVeiculo;
         private System.Windows.Forms.Label labelValor;
-        private System.Windows.Forms.Label labelPagamento;
         private System.Windows.Forms.GroupBox groupPagamento;
         private System.Windows.Forms.Button butaoEfetiva;
         private System.Windows.Forms.Button button2;
@@ -221,8 +181,5 @@
         private System.Windows.Forms.Label valorVeiculo;
         private System.Windows.Forms.Label valorVendedor;
         private System.Windows.Forms.Label valorCliente;
-        private System.Windows.Forms.TextBox textoSenha;
-        private System.Windows.Forms.Label labelSenha;
-        private System.Windows.Forms.Label valorPagamento;
     }
 }

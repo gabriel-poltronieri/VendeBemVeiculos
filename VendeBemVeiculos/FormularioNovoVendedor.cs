@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace VendeBemVeiculos
 {
-    public partial class FormularioNovoCliente : Form
+    public partial class FormularioNovoVendedor : Form
     {
-        public FormularioNovoCliente()
+        public FormularioNovoVendedor()
         {
             InitializeComponent();
         }

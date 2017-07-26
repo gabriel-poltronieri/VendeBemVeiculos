@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VendeBemVeiculos
 {
-    public class PessoaGenerica
+    public class PessoaGenerica : IComparable
     {
         public string PrimeiroNome { get; set; }
         public string UltimoNome { get; set; }
@@ -32,9 +32,19 @@ namespace VendeBemVeiculos
         {
             return (int)(Convert.ToUInt64(CPF) / 20051);
         }
+        public override string ToString()
+        {
+            return $"{this.PrimeiroNome} {this.UltimoNome}";
+        }
         private bool EhPessoa(object obj)
         {
             return obj is PessoaGenerica;
+        }
+
+        public int CompareTo(object obj)
+        {
+            PessoaGenerica p = (PessoaGenerica)obj;
+            return String.Compare(this.PrimeiroNome, p.PrimeiroNome);
         }
     }
 }

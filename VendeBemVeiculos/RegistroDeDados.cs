@@ -10,12 +10,12 @@ namespace VendeBemVeiculos
     public abstract class RegistroDeDados<T> 
     {
         public string ArquivoTXT { get; protected set; }
-        public SortedSet<T> ConjuntoDeDados { get; protected set; }
+        public SortedSet<T> ConjuntoDeDados = new SortedSet<T>();
         protected string todosOsDadosRegistrados;
 
         public void CarregaDadosDoArquivo(string nomeDoArquivo)
         {
-            this.ArquivoTXT = nomeDoArquivo;
+            this.ArquivoTXT = nomeDoArquivo + ".txt";
             if (ArquivoExiste(ArquivoTXT))
             {
                 Stream streamDeDados = File.Open(this.ArquivoTXT, FileMode.Open);
@@ -42,8 +42,8 @@ namespace VendeBemVeiculos
             StreamWriter escritorDasPessoas = new StreamWriter(streamDasPessoas);
             ColocaItensNaString();
             escritorDasPessoas.Write(todosOsDadosRegistrados);
-            streamDasPessoas.Close();
             escritorDasPessoas.Close();
+            streamDasPessoas.Close();
             ApagaConteudoDaString();
         }
 

@@ -12,4 +12,5 @@ C:\Users\gabriel.poltronieri\Documents\Visual Studio 2017\Projects\VendeBemVeicu
 C:\Users\gabriel.poltronieri\Documents\Visual Studio 2017\Projects\VendeBemVeiculos\VendeBemVeiculos\obj\Debug\VendeBemVeiculos.FormularioCliente.resources
 C:\Users\gabriel.poltronieri\Documents\Visual Studio 2017\Projects\VendeBemVeiculos\VendeBemVeiculos\obj\Debug\VendeBemVeiculos.FormularioNovoCliente.resources
 C:\Users\gabriel.poltronieri\Documents\Visual Studio 2017\Projects\VendeBemVeiculos\VendeBemVeiculos\obj\Debug\VendeBemVeiculos.FormularioEstoque.resources
-C:\Users\gabriel.poltronieri\Documents\Visual Studio 2017\Projects\VendeBemVeiculos\VendeBemVeiculos\obj\Debug\VendeBemVeiculos.FormulárioNovoVeiculo.resources
+C:\Users\gabriel.poltronieri\Documents\Visual Studio 2017\Projects\VendeBemVeiculos\VendeBemVeiculos\obj\Debug\VendeBemVeiculos.FormularioNovoVendedor.resources
+C:\Users\gabriel.poltronieri\Documents\Visual Studio 2017\Projects\VendeBemVeiculos\VendeBemVeiculos\obj\Debug\VendeBemVeiculos.FormularioNovoVeiculo.resources

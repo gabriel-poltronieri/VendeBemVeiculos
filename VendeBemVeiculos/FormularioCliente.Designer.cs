@@ -44,6 +44,7 @@
             this.listaClientes.Name = "listaClientes";
             this.listaClientes.Size = new System.Drawing.Size(260, 173);
             this.listaClientes.TabIndex = 0;
+            this.listaClientes.SelectedIndexChanged += new System.EventHandler(this.listaClientes_SelectedIndexChanged);
             // 
             // botaoSeleciona
             // 
@@ -53,6 +54,7 @@
             this.botaoSeleciona.TabIndex = 1;
             this.botaoSeleciona.Text = "Seleciona";
             this.botaoSeleciona.UseVisualStyleBackColor = true;
+            this.botaoSeleciona.Click += new System.EventHandler(this.botaoSeleciona_Click);
             // 
             // botaoNovo
             // 
@@ -87,6 +89,7 @@
             this.botaoBusca.TabIndex = 5;
             this.botaoBusca.Text = "Buscar";
             this.botaoBusca.UseVisualStyleBackColor = true;
+            this.botaoBusca.Click += new System.EventHandler(this.botaoBusca_Click);
             // 
             // botaoExclui
             // 

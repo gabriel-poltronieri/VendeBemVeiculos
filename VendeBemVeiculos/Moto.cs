@@ -8,7 +8,7 @@ namespace VendeBemVeiculos
 {
     class Moto : Veiculo
     {
-        public Moto(string marca, string modelo, string ano)
-            : base(marca, modelo, ano) { }
+        public Moto(string marca, string modelo, string ano, double preco)
+            : base(marca, modelo, ano, preco) { }
     }
 }
