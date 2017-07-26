@@ -111,6 +111,7 @@
             this.Controls.Add(this.listaClientes);
             this.Name = "FormularioCliente";
             this.Text = "FormularioCliente";
+            this.Load += new System.EventHandler(this.FormularioCliente_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

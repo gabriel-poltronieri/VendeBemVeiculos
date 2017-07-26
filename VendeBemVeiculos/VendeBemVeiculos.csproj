@@ -89,13 +89,15 @@
     <Compile Include="FormulárioNovoVeiculo.Designer.cs">
       <DependentUpon>FormulárioNovoVeiculo.cs</DependentUpon>
     </Compile>
-    <Compile Include="IPessoa.cs" />
-    <Compile Include="IRegistros.cs" />
+    <Compile Include="IManipulaTXT.cs" />
+    <Compile Include="ItemDaListaDeVeiculos.cs" />
     <Compile Include="Moto.cs" />
+    <Compile Include="PessoaGenerica.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="IVeiculo.cs" />
-    <Compile Include="RegistroDeVendedores.cs" />
+    <Compile Include="Veiculo.cs" />
+    <Compile Include="RegistroDeDados.cs" />
+    <Compile Include="RegistroDePessoas.cs" />
     <Compile Include="Vendedor.cs" />
     <EmbeddedResource Include="FormularioCliente.resx">
       <DependentUpon>FormularioCliente.cs</DependentUpon>

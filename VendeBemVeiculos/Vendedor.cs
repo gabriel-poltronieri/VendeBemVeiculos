@@ -6,23 +6,9 @@ using System.Threading.Tasks;
 
 namespace VendeBemVeiculos
 {
-    public class Vendedor : IPessoa
+    public class Vendedor : PessoaGenerica
     {
-        public string PrimeiroNome { get; set; }
-        public string UltimoNome { get; set; }
-        public string CPF { get; set; }
-
-        public Vendedor(string primeiroNome, string ultimoNome, string cpf)
-        {
-            this.PrimeiroNome = primeiroNome;
-            this.UltimoNome = ultimoNome;
-            this.CPF = cpf;
-        }
-
-        public override bool Equals(object obj)
-        {
-            
-        }
-
+        public Vendedor(string primeiroNome, string ultimoNome, string cpf) 
+            : base(primeiroNome, ultimoNome, cpf) { }                
     }
 }

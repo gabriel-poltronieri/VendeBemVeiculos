@@ -51,6 +51,7 @@
             this.botaoVenda.TabIndex = 1;
             this.botaoVenda.Text = "Realizar Venda";
             this.botaoVenda.UseVisualStyleBackColor = true;
+            this.botaoVenda.Click += new System.EventHandler(this.botaoVenda_Click);
             // 
             // botaoEstoque
             // 
@@ -81,6 +82,7 @@
             this.Controls.Add(this.Titulo);
             this.Name = "FormularioPrincipal";
             this.Text = "Vende Bem Veículos";
+            this.Load += new System.EventHandler(this.FormularioPrincipal_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

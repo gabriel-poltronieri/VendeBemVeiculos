@@ -12,6 +12,9 @@ namespace VendeBemVeiculos
 {
     public partial class FormularioCliente : Form
     {
-       
+        private void FormularioCliente_Load(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace VendeBemVeiculos
 {
-    internal interface IPessoa
+    class ListaDeVeiculos : List<Veiculo>
     {
-        string PrimeiroNome { get; set; }
-        string UltimoNome { get; set; }
-        string CPF { get; set; }
+
     }
 }

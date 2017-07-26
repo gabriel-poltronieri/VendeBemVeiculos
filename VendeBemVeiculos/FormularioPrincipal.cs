@@ -13,6 +13,15 @@ namespace VendeBemVeiculos
 {
     public partial class FormularioPrincipal : Form
     {
-       
+        private void FormularioPrincipal_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void botaoVenda_Click(object sender, EventArgs e)
+        {
+            FormularioCliente cliente = new FormularioCliente();
+            cliente.Show();
+        }
     }
 }

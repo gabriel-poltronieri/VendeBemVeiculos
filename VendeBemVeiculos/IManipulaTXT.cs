@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace VendeBemVeiculos
 {
-    public interface IVeiculo
-    { 
-        string Marca { get; set; }
-        string Modelo { get; set; }
-        string Ano { get; set; }   
+    interface IManipulaTXT<T>
+    {
+        void AdicionaItemNoRegistro(T item);
+        void ExcluiItemDoRegistro(T item);
+        void AtualizaTXT();
     }
 }

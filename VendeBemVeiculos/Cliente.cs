@@ -6,18 +6,9 @@ using System.Threading.Tasks;
 
 namespace VendeBemVeiculos
 {
-    public class Cliente : IPessoa
+    public class Cliente : PessoaGenerica
     {
-        public string PrimeiroNome { get; set; }
-        public string UltimoNome { get; set; }
-        public string CPF { get; set; }
-
-
         public Cliente(string primeiroNome, string ultimoNome, string cpf)
-        {
-            this.PrimeiroNome = primeiroNome;
-            this.UltimoNome = ultimoNome;
-            this.CPF = cpf;
-        }
+            : base(primeiroNome, ultimoNome, cpf) { }
     }
 }
