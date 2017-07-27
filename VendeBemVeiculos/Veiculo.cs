@@ -20,7 +20,20 @@ namespace VendeBemVeiculos
             this.Ano = ano;
             this.Preco = preco;
         }
-
+                
+        public override int GetHashCode()
+        {
+            return (int)((Marca.Length * Modelo.Length) + Preco / Convert.ToInt16(Ano));
+        }
+        public override string ToString()
+        {
+            return $"{this.Marca} {this.Modelo} Ano {this.Ano}";
+        }
+        public int CompareTo(object obj)
+        {
+            var v = (Veiculo)obj;
+            return string.Compare(this.Marca, v.Marca);
+        }
         public override bool Equals(object obj)
         {
             if (EhVeiculo(obj))
@@ -30,29 +43,14 @@ namespace VendeBemVeiculos
             }
             return false;
         }
-        public override int GetHashCode()
-        {
-            return (int)((Marca.Length * Modelo.Length) + Preco / Convert.ToInt16(Ano));
-        }
-        public override string ToString()
-        {
-            return $"{this.Marca} {this.Modelo} Ano {this.Ano}";
-        }
+
         private bool EhVeiculo(object obj)
         {
             return obj is Veiculo;
         }
-        
-
         private bool ComparaTodosOsDados(Veiculo veiculo)
         {
             return (this.Marca == veiculo.Marca) && (this.Modelo == veiculo.Modelo) && (this.Ano == veiculo.Ano) && (this.Preco == veiculo.Preco);
-        }
-
-        public int CompareTo(object obj)
-        {
-            Veiculo v = (Veiculo)obj;
-            return String.Compare(this.Marca, v.Marca);
-        }
+        }       
     }
 }

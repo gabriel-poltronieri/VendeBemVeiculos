@@ -106,7 +106,6 @@
             this.botaoBuscaCliente.TabIndex = 6;
             this.botaoBuscaCliente.Text = "Buscar Cliente";
             this.botaoBuscaCliente.UseVisualStyleBackColor = true;
-            this.botaoBuscaCliente.Click += new System.EventHandler(this.botaoBuscaCliente_Click);
             // 
             // comboVendedor
             // 
@@ -115,7 +114,6 @@
             this.comboVendedor.Name = "comboVendedor";
             this.comboVendedor.Size = new System.Drawing.Size(249, 21);
             this.comboVendedor.TabIndex = 4;
-            this.comboVendedor.SelectedIndexChanged += new System.EventHandler(this.comboVendedor_SelectedIndexChanged);
             // 
             // botaoCancelar
             // 
@@ -134,7 +132,6 @@
             this.botaoPagamento.TabIndex = 17;
             this.botaoPagamento.Text = "Pagamento";
             this.botaoPagamento.UseVisualStyleBackColor = true;
-            this.botaoPagamento.Click += new System.EventHandler(this.botaoPagamento_Click);
             // 
             // textoVeiculo
             // 
@@ -153,7 +150,6 @@
             this.botaoVeiculo.TabIndex = 20;
             this.botaoVeiculo.Text = "Buscar Veiculo";
             this.botaoVeiculo.UseVisualStyleBackColor = true;
-            this.botaoVeiculo.Click += new System.EventHandler(this.botaoVeiculo_Click);
             // 
             // label1
             // 
@@ -173,7 +169,6 @@
             this.Controls.Add(this.labelTitulo);
             this.Name = "FormularioVenda";
             this.Text = "Dados da venda";
-            this.Load += new System.EventHandler(this.FormularioVenda_Load);
             this.groupClienteVendedor.ResumeLayout(false);
             this.groupClienteVendedor.PerformLayout();
             this.ResumeLayout(false);

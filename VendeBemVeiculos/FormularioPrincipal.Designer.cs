@@ -50,7 +50,6 @@
             this.botaoVenda.TabIndex = 1;
             this.botaoVenda.Text = "Realizar Venda";
             this.botaoVenda.UseVisualStyleBackColor = true;
-            this.botaoVenda.Click += new System.EventHandler(this.BotaoVenda_Click);
             // 
             // botaoVendedores
             // 
@@ -60,7 +59,6 @@
             this.botaoVendedores.TabIndex = 3;
             this.botaoVendedores.Text = "Registro de Vendedores";
             this.botaoVendedores.UseVisualStyleBackColor = true;
-            this.botaoVendedores.Click += new System.EventHandler(this.botaoVendedores_Click);
             // 
             // FormularioPrincipal
             // 

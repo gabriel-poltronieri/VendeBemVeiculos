@@ -7,54 +7,41 @@ using System.Threading.Tasks;
 
 namespace VendeBemVeiculos
 {
-    class RegistroDePessoas<T> : RegistroDeDados<T> where T : PessoaGenerica
-    {   
-        public RegistroDePessoas()
-        {
-            CarregaDadosDoArquivo(typeof(T).Name);
-        }
+    public class RegistroDePessoas<T> : Registro<T> where T : Pessoa
+    {
+        private const int PRIMEIRO_NOME = 0;
+        private const int ULTIMO_NOME = 1;
+        private const int CPF = 2;
 
-        public override void AdicionaOsObjetosAoConjuntoComAjudaDoStreamReader(StreamReader leitor)
+        public RegistroDePessoas(string nomeDoArquivo) 
+            : base(nomeDoArquivo) { }
+        
+        protected override ICollection<T> ConjuntoDeDados { get; } = new SortedSet<T>();
+
+        protected override void CarregaDados()
         {
-            string linhaLida = leitor.ReadLine();
-            while (LinhaContemDados(linhaLida))
+            using (Stream streamDePessoas = File.Open(this.NomeDoArquivo, FileMode.Open))
+            using (StreamReader leitorDeArquivo = new StreamReader(streamDePessoas))
             {
-                string[] dados = SeparaCadaDado(linhaLida);
-                string primeiroNome = PegaPrimeiroNome(dados);
-                string ultimoNome = PegaUltimoNome(dados);
-                string cpf = PegaCPF(dados);
-                var pessoaInstanciada = (T)Activator.CreateInstance(typeof(T), primeiroNome, ultimoNome, cpf);
-                this.ConjuntoDeDados.Add(pessoaInstanciada);
-                linhaLida = leitor.ReadLine();
+                string linhaLida = leitorDeArquivo.ReadLine();
+                while (!(string.IsNullOrEmpty(linhaLida)))
+                {
+                    string[] dados = linhaLida.Split('%');
+                    var primeiroNome = dados[PRIMEIRO_NOME];
+                    var ultimoNome = dados[ULTIMO_NOME];
+                    var cpf = dados[CPF];
+                    var pessoaInstanciada = (T)Activator.CreateInstance(typeof(T), primeiroNome, ultimoNome, cpf);
+                    this.ConjuntoDeDados.Add(pessoaInstanciada);
+                    linhaLida = leitorDeArquivo.ReadLine();
+                }
             }
         }
-        public override void ColocaItensNaString()
+        protected override void ColocaItensNaString()
         {
-            foreach (T v in this.ConjuntoDeDados)
+            foreach (T p in this.ConjuntoDeDados)
             {
-                todosOsDadosRegistrados += $"{v.PrimeiroNome}%{v.UltimoNome}%{v.CPF}\r\n";
+                todosOsDados += $"{p.PrimeiroNome}%{p.UltimoNome}%{p.CPF}\r\n";
             }
-        }
-
-        private bool LinhaContemDados(string linha)
-        {
-            return linha != null && linha != "";
-        }
-        private string[] SeparaCadaDado(string todosOsDados)
-        {
-            return todosOsDados.Split('%');
-        }
-        private string PegaPrimeiroNome(string[] dados)
-        {
-            return dados[0];
-        }
-        private string PegaUltimoNome(string[] dados)
-        {
-            return dados[1];
-        }
-        private string PegaCPF(string[] dados)
-        {
-            return dados[2];
-        }
+        }                        
     }
 }

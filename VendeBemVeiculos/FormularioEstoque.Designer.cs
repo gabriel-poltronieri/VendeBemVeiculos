@@ -80,7 +80,6 @@
             this.botaoSeleciona.TabIndex = 7;
             this.botaoSeleciona.Text = "Seleciona";
             this.botaoSeleciona.UseVisualStyleBackColor = true;
-            this.botaoSeleciona.Click += new System.EventHandler(this.botaoSeleciona_Click);
             // 
             // listaVeiculos
             // 
@@ -89,7 +88,6 @@
             this.listaVeiculos.Name = "listaVeiculos";
             this.listaVeiculos.Size = new System.Drawing.Size(342, 173);
             this.listaVeiculos.TabIndex = 6;
-            this.listaVeiculos.SelectedIndexChanged += new System.EventHandler(this.listaVeiculos_SelectedIndexChanged);
             // 
             // botaoNovo
             // 
@@ -124,7 +122,6 @@
             this.Controls.Add(this.listaVeiculos);
             this.Name = "FormularioEstoque";
             this.Text = "Estoque de Veículos";
-            this.Load += new System.EventHandler(this.FormularioEstoque_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

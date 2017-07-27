@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VendeBemVeiculos
 {
-    public class Cliente : PessoaGenerica
+    public class Cliente : Pessoa
     {
         public Cliente(string primeiroNome, string ultimoNome, string cpf)
             : base(primeiroNome, ultimoNome, cpf) { }

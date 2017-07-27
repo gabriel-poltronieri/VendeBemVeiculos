@@ -139,7 +139,6 @@
             this.butaoEfetiva.TabIndex = 6;
             this.butaoEfetiva.Text = "Efetivar Compra";
             this.butaoEfetiva.UseVisualStyleBackColor = true;
-            this.butaoEfetiva.Click += new System.EventHandler(this.butaoEfetiva_Click);
             // 
             // button2
             // 
@@ -149,7 +148,6 @@
             this.button2.TabIndex = 7;
             this.button2.Text = "Cancelar";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // FormularioPagamento
             // 
@@ -161,7 +159,6 @@
             this.Controls.Add(this.groupPagamento);
             this.Name = "FormularioPagamento";
             this.Text = "FormularioPagamento";
-            this.Load += new System.EventHandler(this.FormularioPagamento_Load);
             this.groupPagamento.ResumeLayout(false);
             this.groupPagamento.PerformLayout();
             this.ResumeLayout(false);

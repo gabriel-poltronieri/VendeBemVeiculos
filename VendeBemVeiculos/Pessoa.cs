@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace VendeBemVeiculos
 {
-    public class PessoaGenerica : IComparable
+    public class Pessoa : IComparable
     {
-        public string PrimeiroNome { get; set; }
-        public string UltimoNome { get; set; }
-        public string CPF { get; set; }
+        public string PrimeiroNome { get; private set; }
+        public string UltimoNome { get; private set; }
+        public string CPF { get; private set; }
 
-        public PessoaGenerica(string primeiroNome, string ultimoNome, string cpf)
+        public Pessoa(string primeiroNome, string ultimoNome, string cpf)
         {
             this.PrimeiroNome = primeiroNome;
             this.UltimoNome = ultimoNome;
@@ -23,7 +23,7 @@ namespace VendeBemVeiculos
         {
             if (EhPessoa(obj))
             {
-                var pessoaComparada = (PessoaGenerica)obj;
+                var pessoaComparada = (Pessoa)obj;
                 return this.CPF == pessoaComparada.CPF;
             }
             return false;
@@ -36,15 +36,15 @@ namespace VendeBemVeiculos
         {
             return $"{this.PrimeiroNome} {this.UltimoNome}";
         }
-        private bool EhPessoa(object obj)
-        {
-            return obj is PessoaGenerica;
-        }
-
         public int CompareTo(object obj)
         {
-            PessoaGenerica p = (PessoaGenerica)obj;
-            return String.Compare(this.PrimeiroNome, p.PrimeiroNome);
+            var p = (Pessoa)obj;
+            return string.Compare(this.PrimeiroNome, p.PrimeiroNome);
         }
+
+        private bool EhPessoa(object obj)
+        {
+            return obj is Pessoa;
+        }        
     }
 }

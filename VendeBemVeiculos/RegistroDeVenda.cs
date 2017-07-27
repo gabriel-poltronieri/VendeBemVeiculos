@@ -7,55 +7,77 @@ using System.Threading.Tasks;
 
 namespace VendeBemVeiculos
 {
-    class RegistroDeVenda<T> : RegistroDeDados<T> where T : Venda
+    public class RegistroDeVenda<T> : Registro<T> where T : Venda
     {
+        private const int CLIENTE_PRIMEIRO_NOME = 0;
+        private const int CLIENTE_ULTIMO_NOME = 1;
+        private const int CLIENTE_CPF = 2;
+        private const int VEICULO_MARCA = 3;
+        private const int VEICULO_MODELO = 4;
+        private const int VEICULO_ANO = 5;
+        private const int VEICULO_PRECO = 6;
+        private const int VENDEDOR_PRIMEIRO_NOME = 7;
+        private const int VENDEDOR_ULTIMO_NOME = 8;
+        private const int VENDEDOR_CPF = 9;
+        private const int DATA = 10;
 
-        public RegistroDeVenda()
-        {
-            CarregaDadosDoArquivo("Venda");
-        }
+        public RegistroDeVenda(string nomeDoArquivo) 
+            : base(nomeDoArquivo) { }
 
-        public override void AdicionaOsObjetosAoConjuntoComAjudaDoStreamReader(StreamReader leitor)
+        protected override ICollection<T> ConjuntoDeDados => new List<T>();
+
+        protected override void CarregaDados()
         {
-            string linhaLida = leitor.ReadLine();
-            while (LinhaContemDados(linhaLida))
+            using (Stream streamDeVendas = File.Open(this.NomeDoArquivo, FileMode.Open))
+            using (StreamReader leitorDeArquivo = new StreamReader(streamDeVendas))
             {
-                string[] dados = SeparaCadaDado(linhaLida);
-                Cliente cliente = PegarCliente(dados);
-                Vendedor vendedor = PegarVendedor(dados);
-                Veiculo veiculo = PegarVeiculo(dados);
-                var vendaRealizada = (T)Activator.CreateInstance(typeof(T), cliente, vendedor, veiculo);
-                this.ConjuntoDeDados.Add(vendaRealizada);
-                linhaLida = leitor.ReadLine();
+                string linhaLida = leitorDeArquivo.ReadLine();
+                while (!(string.IsNullOrEmpty((linhaLida)))
+                {
+                    string[] dados = linhaLida.Split('%');
+                    var cliente = InstanciarCliente(dados);
+                    var veiculo = InstanciarVeiculo(dados);
+                    var vendedor = IntanciaVendedor(dados);
+                    var data = dados[DATA];
+                    var venda = (T)Activator.CreateInstance(typeof(T), cliente, veiculo, vendedor, data);
+                    this.ConjuntoDeDados.Add(venda);
+                    linhaLida = leitorDeArquivo.ReadLine();
+                }
             }
         }
-        public override void ColocaItensNaString()
+        protected override void ColocaItensNaString()
         {
-            foreach(T v in this.ConjuntoDeDados)
+            foreach (T v in this.ConjuntoDeDados)
             {
-                todosOsDadosRegistrados += $"{v.cliente}"
+                todosOsDados += $"{v.Cliente.PrimeiroNome}%{v.Cliente.UltimoNome}%{v.Cliente.CPF}%" +
+                    $"{v.Veiculo.Marca}%{v.Veiculo.Modelo}%{v.Veiculo.Ano}%{v.Veiculo.Preco}%" +
+                    $"{v.Vendedor.PrimeiroNome}%{v.Vendedor.UltimoNome}%{v.Vendedor.CPF}%" +
+                    $"{v.Data}\r\n";
             }
+        }               
+        
+        private Cliente InstanciarCliente(string[] dados)
+        {
+            var clientePrimeiroNome = dados[CLIENTE_PRIMEIRO_NOME];
+            var clienteUltimoNome = dados[CLIENTE_ULTIMO_NOME];
+            var clienteCpf = dados[CLIENTE_CPF];
+            return new Cliente(clientePrimeiroNome, clienteUltimoNome, clienteCpf);
+        }
+        private Veiculo InstanciarVeiculo(string[] dados)
+        {
+            var veiculoMarca = dados[VEICULO_MARCA];
+            var veiculoModelo = dados[VEICULO_MODELO];
+            var veiculoAno = dados[VEICULO_ANO];
+            var veiculoPreco = dados[VEICULO_PRECO];
+            return new Veiculo(veiculoMarca, veiculoModelo, veiculoAno, Convert.ToDouble(veiculoPreco));
+        }
+        private Vendedor IntanciaVendedor(string[] dados)
+        {
+            var vendedorPrimeiroNome = dados[VENDEDOR_PRIMEIRO_NOME];
+            var vendedorUltimoNome = dados[VENDEDOR_ULTIMO_NOME];
+            var vendedorCpf = dados[VENDEDOR_CPF];
+            return new Vendedor(vendedorPrimeiroNome, vendedorUltimoNome, vendedorCpf);
         }
 
-        private Veiculo PegarVeiculo(string[] dados)
-        {
-            return new Veiculo(dados[6], dados[7], dados[8], Convert.ToDouble(dados[9]));
-        }
-        private Vendedor PegarVendedor(string[] dados)
-        {
-            return new Vendedor(dados[3], dados[4], dados[5]);
-        }
-        private Cliente PegarCliente(string[] dados)
-        {
-            return new Cliente(dados[0], dados[1], dados[2]);
-        }       
-        private string[] SeparaCadaDado(string todosOsDados)
-        {
-            return todosOsDados.Split('%');
-        }
-        private bool LinhaContemDados(string linha)
-        {
-            return linha != null && linha != "";
-        }
     }
 }
