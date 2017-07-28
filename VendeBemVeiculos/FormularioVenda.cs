@@ -17,6 +17,17 @@ namespace VendeBemVeiculos
         {
             InitializeComponent();
         }
-        
+
+        private void BotaoBuscaCliente_Click(object sender, EventArgs e)
+        {
+            FormularioCliente formularioCliente = new FormularioCliente();
+            formularioCliente.Show();
+        }
+
+        private void BotaoVeiculo_Click(object sender, EventArgs e)
+        {
+            FormularioEstoque formularioVeiculo = new FormularioEstoque();
+            formularioVeiculo.Show();
+        }
     }
 }

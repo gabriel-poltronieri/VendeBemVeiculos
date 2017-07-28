@@ -28,75 +28,97 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.TextoNome = new System.Windows.Forms.TextBox();
-            this.TextoCpf = new System.Windows.Forms.TextBox();
-            this.BotaoCadastra = new System.Windows.Forms.Button();
-            this.BotaoCancela = new System.Windows.Forms.Button();
+            this.labelPrimeiroNome = new System.Windows.Forms.Label();
+            this.labelCpf = new System.Windows.Forms.Label();
+            this.textoPrimeiroNome = new System.Windows.Forms.TextBox();
+            this.textoCpf = new System.Windows.Forms.TextBox();
+            this.botaoCadastra = new System.Windows.Forms.Button();
+            this.botaoCancela = new System.Windows.Forms.Button();
+            this.textoUltimoNome = new System.Windows.Forms.TextBox();
+            this.labelUltimoNome = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
+            // labelPrimeiroNome
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Nome";
+            this.labelPrimeiroNome.AutoSize = true;
+            this.labelPrimeiroNome.Location = new System.Drawing.Point(12, 9);
+            this.labelPrimeiroNome.Name = "labelPrimeiroNome";
+            this.labelPrimeiroNome.Size = new System.Drawing.Size(75, 13);
+            this.labelPrimeiroNome.TabIndex = 0;
+            this.labelPrimeiroNome.Text = "Primeiro Nome";
             // 
-            // label2
+            // labelCpf
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 35);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(27, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "CPF";
+            this.labelCpf.AutoSize = true;
+            this.labelCpf.Location = new System.Drawing.Point(12, 61);
+            this.labelCpf.Name = "labelCpf";
+            this.labelCpf.Size = new System.Drawing.Size(27, 13);
+            this.labelCpf.TabIndex = 1;
+            this.labelCpf.Text = "CPF";
             // 
-            // TextoNome
+            // textoPrimeiroNome
             // 
-            this.TextoNome.Location = new System.Drawing.Point(91, 6);
-            this.TextoNome.Name = "TextoNome";
-            this.TextoNome.Size = new System.Drawing.Size(181, 20);
-            this.TextoNome.TabIndex = 6;
+            this.textoPrimeiroNome.Location = new System.Drawing.Point(91, 6);
+            this.textoPrimeiroNome.Name = "textoPrimeiroNome";
+            this.textoPrimeiroNome.Size = new System.Drawing.Size(181, 20);
+            this.textoPrimeiroNome.TabIndex = 6;
             // 
-            // TextoCpf
+            // textoCpf
             // 
-            this.TextoCpf.Location = new System.Drawing.Point(91, 32);
-            this.TextoCpf.Name = "TextoCpf";
-            this.TextoCpf.Size = new System.Drawing.Size(181, 20);
-            this.TextoCpf.TabIndex = 7;
+            this.textoCpf.Location = new System.Drawing.Point(91, 58);
+            this.textoCpf.Name = "textoCpf";
+            this.textoCpf.Size = new System.Drawing.Size(181, 20);
+            this.textoCpf.TabIndex = 7;
             // 
-            // BotaoCadastra
+            // botaoCadastra
             // 
-            this.BotaoCadastra.Location = new System.Drawing.Point(46, 68);
-            this.BotaoCadastra.Name = "BotaoCadastra";
-            this.BotaoCadastra.Size = new System.Drawing.Size(75, 23);
-            this.BotaoCadastra.TabIndex = 8;
-            this.BotaoCadastra.Text = "Cadastrar";
-            this.BotaoCadastra.UseVisualStyleBackColor = true;
+            this.botaoCadastra.Location = new System.Drawing.Point(44, 94);
+            this.botaoCadastra.Name = "botaoCadastra";
+            this.botaoCadastra.Size = new System.Drawing.Size(75, 23);
+            this.botaoCadastra.TabIndex = 8;
+            this.botaoCadastra.Text = "Cadastrar";
+            this.botaoCadastra.UseVisualStyleBackColor = true;
+            this.botaoCadastra.Click += new System.EventHandler(this.BotaoCadastra_Click);
             // 
-            // BotaoCancela
+            // botaoCancela
             // 
-            this.BotaoCancela.Location = new System.Drawing.Point(163, 68);
-            this.BotaoCancela.Name = "BotaoCancela";
-            this.BotaoCancela.Size = new System.Drawing.Size(75, 23);
-            this.BotaoCancela.TabIndex = 9;
-            this.BotaoCancela.Text = "Cancelar";
-            this.BotaoCancela.UseVisualStyleBackColor = true;
+            this.botaoCancela.Location = new System.Drawing.Point(161, 94);
+            this.botaoCancela.Name = "botaoCancela";
+            this.botaoCancela.Size = new System.Drawing.Size(75, 23);
+            this.botaoCancela.TabIndex = 9;
+            this.botaoCancela.Text = "Cancelar";
+            this.botaoCancela.UseVisualStyleBackColor = true;
+            this.botaoCancela.Click += new System.EventHandler(this.BotaoCancela_Click);
+            // 
+            // textoUltimoNome
+            // 
+            this.textoUltimoNome.Location = new System.Drawing.Point(91, 32);
+            this.textoUltimoNome.Name = "textoUltimoNome";
+            this.textoUltimoNome.Size = new System.Drawing.Size(181, 20);
+            this.textoUltimoNome.TabIndex = 11;
+            // 
+            // labelUltimoNome
+            // 
+            this.labelUltimoNome.AutoSize = true;
+            this.labelUltimoNome.Location = new System.Drawing.Point(12, 35);
+            this.labelUltimoNome.Name = "labelUltimoNome";
+            this.labelUltimoNome.Size = new System.Drawing.Size(67, 13);
+            this.labelUltimoNome.TabIndex = 10;
+            this.labelUltimoNome.Text = "Último Nome";
             // 
             // FormularioNovoCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 101);
-            this.Controls.Add(this.BotaoCancela);
-            this.Controls.Add(this.BotaoCadastra);
-            this.Controls.Add(this.TextoCpf);
-            this.Controls.Add(this.TextoNome);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(284, 126);
+            this.Controls.Add(this.textoUltimoNome);
+            this.Controls.Add(this.labelUltimoNome);
+            this.Controls.Add(this.botaoCancela);
+            this.Controls.Add(this.botaoCadastra);
+            this.Controls.Add(this.textoCpf);
+            this.Controls.Add(this.textoPrimeiroNome);
+            this.Controls.Add(this.labelCpf);
+            this.Controls.Add(this.labelPrimeiroNome);
             this.Name = "FormularioNovoCliente";
             this.Text = "Novo Cliente";
             this.ResumeLayout(false);
@@ -106,11 +128,13 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox TextoNome;
-        private System.Windows.Forms.TextBox TextoCpf;
-        private System.Windows.Forms.Button BotaoCadastra;
-        private System.Windows.Forms.Button BotaoCancela;
+        private System.Windows.Forms.Label labelPrimeiroNome;
+        private System.Windows.Forms.Label labelCpf;
+        private System.Windows.Forms.TextBox textoPrimeiroNome;
+        private System.Windows.Forms.TextBox textoCpf;
+        private System.Windows.Forms.Button botaoCadastra;
+        private System.Windows.Forms.Button botaoCancela;
+        private System.Windows.Forms.TextBox textoUltimoNome;
+        private System.Windows.Forms.Label labelUltimoNome;
     }
 }

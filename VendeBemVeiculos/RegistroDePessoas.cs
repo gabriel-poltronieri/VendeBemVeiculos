@@ -20,19 +20,22 @@ namespace VendeBemVeiculos
 
         protected override void CarregaDados()
         {
-            using (Stream streamDePessoas = File.Open(this.NomeDoArquivo, FileMode.Open))
-            using (StreamReader leitorDeArquivo = new StreamReader(streamDePessoas))
+            if (File.Exists(this.NomeDoArquivo))
             {
-                string linhaLida = leitorDeArquivo.ReadLine();
-                while (!(string.IsNullOrEmpty(linhaLida)))
+                using (Stream streamDePessoas = File.Open(this.NomeDoArquivo, FileMode.Open))
+                using (StreamReader leitorDeArquivo = new StreamReader(streamDePessoas))
                 {
-                    string[] dados = linhaLida.Split('%');
-                    var primeiroNome = dados[PRIMEIRO_NOME];
-                    var ultimoNome = dados[ULTIMO_NOME];
-                    var cpf = dados[CPF];
-                    var pessoaInstanciada = (T)Activator.CreateInstance(typeof(T), primeiroNome, ultimoNome, cpf);
-                    this.ConjuntoDeDados.Add(pessoaInstanciada);
-                    linhaLida = leitorDeArquivo.ReadLine();
+                    string linhaLida = leitorDeArquivo.ReadLine();
+                    while (!(string.IsNullOrEmpty(linhaLida)))
+                    {
+                        string[] dados = linhaLida.Split('%');
+                        var primeiroNome = dados[PRIMEIRO_NOME];
+                        var ultimoNome = dados[ULTIMO_NOME];
+                        var cpf = dados[CPF];
+                        var pessoaInstanciada = (T)Activator.CreateInstance(typeof(T), primeiroNome, ultimoNome, cpf);
+                        this.ConjuntoDeDados.Add(pessoaInstanciada);
+                        linhaLida = leitorDeArquivo.ReadLine();
+                    }
                 }
             }
         }
@@ -40,8 +43,16 @@ namespace VendeBemVeiculos
         {
             foreach (T p in this.ConjuntoDeDados)
             {
-                todosOsDados += $"{p.PrimeiroNome}%{p.UltimoNome}%{p.CPF}\r\n";
+                CriaLinhaDaString(p);
             }
-        }                        
+        }                   
+        
+        private void CriaLinhaDaString(T pessoa)
+        {
+            if (pessoa != null)
+            {
+                this.todosOsDados += $"{pessoa.PrimeiroNome}%{pessoa.UltimoNome}%{pessoa.CPF}\r\n";
+            }
+        }
     }
 }

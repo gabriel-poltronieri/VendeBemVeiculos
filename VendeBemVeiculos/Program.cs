@@ -16,7 +16,7 @@ namespace VendeBemVeiculos
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormularioCliente());
+            Application.Run(new FormularioPrincipal());
         }
     }
 }

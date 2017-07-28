@@ -17,24 +17,27 @@ namespace VendeBemVeiculos
         public RegistroDeVeiculos(string nomeDoArquivo)
             : base(nomeDoArquivo) { }
 
-        protected override ICollection<T> ConjuntoDeDados => new List<T>();
+        protected override ICollection<T> ConjuntoDeDados { get; } =  new List<T>();
 
         protected override void CarregaDados()
         {
-            using (Stream streamDeVeiculos = File.Open(this.NomeDoArquivo, FileMode.Open))
-            using (StreamReader leitorDeArquivo = new StreamReader(streamDeVeiculos))
+            if (File.Exists(this.NomeDoArquivo))
             {
-                string linhaLida = leitorDeArquivo.ReadLine();
-                while (!(string.IsNullOrEmpty(linhaLida)))
+                using (Stream streamDeVeiculos = File.Open(this.NomeDoArquivo, FileMode.Open))
+                using (StreamReader leitorDeArquivo = new StreamReader(streamDeVeiculos))
                 {
-                    string[] dados = linhaLida.Split('%');
-                    var marca = dados[MARCA];
-                    var modelo = dados[MODELO];
-                    var ano = dados[ANO];
-                    var preco = dados[PRECO];
-                    var veiculoInstanciada = (T)Activator.CreateInstance(typeof(T), marca, modelo, ano, preco);
-                    this.ConjuntoDeDados.Add(veiculoInstanciada);
-                    linhaLida = leitorDeArquivo.ReadLine();
+                    string linhaLida = leitorDeArquivo.ReadLine();
+                    while (!(string.IsNullOrEmpty(linhaLida)))
+                    {
+                        string[] dados = linhaLida.Split('%');
+                        var marca = dados[MARCA];
+                        var modelo = dados[MODELO];
+                        var ano = dados[ANO];
+                        var preco = dados[PRECO];
+                        var veiculoInstanciado = (T)Activator.CreateInstance(typeof(T), marca, modelo, ano, Convert.ToDouble(preco));
+                        this.ConjuntoDeDados.Add(veiculoInstanciado);
+                        linhaLida = leitorDeArquivo.ReadLine();
+                    }
                 }
             }
         }        
@@ -42,7 +45,15 @@ namespace VendeBemVeiculos
         {
             foreach (T v in this.ConjuntoDeDados)
             {
-                todosOsDados += $"{v.Marca}%{v.Modelo}%{v.Ano}%{v.Preco}\r\n";
+                CriaLinhaDaString(v);
+            }
+        }
+
+        private void CriaLinhaDaString(T veiculo)
+        {
+            if (veiculo != null)
+            {
+                this.todosOsDados += $"{veiculo.Marca}%{veiculo.Modelo}%{veiculo.Ano}%{veiculo.Preco}\r\n";
             }
         }
     }

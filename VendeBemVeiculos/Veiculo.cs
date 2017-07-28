@@ -27,7 +27,7 @@ namespace VendeBemVeiculos
         }
         public override string ToString()
         {
-            return $"{this.Marca} {this.Modelo} Ano {this.Ano}";
+            return $"{this.Marca} {this.Modelo} Ano {this.Ano} Preço: R${string.Format("{0:0.00}", this.Preco)}";
         }
         public int CompareTo(object obj)
         {

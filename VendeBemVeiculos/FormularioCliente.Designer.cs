@@ -63,6 +63,7 @@
             this.botaoNovoCliente.TabIndex = 2;
             this.botaoNovoCliente.Text = "Novo Cliente";
             this.botaoNovoCliente.UseVisualStyleBackColor = true;
+            this.botaoNovoCliente.Click += new System.EventHandler(this.BotaoNovoCliente_Click);
             // 
             // labeCPF
             // 
@@ -114,7 +115,6 @@
             this.Controls.Add(this.listaClientes);
             this.Name = "FormularioCliente";
             this.Text = "FormularioCliente";
-            this.Load += new System.EventHandler(this.FormularioCliente_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

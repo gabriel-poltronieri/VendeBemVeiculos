@@ -33,13 +33,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.comboVeiculo = new System.Windows.Forms.ComboBox();
             this.textoMarca = new System.Windows.Forms.TextBox();
             this.textoModelo = new System.Windows.Forms.TextBox();
             this.textoAno = new System.Windows.Forms.TextBox();
             this.textoPreco = new System.Windows.Forms.TextBox();
-            this.textoQuantidade = new System.Windows.Forms.TextBox();
             this.botaoAdicionar = new System.Windows.Forms.Button();
             this.botaoCancelar = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -89,15 +87,6 @@
             this.label5.TabIndex = 4;
             this.label5.Text = "Preço:";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(13, 138);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(65, 13);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Quantidade:";
-            // 
             // comboVeiculo
             // 
             this.comboVeiculo.FormattingEnabled = true;
@@ -134,51 +123,44 @@
             this.textoPreco.Size = new System.Drawing.Size(181, 20);
             this.textoPreco.TabIndex = 10;
             // 
-            // textoQuantidade
-            // 
-            this.textoQuantidade.Location = new System.Drawing.Point(91, 135);
-            this.textoQuantidade.Name = "textoQuantidade";
-            this.textoQuantidade.Size = new System.Drawing.Size(181, 20);
-            this.textoQuantidade.TabIndex = 11;
-            // 
             // botaoAdicionar
             // 
-            this.botaoAdicionar.Location = new System.Drawing.Point(43, 161);
+            this.botaoAdicionar.Location = new System.Drawing.Point(41, 145);
             this.botaoAdicionar.Name = "botaoAdicionar";
             this.botaoAdicionar.Size = new System.Drawing.Size(75, 23);
             this.botaoAdicionar.TabIndex = 12;
             this.botaoAdicionar.Text = "Adicionar";
             this.botaoAdicionar.UseVisualStyleBackColor = true;
+            this.botaoAdicionar.Click += new System.EventHandler(this.BotaoAdicionar_Click);
             // 
             // botaoCancelar
             // 
-            this.botaoCancelar.Location = new System.Drawing.Point(179, 161);
+            this.botaoCancelar.Location = new System.Drawing.Point(177, 145);
             this.botaoCancelar.Name = "botaoCancelar";
             this.botaoCancelar.Size = new System.Drawing.Size(75, 23);
             this.botaoCancelar.TabIndex = 13;
             this.botaoCancelar.Text = "Cancelar";
             this.botaoCancelar.UseVisualStyleBackColor = true;
+            this.botaoCancelar.Click += new System.EventHandler(this.BotaoCancelar_Click);
             // 
-            // FormulárioNovoVeiculo
+            // FormularioNovoVeiculo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 190);
+            this.ClientSize = new System.Drawing.Size(284, 175);
             this.Controls.Add(this.botaoCancelar);
             this.Controls.Add(this.botaoAdicionar);
-            this.Controls.Add(this.textoQuantidade);
             this.Controls.Add(this.textoPreco);
             this.Controls.Add(this.textoAno);
             this.Controls.Add(this.textoModelo);
             this.Controls.Add(this.textoMarca);
             this.Controls.Add(this.comboVeiculo);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "FormulárioNovoVeiculo";
+            this.Name = "FormularioNovoVeiculo";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -191,13 +173,11 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox comboVeiculo;
         private System.Windows.Forms.TextBox textoMarca;
         private System.Windows.Forms.TextBox textoModelo;
         private System.Windows.Forms.TextBox textoAno;
         private System.Windows.Forms.TextBox textoPreco;
-        private System.Windows.Forms.TextBox textoQuantidade;
         private System.Windows.Forms.Button botaoAdicionar;
         private System.Windows.Forms.Button botaoCancelar;
     }

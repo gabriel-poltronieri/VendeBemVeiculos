@@ -32,14 +32,14 @@
             this.labelVendedor = new System.Windows.Forms.Label();
             this.labelCliente = new System.Windows.Forms.Label();
             this.groupClienteVendedor = new System.Windows.Forms.GroupBox();
-            this.textoCliente = new System.Windows.Forms.TextBox();
-            this.botaoBuscaCliente = new System.Windows.Forms.Button();
-            this.comboVendedor = new System.Windows.Forms.ComboBox();
-            this.botaoCancelar = new System.Windows.Forms.Button();
-            this.botaoPagamento = new System.Windows.Forms.Button();
             this.textoVeiculo = new System.Windows.Forms.TextBox();
             this.botaoVeiculo = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.botaoCancelar = new System.Windows.Forms.Button();
+            this.textoCliente = new System.Windows.Forms.TextBox();
+            this.botaoPagamento = new System.Windows.Forms.Button();
+            this.botaoBuscaCliente = new System.Windows.Forms.Button();
+            this.comboVendedor = new System.Windows.Forms.ComboBox();
             this.groupClienteVendedor.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -89,50 +89,6 @@
             this.groupClienteVendedor.TabStop = false;
             this.groupClienteVendedor.Text = "Envolvidos";
             // 
-            // textoCliente
-            // 
-            this.textoCliente.Location = new System.Drawing.Point(89, 68);
-            this.textoCliente.Name = "textoCliente";
-            this.textoCliente.ReadOnly = true;
-            this.textoCliente.Size = new System.Drawing.Size(249, 20);
-            this.textoCliente.TabIndex = 7;
-            this.textoCliente.Text = "Cliente";
-            // 
-            // botaoBuscaCliente
-            // 
-            this.botaoBuscaCliente.Location = new System.Drawing.Point(239, 105);
-            this.botaoBuscaCliente.Name = "botaoBuscaCliente";
-            this.botaoBuscaCliente.Size = new System.Drawing.Size(99, 23);
-            this.botaoBuscaCliente.TabIndex = 6;
-            this.botaoBuscaCliente.Text = "Buscar Cliente";
-            this.botaoBuscaCliente.UseVisualStyleBackColor = true;
-            // 
-            // comboVendedor
-            // 
-            this.comboVendedor.FormattingEnabled = true;
-            this.comboVendedor.Location = new System.Drawing.Point(89, 29);
-            this.comboVendedor.Name = "comboVendedor";
-            this.comboVendedor.Size = new System.Drawing.Size(249, 21);
-            this.comboVendedor.TabIndex = 4;
-            // 
-            // botaoCancelar
-            // 
-            this.botaoCancelar.Location = new System.Drawing.Point(202, 203);
-            this.botaoCancelar.Name = "botaoCancelar";
-            this.botaoCancelar.Size = new System.Drawing.Size(75, 23);
-            this.botaoCancelar.TabIndex = 18;
-            this.botaoCancelar.Text = "Cancelar";
-            this.botaoCancelar.UseVisualStyleBackColor = true;
-            // 
-            // botaoPagamento
-            // 
-            this.botaoPagamento.Location = new System.Drawing.Point(56, 203);
-            this.botaoPagamento.Name = "botaoPagamento";
-            this.botaoPagamento.Size = new System.Drawing.Size(75, 23);
-            this.botaoPagamento.TabIndex = 17;
-            this.botaoPagamento.Text = "Pagamento";
-            this.botaoPagamento.UseVisualStyleBackColor = true;
-            // 
             // textoVeiculo
             // 
             this.textoVeiculo.Location = new System.Drawing.Point(89, 145);
@@ -150,6 +106,7 @@
             this.botaoVeiculo.TabIndex = 20;
             this.botaoVeiculo.Text = "Buscar Veiculo";
             this.botaoVeiculo.UseVisualStyleBackColor = true;
+            this.botaoVeiculo.Click += new System.EventHandler(this.BotaoVeiculo_Click);
             // 
             // label1
             // 
@@ -159,6 +116,51 @@
             this.label1.Size = new System.Drawing.Size(42, 13);
             this.label1.TabIndex = 19;
             this.label1.Text = "Veiculo";
+            // 
+            // botaoCancelar
+            // 
+            this.botaoCancelar.Location = new System.Drawing.Point(202, 203);
+            this.botaoCancelar.Name = "botaoCancelar";
+            this.botaoCancelar.Size = new System.Drawing.Size(75, 23);
+            this.botaoCancelar.TabIndex = 18;
+            this.botaoCancelar.Text = "Cancelar";
+            this.botaoCancelar.UseVisualStyleBackColor = true;
+            // 
+            // textoCliente
+            // 
+            this.textoCliente.Location = new System.Drawing.Point(89, 68);
+            this.textoCliente.Name = "textoCliente";
+            this.textoCliente.ReadOnly = true;
+            this.textoCliente.Size = new System.Drawing.Size(249, 20);
+            this.textoCliente.TabIndex = 7;
+            this.textoCliente.Text = "Cliente";
+            // 
+            // botaoPagamento
+            // 
+            this.botaoPagamento.Location = new System.Drawing.Point(56, 203);
+            this.botaoPagamento.Name = "botaoPagamento";
+            this.botaoPagamento.Size = new System.Drawing.Size(75, 23);
+            this.botaoPagamento.TabIndex = 17;
+            this.botaoPagamento.Text = "Pagamento";
+            this.botaoPagamento.UseVisualStyleBackColor = true;
+            // 
+            // botaoBuscaCliente
+            // 
+            this.botaoBuscaCliente.Location = new System.Drawing.Point(239, 105);
+            this.botaoBuscaCliente.Name = "botaoBuscaCliente";
+            this.botaoBuscaCliente.Size = new System.Drawing.Size(99, 23);
+            this.botaoBuscaCliente.TabIndex = 6;
+            this.botaoBuscaCliente.Text = "Buscar Cliente";
+            this.botaoBuscaCliente.UseVisualStyleBackColor = true;
+            this.botaoBuscaCliente.Click += new System.EventHandler(this.BotaoBuscaCliente_Click);
+            // 
+            // comboVendedor
+            // 
+            this.comboVendedor.FormattingEnabled = true;
+            this.comboVendedor.Location = new System.Drawing.Point(89, 29);
+            this.comboVendedor.Name = "comboVendedor";
+            this.comboVendedor.Size = new System.Drawing.Size(249, 21);
+            this.comboVendedor.TabIndex = 4;
             // 
             // FormularioVenda
             // 

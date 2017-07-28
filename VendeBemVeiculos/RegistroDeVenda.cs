@@ -28,20 +28,23 @@ namespace VendeBemVeiculos
 
         protected override void CarregaDados()
         {
-            using (Stream streamDeVendas = File.Open(this.NomeDoArquivo, FileMode.Open))
-            using (StreamReader leitorDeArquivo = new StreamReader(streamDeVendas))
+            if (File.Exists(this.NomeDoArquivo))
             {
-                string linhaLida = leitorDeArquivo.ReadLine();
-                while (!(string.IsNullOrEmpty((linhaLida)))
+                using (Stream streamDeVendas = File.Open(this.NomeDoArquivo, FileMode.Open))
+                using (StreamReader leitorDeArquivo = new StreamReader(streamDeVendas))
                 {
-                    string[] dados = linhaLida.Split('%');
-                    var cliente = InstanciarCliente(dados);
-                    var veiculo = InstanciarVeiculo(dados);
-                    var vendedor = IntanciaVendedor(dados);
-                    var data = dados[DATA];
-                    var venda = (T)Activator.CreateInstance(typeof(T), cliente, veiculo, vendedor, data);
-                    this.ConjuntoDeDados.Add(venda);
-                    linhaLida = leitorDeArquivo.ReadLine();
+                    string linhaLida = leitorDeArquivo.ReadLine();
+                    while (!(string.IsNullOrEmpty((linhaLida))))
+                    {
+                        string[] dados = linhaLida.Split('%');
+                        var cliente = InstanciarCliente(dados);
+                        var veiculo = InstanciarVeiculo(dados);
+                        var vendedor = IntanciaVendedor(dados);
+                        var data = dados[DATA];
+                        var venda = (T)Activator.CreateInstance(typeof(T), cliente, veiculo, vendedor, data);
+                        this.ConjuntoDeDados.Add(venda);
+                        linhaLida = leitorDeArquivo.ReadLine();
+                    }
                 }
             }
         }
@@ -49,13 +52,20 @@ namespace VendeBemVeiculos
         {
             foreach (T v in this.ConjuntoDeDados)
             {
-                todosOsDados += $"{v.Cliente.PrimeiroNome}%{v.Cliente.UltimoNome}%{v.Cliente.CPF}%" +
-                    $"{v.Veiculo.Marca}%{v.Veiculo.Modelo}%{v.Veiculo.Ano}%{v.Veiculo.Preco}%" +
-                    $"{v.Vendedor.PrimeiroNome}%{v.Vendedor.UltimoNome}%{v.Vendedor.CPF}%" +
-                    $"{v.Data}\r\n";
+                CriaLinhaDaString(v);
             }
-        }               
-        
+        }
+
+        private void CriaLinhaDaString(T venda)
+        {
+            if (venda != null)
+            {
+                this.todosOsDados += $"{venda.Cliente.PrimeiroNome}%{venda.Cliente.UltimoNome}%{venda.Cliente.CPF}%" +
+                    $"{venda.Veiculo.Marca}%{venda.Veiculo.Modelo}%{venda.Veiculo.Ano}%{venda.Veiculo.Preco}%" +
+                    $"{venda.Vendedor.PrimeiroNome}%{venda.Vendedor.UltimoNome}%{venda.Vendedor.CPF}%" +
+                    $"{venda.Data}\r\n";
+            }
+        }
         private Cliente InstanciarCliente(string[] dados)
         {
             var clientePrimeiroNome = dados[CLIENTE_PRIMEIRO_NOME];
