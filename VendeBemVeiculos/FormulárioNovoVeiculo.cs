@@ -12,11 +12,11 @@ namespace VendeBemVeiculos
 {
     public partial class FormularioNovoVeiculo : Form
     {
-        private FormularioEstoque formularioEstoque;
+        private FormularioVeiculo formularioEstoque;
         private Veiculo novoVeiculo;
         private RegistroDeVeiculos<Veiculo> todosOsVeiculos;
 
-        public FormularioNovoVeiculo(FormularioEstoque formularioEstoque)
+        public FormularioNovoVeiculo(FormularioVeiculo formularioEstoque)
         {
             InitializeComponent();
             this.formularioEstoque = formularioEstoque;

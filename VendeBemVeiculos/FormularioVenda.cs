@@ -26,7 +26,7 @@ namespace VendeBemVeiculos
 
         private void BotaoVeiculo_Click(object sender, EventArgs e)
         {
-            FormularioEstoque formularioVeiculo = new FormularioEstoque();
+            FormularioVeiculo formularioVeiculo = new FormularioVeiculo();
             formularioVeiculo.Show();
         }
     }

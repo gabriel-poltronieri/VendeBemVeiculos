@@ -53,11 +53,11 @@
     <Compile Include="FormularioCliente.Designer.cs">
       <DependentUpon>FormularioCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormularioEstoque.cs">
+    <Compile Include="FormularioVeiculo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormularioEstoque.Designer.cs">
-      <DependentUpon>FormularioEstoque.cs</DependentUpon>
+    <Compile Include="FormularioVeiculo.Designer.cs">
+      <DependentUpon>FormularioVeiculo.cs</DependentUpon>
     </Compile>
     <Compile Include="FormularioNovoCliente.cs">
       <SubType>Form</SubType>
@@ -109,8 +109,8 @@
     <EmbeddedResource Include="FormularioCliente.resx">
       <DependentUpon>FormularioCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormularioEstoque.resx">
-      <DependentUpon>FormularioEstoque.cs</DependentUpon>
+    <EmbeddedResource Include="FormularioVeiculo.resx">
+      <DependentUpon>FormularioVeiculo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormularioNovoCliente.resx">
       <DependentUpon>FormularioNovoCliente.cs</DependentUpon>

@@ -21,7 +21,7 @@ namespace VendeBemVeiculos
         private const int VENDEDOR_CPF = 9;
         private const int DATA = 10;
 
-        public RegistroDeVenda(string nomeDoArquivo) 
+        public RegistroDeVenda(string nomeDoArquivo)
             : base(nomeDoArquivo) { }
 
         protected override ICollection<T> ConjuntoDeDados => new List<T>();
@@ -60,12 +60,14 @@ namespace VendeBemVeiculos
         {
             if (venda != null)
             {
-                this.todosOsDados += $"{venda.Cliente.PrimeiroNome}%{venda.Cliente.UltimoNome}%{venda.Cliente.CPF}%" +
-                    $"{venda.Veiculo.Marca}%{venda.Veiculo.Modelo}%{venda.Veiculo.Ano}%{venda.Veiculo.Preco}%" +
-                    $"{venda.Vendedor.PrimeiroNome}%{venda.Vendedor.UltimoNome}%{venda.Vendedor.CPF}%" +
-                    $"{venda.Data}\r\n";
+                var cliente = $"{venda.Cliente.PrimeiroNome}%{venda.Cliente.UltimoNome}%{venda.Cliente.CPF}";
+                var veiculo = $"{venda.Veiculo.Marca}%{venda.Veiculo.Modelo}%{venda.Veiculo.Ano}%{venda.Veiculo.Preco}";
+                var vendedor = $"{venda.Vendedor.PrimeiroNome}%{venda.Vendedor.UltimoNome}%{venda.Vendedor.CPF}";
+                var data = $"{venda.Data}\r\n";
+                this.todosOsDados += $"{cliente}%{veiculo}%{vendedor}%{data}\r\n";
             }
         }
+
         private Cliente InstanciarCliente(string[] dados)
         {
             var clientePrimeiroNome = dados[CLIENTE_PRIMEIRO_NOME];
@@ -87,7 +89,6 @@ namespace VendeBemVeiculos
             var vendedorUltimoNome = dados[VENDEDOR_ULTIMO_NOME];
             var vendedorCpf = dados[VENDEDOR_CPF];
             return new Vendedor(vendedorPrimeiroNome, vendedorUltimoNome, vendedorCpf);
-        }
-
-    }
+        }        
+    }    
 }

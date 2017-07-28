@@ -13,11 +13,11 @@ namespace VendeBemVeiculos
         private const int ULTIMO_NOME = 1;
         private const int CPF = 2;
 
-        public RegistroDePessoas(string nomeDoArquivo) 
+        public RegistroDePessoas(string nomeDoArquivo)
             : base(nomeDoArquivo) { }
-        
-        protected override ICollection<T> ConjuntoDeDados { get; } = new SortedSet<T>();
 
+        protected override ICollection<T> ConjuntoDeDados { get; } = new SortedSet<T>();
+        
         protected override void CarregaDados()
         {
             if (File.Exists(this.NomeDoArquivo))
@@ -45,8 +45,8 @@ namespace VendeBemVeiculos
             {
                 CriaLinhaDaString(p);
             }
-        }                   
-        
+        }
+
         private void CriaLinhaDaString(T pessoa)
         {
             if (pessoa != null)

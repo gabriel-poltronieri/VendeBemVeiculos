@@ -1,2 +1,5 @@
 Honda%Civic%2015%52000
 Fiat%Uno%2009%31000
+Honda%Fit%2016%70000
+Fiat%Palio%2005%23500
+Honda%Civic%2015%52000
