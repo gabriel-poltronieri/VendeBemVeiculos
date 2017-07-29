@@ -12,67 +12,72 @@ namespace VendeBemVeiculos
 {
     public partial class FormularioEstoque : Form
     {
-        RegistroDeVeiculos nossoEstoque = new RegistroDeVeiculos();
-        Veiculo veiculoSelecionado;
-        private FormularioVenda formularioComDadosDeVenda;
+        public RegistroDeVeiculos<Veiculo> TodosOsVeiculos { get; private set; }
+        public Veiculo VeiculoSelecionado { get; private set; }
+        public string ArquivoDesejado { get; private set; }
 
-
-        public FormularioEstoque(FormularioVenda formulario)
-        {
-            this.formularioComDadosDeVenda = formulario;
+        public FormularioEstoque()
+        {            
             InitializeComponent();
+            this.radioCarro.Checked = true;
+            this.ArquivoDesejado = "Carro.txt";
+            this.TodosOsVeiculos = new RegistroDeVeiculos<Veiculo>(this.ArquivoDesejado);
+            CarregarNaLista(this.TodosOsVeiculos.Itens);
         }
-        private void FormularioEstoque_Load(object sender, EventArgs e)
+
+        public void AtualizaTodosOsVeiculos()
         {
-            AtualizaAListaDeVeiculosPeloModelo();
+            this.TodosOsVeiculos = new RegistroDeVeiculos<Veiculo>(this.ArquivoDesejado);
+            CarregarNaLista(this.TodosOsVeiculos.Itens);
         }
-        private void AtualizaAListaDeVeiculosPeloModelo(string modelo = null)
-        {
-            SortedSet<ItemDoRegistroDeVeiculos> veiculosParaLista = SelecionaVeiculosParaLista(modelo);
-            CarregarElementosNaLista(veiculosParaLista);
-        }
-        private SortedSet<ItemDoRegistroDeVeiculos> SelecionaVeiculosParaLista(string modelo)
-        {
-            if (ModeloEhNuloOuVazio(modelo))
-            {
-                return this.nossoEstoque.ConjuntoDeDados;
-            }
-            FiltroDeVeiculo filtrodeVeiculo = new FiltroDeVeiculo(this.nossoEstoque);
-            return filtrodeVeiculo.FiltrarPeloModelo(modelo);
-        }
-        private void CarregarElementosNaLista(SortedSet<ItemDoRegistroDeVeiculos> registroFiltrado)
+
+        private void CarregarNaLista(Veiculo[] listaDeVeiculos)
         {
             this.listaVeiculos.Items.Clear();
-            foreach (ItemDoRegistroDeVeiculos c in registroFiltrado)
-            {
-                this.listaVeiculos.Items.Add(c.veiculoDaLista);
-            }
-        }
-        private bool ModeloEhNuloOuVazio(string modelo)
-        {
-            return (modelo == null) || (modelo == "");
+            this.listaVeiculos.Items.AddRange(listaDeVeiculos);
         }
 
-        private void botaoSeleciona_Click(object sender, EventArgs e)
+        private void ListaVeiculos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (ExisteUmVeiculoSelecionado())
+            this.VeiculoSelecionado = (Veiculo)this.listaVeiculos.SelectedItem;
+        }
+        private void BotaoExcluir_Click(object sender, EventArgs e)
+        {
+            this.TodosOsVeiculos.ExcluiItemDoRegistro(this.VeiculoSelecionado);
+            AtualizaTodosOsVeiculos();
+        }
+        
+        private void BotaoBuscar_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(textoModelo.Text))
             {
-                this.formularioComDadosDeVenda.SelecionarVeiculo(this.veiculoSelecionado);
-                FechaOFormulario();
+                CarregarNaLista(this.TodosOsVeiculos.Itens);
+            }
+            else
+            {
+                CarregarNaLista(this.TodosOsVeiculos.Itens.Where(v => v.Modelo == textoModelo.Text).ToArray());
             }
         }
-        private bool ExisteUmVeiculoSelecionado()
+
+        private void RadioCarro_CheckedChanged(object sender, EventArgs e)
         {
-            return this.veiculoSelecionado != null;
+            this.ArquivoDesejado = "Carro.txt";
+            AtualizaTodosOsVeiculos();
         }
-        private void FechaOFormulario()
+        private void RadioMotos_CheckedChanged(object sender, EventArgs e)
+        {
+            this.ArquivoDesejado = "Moto.txt";
+            AtualizaTodosOsVeiculos();
+        }
+
+        private void BotaoNovo_Click(object sender, EventArgs e)
+        {
+            FormularioNovoVeiculo formularioNovoVeiculo = new FormularioNovoVeiculo(this);
+            formularioNovoVeiculo.Show();
+        }
+        private void BotaoCancela_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void listaVeiculos_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            this.veiculoSelecionado = (Veiculo)listaVeiculos.SelectedItem;
         }
     }
 }

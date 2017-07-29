@@ -7,90 +7,54 @@ using System.Threading.Tasks;
 
 namespace VendeBemVeiculos
 {
-    class RegistroDeVeiculos : RegistroDeDados<ItemDoRegistroDeVeiculos> 
+    public class RegistroDeVeiculos<T> : Registro<T> where T : Veiculo
     {
-        public RegistroDeVeiculos()
-        {
-            CarregaDadosDoArquivo("Veiculo");
-        }
+        private const int MARCA = 0;
+        private const int MODELO = 1;
+        private const int ANO = 2;
+        private const int PRECO = 3;
 
-        public override void AdicionaOsObjetosAoConjuntoComAjudaDoStreamReader(StreamReader leitor)
+        public RegistroDeVeiculos(string nomeDoArquivo)
+            : base(nomeDoArquivo) { }
+
+        protected override ICollection<T> ConjuntoDeDados { get; } =  new List<T>();
+
+        protected override void CarregaDados()
         {
-            string linhaLida = leitor.ReadLine();
-            while (LinhaContemDados(linhaLida))
+            if (File.Exists(this.NomeDoArquivo))
             {
-                string[] dados = SeparaCadaDado(linhaLida);
-                Veiculo novoVeiculo = InstanciaVeiculo(dados);
-                int quantidade = PegarQuantidade(dados);
-                ItemDoRegistroDeVeiculos itemDeRegistro = new ItemDoRegistroDeVeiculos(novoVeiculo, quantidade);
-                this.ConjuntoDeDados.Add(itemDeRegistro);
-                linhaLida = leitor.ReadLine();
+                using (var streamDeVeiculos = File.Open(this.NomeDoArquivo, FileMode.Open))
+                using (var leitorDeArquivo = new StreamReader(streamDeVeiculos))
+                {
+                    string linhaLida = leitorDeArquivo.ReadLine();
+                    while (!(string.IsNullOrEmpty(linhaLida)))
+                    {
+                        string[] dados = linhaLida.Split('%');
+                        var marca = dados[MARCA];
+                        var modelo = dados[MODELO];
+                        var ano = dados[ANO];
+                        var preco = dados[PRECO];
+                        var veiculoInstanciado = (T)Activator.CreateInstance(typeof(T), marca, modelo, ano, Convert.ToDouble(preco));
+                        this.ConjuntoDeDados.Add(veiculoInstanciado);
+                        linhaLida = leitorDeArquivo.ReadLine();
+                    }
+                }
             }
-        }      
-
-        public override void ColocaItensNaString()
-        {             
-            foreach(ItemDoRegistroDeVeiculos item in this.ConjuntoDeDados)
+        }        
+        protected override void ColocaItensNaString()
+        {
+            foreach (T v in this.ConjuntoDeDados)
             {
-                todosOsDadosRegistrados = $"{item.VerificarTipoDeVeiculo()}%{item.VerificarMarcaDoVeiculo()}%{item.VerificarModeloDoVeiculo()}%" +
-                    $"{item.VerificarAnoDoVeiculo()}%{item.VerificaPrecoDoVeiculo()}%{item.VerificarQuantidade()}\n\r";
+                CriaLinhaDaString(v);
             }
         }
 
-        private bool LinhaContemDados(string linha)
+        private void CriaLinhaDaString(T veiculo)
         {
-            return linha != null && linha != "";
-        }
-
-        private string[] SeparaCadaDado(string todosOsDados)
-        {
-            return todosOsDados.Split('%');
-        }
-
-        public Veiculo InstanciaVeiculo(string[] dados)
-        {
-            string tipoDeVeiculo = PegarTipoDeVeiculo(dados);
-            string marca = PegarMarcaDeveiculo(dados);
-            string modelo = PegarModeloDeVeiculo(dados);
-            string ano = PegarAnoDeVeiculo(dados);
-            double preco = PegarPrecoDeVeiculo(dados);
-            if (tipoDeVeiculo == "Carro") {
-                return new Carro(marca, modelo, ano, preco);
-            }
-            else
+            if (veiculo != null)
             {
-                return new Moto(marca, modelo, ano, preco);
+                this.todosOsDados += $"{veiculo.Marca}%{veiculo.Modelo}%{veiculo.Ano}%{veiculo.Preco}\r\n";
             }
-        }
-        
-        private string PegarTipoDeVeiculo(string[] dados)
-        {
-            return dados[0];
-        }
-
-        private string PegarMarcaDeveiculo(string[] dados)
-        {
-            return dados[1];
-        }
-
-        private string PegarModeloDeVeiculo(string[] dados)
-        {
-            return dados[2];
-        }
-
-        private string PegarAnoDeVeiculo(string[] dados)
-        {
-            return dados[3];
-        }
-
-        private double PegarPrecoDeVeiculo(string[] dados)
-        {
-            return Convert.ToDouble(dados[4]);
-        }
-
-        private int PegarQuantidade(string[] dados)
-        {
-            return Convert.ToInt16(dados[5]);
         }
     }
 }

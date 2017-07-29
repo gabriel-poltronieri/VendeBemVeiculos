@@ -31,6 +31,7 @@
             this.Titulo = new System.Windows.Forms.Label();
             this.botaoVenda = new System.Windows.Forms.Button();
             this.botaoVendedores = new System.Windows.Forms.Button();
+            this.buttonVendas = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Titulo
@@ -54,19 +55,28 @@
             // 
             // botaoVendedores
             // 
-            this.botaoVendedores.Location = new System.Drawing.Point(29, 100);
+            this.botaoVendedores.Location = new System.Drawing.Point(29, 87);
             this.botaoVendedores.Name = "botaoVendedores";
             this.botaoVendedores.Size = new System.Drawing.Size(208, 57);
             this.botaoVendedores.TabIndex = 3;
-            this.botaoVendedores.Text = "Registro de Vendedores";
+            this.botaoVendedores.Text = "Registrar Novo Vendedor";
             this.botaoVendedores.UseVisualStyleBackColor = true;
-            this.botaoVendedores.Click += new System.EventHandler(this.botaoVendedores_Click);
+            // 
+            // buttonVendas
+            // 
+            this.buttonVendas.Location = new System.Drawing.Point(29, 150);
+            this.buttonVendas.Name = "buttonVendas";
+            this.buttonVendas.Size = new System.Drawing.Size(208, 57);
+            this.buttonVendas.TabIndex = 4;
+            this.buttonVendas.Text = "Histórico de Vendas";
+            this.buttonVendas.UseVisualStyleBackColor = true;
             // 
             // FormularioPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(275, 189);
+            this.ClientSize = new System.Drawing.Size(275, 221);
+            this.Controls.Add(this.buttonVendas);
             this.Controls.Add(this.botaoVendedores);
             this.Controls.Add(this.botaoVenda);
             this.Controls.Add(this.Titulo);
@@ -82,5 +92,6 @@
         private System.Windows.Forms.Label Titulo;
         private System.Windows.Forms.Button botaoVenda;
         private System.Windows.Forms.Button botaoVendedores;
+        private System.Windows.Forms.Button buttonVendas;
     }
 }

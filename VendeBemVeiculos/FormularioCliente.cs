@@ -11,79 +11,55 @@ using System.Windows.Forms;
 namespace VendeBemVeiculos
 {
     public partial class FormularioCliente : Form
-    {
-        RegistroDePessoas<Cliente> nossosClientes = new RegistroDePessoas<Cliente>();
-        Cliente clienteSelecionado;
-        private FormularioVenda formularioComDadosDeVenda;
+    {   
+        public RegistroDePessoas<Cliente> TodosOsClientes { get; private set; }
+        public Cliente ClienteSelecionado { get; private set; }
 
-        public FormularioCliente(FormularioVenda formulario)
+        public FormularioCliente()
         {
             InitializeComponent();
-            this.formularioComDadosDeVenda = formulario;
+            this.TodosOsClientes = new RegistroDePessoas<Cliente>("Cliente.txt");
+            CarregarNaLista(this.TodosOsClientes.Itens);
+            this.textoCPF.MaxLength = 11;
         }
 
-        private void FormularioCliente_Load(object sender, EventArgs e)
-        {            
-            LimitarOTamanhoDoCampoDeCPF();
-            AtualizaAListaDeClientesPeloCPF();            
-        }
-        private void LimitarOTamanhoDoCampoDeCPF()
+        public void AtualizaTodosOsClientes()
         {
-            textoCpf.MaxLength = 11;
+            this.TodosOsClientes = new RegistroDePessoas<Cliente>("Cliente.txt");
+            CarregarNaLista(this.TodosOsClientes.Itens);
         }
-        private void AtualizaAListaDeClientesPeloCPF(string cpf = null)
-        {
-            SortedSet<Cliente> clientesParaLista = SelecionaClientesParaLista(cpf);
-            CarregarElementosNaLista(clientesParaLista);
-        }
-        private SortedSet<Cliente> SelecionaClientesParaLista(string cpf)
-        {
-            if (CpfEhNuloOuVazio(cpf))
-            {
-                return this.nossosClientes.ConjuntoDeDados;
-            }
-            FiltroDePessoa<Cliente> filtrodeCliente = new FiltroDePessoa<Cliente>(this.nossosClientes);
-            return filtrodeCliente.FiltrarPeloDado(cpf);
-        }
-        private void CarregarElementosNaLista(SortedSet<Cliente> registroFiltrado)
+
+        private void CarregarNaLista(Cliente[] listaDeClientes)
         {
             this.listaClientes.Items.Clear();
-            foreach (Cliente c in registroFiltrado)
-            {
-                this.listaClientes.Items.Add(c);
-            }
-        }
-        private void botaoBusca_Click(object sender, EventArgs e)
-        {
-            string cpfDesejado = textoCpf.Text;
-            AtualizaAListaDeClientesPeloCPF(cpfDesejado);
-        }
-        private void botaoSeleciona_Click(object sender, EventArgs e)
-        {
-            if (ExisteUmClienteSelecionado())
-            {
-                this.formularioComDadosDeVenda.SelecionarCliente(this.clienteSelecionado);
-                FechaOFormulario();
-            }
-        }
-        private void listaClientes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            this.clienteSelecionado = (Cliente)listaClientes.SelectedItem;
-        }
-        
-        private bool CpfEhNuloOuVazio(string cpf)
-        {
-            return (cpf == null) || (cpf=="");
-        }
-        private bool ExisteUmClienteSelecionado()
-        {
-            return this.clienteSelecionado != null;
-        }
-        private void FechaOFormulario()
-        {
-            this.Close();
+            this.listaClientes.Items.AddRange(listaDeClientes);            
         }
 
-       
+        private void ListaClientes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.ClienteSelecionado = (Cliente)this.listaClientes.SelectedItem;
+        }          
+        private void BotaoExcluir_Click(object sender, EventArgs e)
+        {
+            this.TodosOsClientes.ExcluiItemDoRegistro(this.ClienteSelecionado);
+            AtualizaTodosOsClientes();
+        }
+
+        private void BotaoBuscar_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(textoCPF.Text))
+            {
+                CarregarNaLista(this.TodosOsClientes.Itens);
+            }
+            else
+            {
+                CarregarNaLista(this.TodosOsClientes.Itens.Where(c => c.CPF == textoCPF.Text).ToArray());
+            }
+        }
+        private void BotaoNovoCliente_Click(object sender, EventArgs e)
+        {
+            FormularioNovoCliente formularioNovoCliente = new FormularioNovoCliente(this);
+            formularioNovoCliente.Show();
+        }
     }
 }

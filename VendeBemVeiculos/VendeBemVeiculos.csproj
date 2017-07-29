@@ -47,8 +47,6 @@
   <ItemGroup>
     <Compile Include="Carro.cs" />
     <Compile Include="Cliente.cs" />
-    <Compile Include="FiltroDeVeiculo.cs" />
-    <Compile Include="FiltroDePessoa.cs" />
     <Compile Include="FormularioCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,16 +95,14 @@
     <Compile Include="FormulárioNovoVeiculo.Designer.cs">
       <DependentUpon>FormulárioNovoVeiculo.cs</DependentUpon>
     </Compile>
-    <Compile Include="IManipulaTXT.cs" />
-    <Compile Include="ItemDoRegistroDeVeiculos.cs" />
     <Compile Include="Moto.cs" />
-    <Compile Include="PessoaGenerica.cs" />
+    <Compile Include="Pessoa.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistroDeVeiculos.cs" />
     <Compile Include="RegistroDeVenda.cs" />
     <Compile Include="Veiculo.cs" />
-    <Compile Include="RegistroDeDados.cs" />
+    <Compile Include="Registro.cs" />
     <Compile Include="RegistroDePessoas.cs" />
     <Compile Include="Venda.cs" />
     <Compile Include="Vendedor.cs" />
