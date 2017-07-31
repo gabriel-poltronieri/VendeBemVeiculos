@@ -21,10 +21,10 @@ namespace VendeBemVeiculos
         private const int VENDEDOR_CPF = 9;
         private const int DATA = 10;
 
-        public RegistroDeVenda(string nomeDoArquivo) 
+        public RegistroDeVenda(string nomeDoArquivo)
             : base(nomeDoArquivo) { }
 
-        protected override ICollection<T> ConjuntoDeDados => new List<T>();
+        protected override ICollection<T> ConjuntoDeDados { get; } = new List<T>();
 
         protected override void CarregaDados()
         {
@@ -36,35 +36,21 @@ namespace VendeBemVeiculos
                     string linhaLida = leitorDeArquivo.ReadLine();
                     while (!(string.IsNullOrEmpty((linhaLida))))
                     {
-                        string[] dados = linhaLida.Split('%');
-                        var cliente = InstanciarCliente(dados);
-                        var veiculo = InstanciarVeiculo(dados);
-                        var vendedor = IntanciaVendedor(dados);
-                        var data = dados[DATA];
-                        var venda = (T)Activator.CreateInstance(typeof(T), cliente, veiculo, vendedor, data);
-                        this.ConjuntoDeDados.Add(venda);
+                        Carrega(linhaLida);
                         linhaLida = leitorDeArquivo.ReadLine();
                     }
                 }
             }
         }
-        protected override void ColocaItensNaString()
+        private void Carrega(string linhaLida)
         {
-            foreach (T v in this.ConjuntoDeDados)
-            {
-                CriaLinhaDaString(v);
-            }
-        }
-
-        private void CriaLinhaDaString(T venda)
-        {
-            if (venda != null)
-            {
-                this.todosOsDados += $"{venda.Cliente.PrimeiroNome}%{venda.Cliente.UltimoNome}%{venda.Cliente.CPF}%" +
-                    $"{venda.Veiculo.Marca}%{venda.Veiculo.Modelo}%{venda.Veiculo.Ano}%{venda.Veiculo.Preco}%" +
-                    $"{venda.Vendedor.PrimeiroNome}%{venda.Vendedor.UltimoNome}%{venda.Vendedor.CPF}%" +
-                    $"{venda.Data}\r\n";
-            }
+            string[] dados = linhaLida.Split('%');
+            var cliente = InstanciarCliente(dados);
+            var veiculo = InstanciarVeiculo(dados);
+            var vendedor = IntanciaVendedor(dados);
+            var data = dados[DATA];
+            var venda = (T)Activator.CreateInstance(typeof(T), cliente, veiculo, vendedor, data);
+            this.ConjuntoDeDados.Add(venda);
         }
         private Cliente InstanciarCliente(string[] dados)
         {
@@ -89,5 +75,23 @@ namespace VendeBemVeiculos
             return new Vendedor(vendedorPrimeiroNome, vendedorUltimoNome, vendedorCpf);
         }
 
-    }
+        protected override void ColocaItensNaString()
+        {
+            foreach (T v in this.ConjuntoDeDados)
+            {
+                CriaLinhaDaString(v);
+            }
+        }
+        private void CriaLinhaDaString(T venda)
+        {
+            if (venda != null)
+            {
+                var cliente = $"{venda.Cliente.PrimeiroNome}%{venda.Cliente.UltimoNome}%{venda.Cliente.CPF}";
+                var veiculo = $"{venda.Veiculo.Marca}%{venda.Veiculo.Modelo}%{venda.Veiculo.Ano}%{venda.Veiculo.Preco}";
+                var vendedor = $"{venda.Vendedor.PrimeiroNome}%{venda.Vendedor.UltimoNome}%{venda.Vendedor.CPF}";
+                var data = $"{venda.Data}";
+                this.todosOsDados += $"{cliente}%{veiculo}%{vendedor}%{data}\r\n";
+            }
+        }        
+    }    
 }

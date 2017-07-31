@@ -8,15 +8,29 @@ namespace VendeBemVeiculos
 {
     public class Pessoa : IComparable
     {
-        public string PrimeiroNome { get; private set; }
-        public string UltimoNome { get; private set; }
-        public string CPF { get; private set; }
-
         public Pessoa(string primeiroNome, string ultimoNome, string cpf)
         {
             this.PrimeiroNome = primeiroNome;
             this.UltimoNome = ultimoNome;
             this.CPF = cpf;
+        }
+
+        public string PrimeiroNome { get; private set; }
+        public string UltimoNome { get; private set; }
+        public string CPF { get; private set; }
+
+        public override int GetHashCode()
+        {
+            return (int)(Convert.ToUInt64(CPF) / 20051);
+        }
+        public override string ToString()
+        {
+            return $"{this.PrimeiroNome} {this.UltimoNome}     CPF:{this.CPF}";
+        }
+        public int CompareTo(object obj)
+        {
+            var p = (Pessoa)obj;
+            return string.Compare(this.CPF, p.CPF);
         }
 
         public override bool Equals(object obj)
@@ -28,20 +42,6 @@ namespace VendeBemVeiculos
             }
             return false;
         }
-        public override int GetHashCode()
-        {
-            return (int)(Convert.ToUInt64(CPF) / 20051);
-        }
-        public override string ToString()
-        {
-            return $"{this.PrimeiroNome} {this.UltimoNome}";
-        }
-        public int CompareTo(object obj)
-        {
-            var p = (Pessoa)obj;
-            return string.Compare(this.PrimeiroNome, p.PrimeiroNome);
-        }
-
         private bool EhPessoa(object obj)
         {
             return obj is Pessoa;

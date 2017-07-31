@@ -8,10 +8,7 @@ using System.Threading.Tasks;
 namespace VendeBemVeiculos
 {
     public abstract class Registro<T> 
-    {
-        public string NomeDoArquivo { get; protected set; }
-        public T[] Itens { get { return this.ConjuntoDeDados.ToArray(); } }
-        protected abstract ICollection<T> ConjuntoDeDados { get; }
+    {        
         protected string todosOsDados;
 
         public Registro(string nomeDoArquivo)
@@ -26,8 +23,12 @@ namespace VendeBemVeiculos
                 File.Create(this.NomeDoArquivo);
             }
         }
-        
-        public void AdicionaItemNoRegistro(T item)
+
+        public string NomeDoArquivo { get; protected set; }
+        public T[] Itens { get { return this.ConjuntoDeDados.ToArray(); } }
+        protected abstract ICollection<T> ConjuntoDeDados { get; }
+
+        public virtual void AdicionaItemNoRegistro(T item)
         {
             this.ConjuntoDeDados.Add(item);
             AtualizaArquivo();
@@ -47,7 +48,6 @@ namespace VendeBemVeiculos
             }
             ApagaConteudoDaString();
         }
-
         private void ApagaConteudoDaString()
         {
             this.todosOsDados = "";

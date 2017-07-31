@@ -1,2 +1,3 @@
-Honda%Civic%2015%52000
-Fiat%Uno%2009%31000
+Fiat%Palio%2016%33000
+Ford%Fiesta%2006%23000
+Honda%Civic%2016%67500

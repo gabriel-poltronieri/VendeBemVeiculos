@@ -23,5 +23,15 @@ namespace VendeBemVeiculos
             FormularioVenda formularioDeVendas = new FormularioVenda();
             formularioDeVendas.Show();
         }
+        private void BotaoVendedores_Click(object sender, EventArgs e)
+        {
+            FormularioNovoVendedor formularioNovoVendedor = new FormularioNovoVendedor();
+            formularioNovoVendedor.Show();
+        }
+        private void BotaoHistorico_Click(object sender, EventArgs e)
+        {
+            FormularioHistorico formularioHistorico = new FormularioHistorico();
+            formularioHistorico.Show();
+        }
     }
 }

@@ -34,11 +34,11 @@
             this.groupClienteVendedor = new System.Windows.Forms.GroupBox();
             this.textoVeiculo = new System.Windows.Forms.TextBox();
             this.botaoVeiculo = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelVeiculo = new System.Windows.Forms.Label();
             this.botaoCancelar = new System.Windows.Forms.Button();
             this.textoCliente = new System.Windows.Forms.TextBox();
             this.botaoPagamento = new System.Windows.Forms.Button();
-            this.botaoBuscaCliente = new System.Windows.Forms.Button();
+            this.botaoBuscarCliente = new System.Windows.Forms.Button();
             this.comboVendedor = new System.Windows.Forms.ComboBox();
             this.groupClienteVendedor.SuspendLayout();
             this.SuspendLayout();
@@ -46,131 +46,151 @@
             // labelTitulo
             // 
             this.labelTitulo.AutoSize = true;
-            this.labelTitulo.Location = new System.Drawing.Point(122, 9);
+            this.labelTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitulo.Location = new System.Drawing.Point(218, 9);
+            this.labelTitulo.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.labelTitulo.Name = "labelTitulo";
-            this.labelTitulo.Size = new System.Drawing.Size(107, 13);
+            this.labelTitulo.Size = new System.Drawing.Size(213, 25);
             this.labelTitulo.TabIndex = 0;
             this.labelTitulo.Text = "Vende Bem Veículos";
             // 
             // labelVendedor
             // 
             this.labelVendedor.AutoSize = true;
-            this.labelVendedor.Location = new System.Drawing.Point(17, 32);
+            this.labelVendedor.Location = new System.Drawing.Point(20, 47);
+            this.labelVendedor.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.labelVendedor.Name = "labelVendedor";
-            this.labelVendedor.Size = new System.Drawing.Size(53, 13);
+            this.labelVendedor.Size = new System.Drawing.Size(85, 20);
             this.labelVendedor.TabIndex = 1;
-            this.labelVendedor.Text = "Vendedor";
+            this.labelVendedor.Text = "Vendedor:";
             // 
             // labelCliente
             // 
             this.labelCliente.AutoSize = true;
-            this.labelCliente.Location = new System.Drawing.Point(17, 71);
+            this.labelCliente.Location = new System.Drawing.Point(39, 106);
+            this.labelCliente.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.labelCliente.Name = "labelCliente";
-            this.labelCliente.Size = new System.Drawing.Size(39, 13);
+            this.labelCliente.Size = new System.Drawing.Size(66, 20);
             this.labelCliente.TabIndex = 2;
-            this.labelCliente.Text = "Cliente";
+            this.labelCliente.Text = "Cliente:";
             // 
             // groupClienteVendedor
             // 
             this.groupClienteVendedor.Controls.Add(this.textoVeiculo);
             this.groupClienteVendedor.Controls.Add(this.botaoVeiculo);
-            this.groupClienteVendedor.Controls.Add(this.label1);
+            this.groupClienteVendedor.Controls.Add(this.labelVeiculo);
             this.groupClienteVendedor.Controls.Add(this.botaoCancelar);
             this.groupClienteVendedor.Controls.Add(this.textoCliente);
             this.groupClienteVendedor.Controls.Add(this.botaoPagamento);
-            this.groupClienteVendedor.Controls.Add(this.botaoBuscaCliente);
+            this.groupClienteVendedor.Controls.Add(this.botaoBuscarCliente);
             this.groupClienteVendedor.Controls.Add(this.comboVendedor);
             this.groupClienteVendedor.Controls.Add(this.labelVendedor);
             this.groupClienteVendedor.Controls.Add(this.labelCliente);
-            this.groupClienteVendedor.Location = new System.Drawing.Point(12, 25);
+            this.groupClienteVendedor.Location = new System.Drawing.Point(25, 51);
+            this.groupClienteVendedor.Margin = new System.Windows.Forms.Padding(5);
             this.groupClienteVendedor.Name = "groupClienteVendedor";
-            this.groupClienteVendedor.Size = new System.Drawing.Size(349, 232);
+            this.groupClienteVendedor.Padding = new System.Windows.Forms.Padding(5);
+            this.groupClienteVendedor.Size = new System.Drawing.Size(581, 390);
             this.groupClienteVendedor.TabIndex = 3;
             this.groupClienteVendedor.TabStop = false;
             this.groupClienteVendedor.Text = "Envolvidos";
             // 
             // textoVeiculo
             // 
-            this.textoVeiculo.Location = new System.Drawing.Point(89, 145);
+            this.textoVeiculo.Location = new System.Drawing.Point(125, 221);
+            this.textoVeiculo.Margin = new System.Windows.Forms.Padding(5);
             this.textoVeiculo.Name = "textoVeiculo";
             this.textoVeiculo.ReadOnly = true;
-            this.textoVeiculo.Size = new System.Drawing.Size(249, 20);
+            this.textoVeiculo.Size = new System.Drawing.Size(413, 26);
             this.textoVeiculo.TabIndex = 21;
-            this.textoVeiculo.Text = "Veiculo";
+            this.textoVeiculo.Text = "Selecione um Veículo";
             // 
             // botaoVeiculo
             // 
-            this.botaoVeiculo.Location = new System.Drawing.Point(239, 171);
+            this.botaoVeiculo.Location = new System.Drawing.Point(375, 267);
+            this.botaoVeiculo.Margin = new System.Windows.Forms.Padding(5);
             this.botaoVeiculo.Name = "botaoVeiculo";
-            this.botaoVeiculo.Size = new System.Drawing.Size(99, 23);
+            this.botaoVeiculo.Size = new System.Drawing.Size(165, 35);
             this.botaoVeiculo.TabIndex = 20;
             this.botaoVeiculo.Text = "Buscar Veiculo";
             this.botaoVeiculo.UseVisualStyleBackColor = true;
-            this.botaoVeiculo.Click += new System.EventHandler(this.BotaoVeiculo_Click);
+            this.botaoVeiculo.Click += new System.EventHandler(this.BotaoBucaVeiculo_Click);
             // 
-            // label1
+            // labelVeiculo
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 148);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 13);
-            this.label1.TabIndex = 19;
-            this.label1.Text = "Veiculo";
+            this.labelVeiculo.AutoSize = true;
+            this.labelVeiculo.Location = new System.Drawing.Point(36, 226);
+            this.labelVeiculo.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.labelVeiculo.Name = "labelVeiculo";
+            this.labelVeiculo.Size = new System.Drawing.Size(69, 20);
+            this.labelVeiculo.TabIndex = 19;
+            this.labelVeiculo.Text = "Veiculo:";
             // 
             // botaoCancelar
             // 
-            this.botaoCancelar.Location = new System.Drawing.Point(202, 203);
+            this.botaoCancelar.Location = new System.Drawing.Point(342, 331);
+            this.botaoCancelar.Margin = new System.Windows.Forms.Padding(5);
             this.botaoCancelar.Name = "botaoCancelar";
-            this.botaoCancelar.Size = new System.Drawing.Size(75, 23);
+            this.botaoCancelar.Size = new System.Drawing.Size(125, 35);
             this.botaoCancelar.TabIndex = 18;
             this.botaoCancelar.Text = "Cancelar";
             this.botaoCancelar.UseVisualStyleBackColor = true;
+            this.botaoCancelar.Click += new System.EventHandler(this.BotaoCancelar_Click);
             // 
             // textoCliente
             // 
-            this.textoCliente.Location = new System.Drawing.Point(89, 68);
+            this.textoCliente.Location = new System.Drawing.Point(125, 104);
+            this.textoCliente.Margin = new System.Windows.Forms.Padding(5);
             this.textoCliente.Name = "textoCliente";
             this.textoCliente.ReadOnly = true;
-            this.textoCliente.Size = new System.Drawing.Size(249, 20);
+            this.textoCliente.Size = new System.Drawing.Size(413, 26);
             this.textoCliente.TabIndex = 7;
-            this.textoCliente.Text = "Cliente";
+            this.textoCliente.Text = "Selecione um Cliente";
             // 
             // botaoPagamento
             // 
-            this.botaoPagamento.Location = new System.Drawing.Point(56, 203);
+            this.botaoPagamento.Location = new System.Drawing.Point(100, 331);
+            this.botaoPagamento.Margin = new System.Windows.Forms.Padding(5);
             this.botaoPagamento.Name = "botaoPagamento";
-            this.botaoPagamento.Size = new System.Drawing.Size(75, 23);
+            this.botaoPagamento.Size = new System.Drawing.Size(125, 35);
             this.botaoPagamento.TabIndex = 17;
             this.botaoPagamento.Text = "Pagamento";
             this.botaoPagamento.UseVisualStyleBackColor = true;
+            this.botaoPagamento.Click += new System.EventHandler(this.BotaoPagamento_Click);
             // 
-            // botaoBuscaCliente
+            // botaoBuscarCliente
             // 
-            this.botaoBuscaCliente.Location = new System.Drawing.Point(239, 105);
-            this.botaoBuscaCliente.Name = "botaoBuscaCliente";
-            this.botaoBuscaCliente.Size = new System.Drawing.Size(99, 23);
-            this.botaoBuscaCliente.TabIndex = 6;
-            this.botaoBuscaCliente.Text = "Buscar Cliente";
-            this.botaoBuscaCliente.UseVisualStyleBackColor = true;
-            this.botaoBuscaCliente.Click += new System.EventHandler(this.BotaoBuscaCliente_Click);
+            this.botaoBuscarCliente.Location = new System.Drawing.Point(375, 160);
+            this.botaoBuscarCliente.Margin = new System.Windows.Forms.Padding(5);
+            this.botaoBuscarCliente.Name = "botaoBuscarCliente";
+            this.botaoBuscarCliente.Size = new System.Drawing.Size(165, 35);
+            this.botaoBuscarCliente.TabIndex = 6;
+            this.botaoBuscarCliente.Text = "Buscar Cliente";
+            this.botaoBuscarCliente.UseVisualStyleBackColor = true;
+            this.botaoBuscarCliente.Click += new System.EventHandler(this.BotaoBuscaCliente_Click);
             // 
             // comboVendedor
             // 
             this.comboVendedor.FormattingEnabled = true;
-            this.comboVendedor.Location = new System.Drawing.Point(89, 29);
+            this.comboVendedor.Location = new System.Drawing.Point(125, 44);
+            this.comboVendedor.Margin = new System.Windows.Forms.Padding(5);
             this.comboVendedor.Name = "comboVendedor";
-            this.comboVendedor.Size = new System.Drawing.Size(249, 21);
+            this.comboVendedor.Size = new System.Drawing.Size(413, 28);
             this.comboVendedor.TabIndex = 4;
+            this.comboVendedor.Text = "Escolha uma opção";
+            this.comboVendedor.SelectedIndexChanged += new System.EventHandler(this.ComboVendedor_SelectedIndexChanged);
             // 
             // FormularioVenda
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(375, 256);
+            this.ClientSize = new System.Drawing.Size(641, 471);
             this.Controls.Add(this.groupClienteVendedor);
             this.Controls.Add(this.labelTitulo);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "FormularioVenda";
-            this.Text = "Dados da venda";
+            this.Text = "Vende Bem Veículos";
             this.groupClienteVendedor.ResumeLayout(false);
             this.groupClienteVendedor.PerformLayout();
             this.ResumeLayout(false);
@@ -188,10 +208,10 @@
         private System.Windows.Forms.Button botaoCancelar;
         private System.Windows.Forms.Button botaoPagamento;
         private System.Windows.Forms.TextBox textoCliente;
-        private System.Windows.Forms.Button botaoBuscaCliente;
+        private System.Windows.Forms.Button botaoBuscarCliente;
         private System.Windows.Forms.TextBox textoVeiculo;
         private System.Windows.Forms.Button botaoVeiculo;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelVeiculo;
     }
 }
 

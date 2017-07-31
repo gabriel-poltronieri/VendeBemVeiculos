@@ -1,0 +1,14 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace VendeBemVeiculos
+{
+    public class Vendedor : Pessoa
+    {
+        public Vendedor(string primeiroNome, string ultimoNome, string cpf) 
+            : base(primeiroNome, ultimoNome, cpf) { }
+    }
+}

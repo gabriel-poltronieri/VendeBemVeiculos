@@ -45,89 +45,108 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Carro.cs" />
-    <Compile Include="Cliente.cs" />
-    <Compile Include="FormularioCliente.cs">
+    <Compile Include="Veiculos\Carro.cs" />
+    <Compile Include="Pessoas\Cliente.cs" />
+    <Compile Include="Formulários\FormularioCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormularioCliente.Designer.cs">
+    <Compile Include="Formulários\FormularioCliente.Designer.cs">
       <DependentUpon>FormularioCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormularioEstoque.cs">
+    <Compile Include="Formulários\FormularioDetalhesDaVenda.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormularioEstoque.Designer.cs">
-      <DependentUpon>FormularioEstoque.cs</DependentUpon>
+    <Compile Include="Formulários\FormularioDetalhesDaVenda.Designer.cs">
+      <DependentUpon>FormularioDetalhesDaVenda.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormularioNovoCliente.cs">
+    <Compile Include="Formulários\FormularioHistorico.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormularioNovoCliente.Designer.cs">
+    <Compile Include="Formulários\FormularioHistorico.Designer.cs">
+      <DependentUpon>FormularioHistorico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulários\FormularioVeiculo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulários\FormularioVeiculo.Designer.cs">
+      <DependentUpon>FormularioVeiculo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulários\Adicionar Novos\FormularioNovoCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulários\Adicionar Novos\FormularioNovoCliente.Designer.cs">
       <DependentUpon>FormularioNovoCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormularioNovoVendedor.cs">
+    <Compile Include="Formulários\Adicionar Novos\FormularioNovoVendedor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormularioNovoVendedor.Designer.cs">
+    <Compile Include="Formulários\Adicionar Novos\FormularioNovoVendedor.Designer.cs">
       <DependentUpon>FormularioNovoVendedor.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormularioPagamento.cs">
+    <Compile Include="Formulários\FormularioPagamento.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormularioPagamento.Designer.cs">
+    <Compile Include="Formulários\FormularioPagamento.Designer.cs">
       <DependentUpon>FormularioPagamento.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormularioPrincipal.cs">
+    <Compile Include="Formulários\FormularioPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormularioPrincipal.Designer.cs">
+    <Compile Include="Formulários\FormularioPrincipal.Designer.cs">
       <DependentUpon>FormularioPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormularioVenda.cs">
+    <Compile Include="Formulários\FormularioVenda.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormularioVenda.Designer.cs">
+    <Compile Include="Formulários\FormularioVenda.Designer.cs">
       <DependentUpon>FormularioVenda.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormulárioNovoVeiculo.cs">
+    <Compile Include="Formulários\Adicionar Novos\FormulárioNovoVeiculo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormulárioNovoVeiculo.Designer.cs">
+    <Compile Include="Formulários\Adicionar Novos\FormulárioNovoVeiculo.Designer.cs">
       <DependentUpon>FormulárioNovoVeiculo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Moto.cs" />
-    <Compile Include="Pessoa.cs" />
+    <Compile Include="ExceptionJaExistente.cs" />
+    <Compile Include="Veiculos\Moto.cs" />
+    <Compile Include="Pessoas\Pessoa.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RegistroDeVeiculos.cs" />
-    <Compile Include="RegistroDeVenda.cs" />
-    <Compile Include="Veiculo.cs" />
-    <Compile Include="Registro.cs" />
-    <Compile Include="RegistroDePessoas.cs" />
+    <Compile Include="Registros\RegistroDeVeiculos.cs" />
+    <Compile Include="Registros\RegistroDeVenda.cs" />
+    <Compile Include="Veiculos\Veiculo.cs" />
+    <Compile Include="Registros\Registro.cs" />
+    <Compile Include="Registros\RegistroDePessoas.cs" />
     <Compile Include="Venda.cs" />
-    <Compile Include="Vendedor.cs" />
-    <EmbeddedResource Include="FormularioCliente.resx">
+    <Compile Include="Pessoas\Vendedor.cs" />
+    <EmbeddedResource Include="Formulários\FormularioCliente.resx">
       <DependentUpon>FormularioCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormularioEstoque.resx">
-      <DependentUpon>FormularioEstoque.cs</DependentUpon>
+    <EmbeddedResource Include="Formulários\FormularioDetalhesDaVenda.resx">
+      <DependentUpon>FormularioDetalhesDaVenda.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormularioNovoCliente.resx">
+    <EmbeddedResource Include="Formulários\FormularioHistorico.resx">
+      <DependentUpon>FormularioHistorico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\FormularioVeiculo.resx">
+      <DependentUpon>FormularioVeiculo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\Adicionar Novos\FormularioNovoCliente.resx">
       <DependentUpon>FormularioNovoCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormularioNovoVendedor.resx">
+    <EmbeddedResource Include="Formulários\Adicionar Novos\FormularioNovoVendedor.resx">
       <DependentUpon>FormularioNovoVendedor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormularioPagamento.resx">
+    <EmbeddedResource Include="Formulários\FormularioPagamento.resx">
       <DependentUpon>FormularioPagamento.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormularioPrincipal.resx">
+    <EmbeddedResource Include="Formulários\FormularioPrincipal.resx">
       <DependentUpon>FormularioPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormularioVenda.resx">
+    <EmbeddedResource Include="Formulários\FormularioVenda.resx">
       <DependentUpon>FormularioVenda.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormulárioNovoVeiculo.resx">
+    <EmbeddedResource Include="Formulários\Adicionar Novos\FormulárioNovoVeiculo.resx">
       <DependentUpon>FormulárioNovoVeiculo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
