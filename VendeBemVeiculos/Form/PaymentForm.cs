@@ -13,7 +13,7 @@ namespace VendeBemVeiculos
     public partial class PaymentForm : Form
     {
         private string vehicleFile;
-        private SaleRegister<Sale> saleRegister = new SaleRegister<Sale>("Venda.txt");
+        private SaleRegister saleRegister = new SaleRegister("Venda.txt");
         private SaleForm saleForm;
         private Client client;
         private Salesman salesman;
