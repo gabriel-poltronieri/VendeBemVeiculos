@@ -12,18 +12,18 @@ namespace VendeBemVeiculos
 {
     public partial class SaleForm : Form
     {
-        private PersonRegister<Salesman> ourSalesMen;        
-        public Vehicle vehicle;
-        private string boughtVehicleFile;
+        private PersonRegister<Salesman> registeredSalesmen;        
+        private string vehicleFile;
 
         public SaleForm()
         {
             InitializeComponent();
-            LoadComboSalesMan();
+            this.LoadComboSalesMan();
         }
 
         public Salesman Salesman { get; private set; }
         public Client Client { get; private set; }
+        public Vehicle Vehicle { get; private set; }
 
         private void ComboSalesman_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -48,9 +48,9 @@ namespace VendeBemVeiculos
 
         private void ButtonPayment_Click(object sender, EventArgs e)
         {
-            if (AllSelected())
+            if (AllItemsAreSelected())
             {
-                var paymentForm = new PaymentForm(this, this.boughtVehicleFile);
+                var paymentForm = new PaymentForm(this, this.vehicleFile);
                 paymentForm.Show();
             }
             else
@@ -58,15 +58,15 @@ namespace VendeBemVeiculos
                 MessageBox.Show("Selecione todos os Dados");
             }
         }
-        private bool AllSelected()
+        private bool AllItemsAreSelected()
         {
-            return (this.Salesman != null) && (this.Client != null) && (this.vehicle != null);
+            return (this.Salesman != null) && (this.Client != null) && (this.Vehicle != null);
         }
 
         private void LoadComboSalesMan()
         {
-            this.ourSalesMen = new PersonRegister<Salesman>("Vendedor.txt");
-            this.comboSalesMan.Items.AddRange(ourSalesMen.Items.ToArray());
+            this.registeredSalesmen = new PersonRegister<Salesman>("Vendedor.txt");
+            this.comboSalesMan.Items.AddRange(registeredSalesmen.Items.ToArray());
         }
 
         public void DefineClient(Client client)
@@ -76,14 +76,9 @@ namespace VendeBemVeiculos
         }
         public void DefineVehicle(Vehicle vehicle, string vehicleFile)
         {
-            this.vehicle = vehicle;
-            this.textVehicle.Text = this.vehicle.ToString();
-            this.boughtVehicleFile = vehicleFile;
-        }
-        public void DefineSalesman(Salesman salesman)
-        {
-            this.Salesman = salesman;
-            this.comboSalesMan.SelectedItem = this.Salesman;
+            this.Vehicle = vehicle;
+            this.textVehicle.Text = this.Vehicle.ToString();
+            this.vehicleFile = vehicleFile;
         }
     }
 }

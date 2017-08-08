@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ExtensionsMethods;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,36 +22,38 @@ namespace VendeBemVeiculos
         public string Year { get; set; }
         public double Price { get; set; }
                 
-        public override int GetHashCode()
-        {
-            return (int)((Brand.Length * Name.Length) + Price / Convert.ToInt16(Year));
-        }
+        
         public override string ToString()
         {
             return $"{this.Brand} {this.Name} Ano {this.Year}";
         }
+
         public int CompareTo(object obj)
         {
-            var v = (Vehicle)obj;
-            return string.Compare(this.Brand, v.Brand);
+            if (obj.IsVehicle())
+            {
+                var vehicle = (Vehicle)obj;
+                return string.Compare(this.Brand, vehicle.Brand);
+            }
+            throw new ArgumentException();
         }
 
         public override bool Equals(object obj)
         {
-            if (IsVehicle(obj))
+            if (obj.IsVehicle())
             {
                 var comparedVehicle = (Vehicle)obj;
                 return CompareAllData(comparedVehicle);
             }
             return false;
         }
-        private bool IsVehicle(object obj)
-        {
-            return obj is Vehicle;
-        }
         private bool CompareAllData(Vehicle vehicle)
         {
             return (this.Brand == vehicle.Brand) && (this.Name == vehicle.Name) && (this.Year == vehicle.Year) && (this.Price == vehicle.Price);
-        }       
+        }
+        public override int GetHashCode()
+        {
+            return (int)((Brand.Length * Name.Length) + Price / Convert.ToInt16(Year));
+        }
     }
 }

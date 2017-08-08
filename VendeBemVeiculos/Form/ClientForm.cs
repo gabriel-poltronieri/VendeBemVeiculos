@@ -12,17 +12,18 @@ namespace VendeBemVeiculos
 {
     public partial class ClientForm : Form
     {
+        private const string EMPTY_CPF = "   .   .   -";
         private SaleForm saleForm;
 
         public ClientForm(SaleForm saleForm)
         {
             this.saleForm = saleForm;
             InitializeComponent();
-            this.AllClients = new PersonRegister<Client>("Cliente.txt");
-            LoadOnList(this.AllClients.Items);
+            this.RegisteredClients = new PersonRegister<Client>("Cliente.txt");
+            this.LoadOnList(this.RegisteredClients.Items);
         }
 
-        public PersonRegister<Client> AllClients { get; private set; }
+        public PersonRegister<Client> RegisteredClients { get; private set; }
         public Client SelectedClient { get; private set; }
 
         private void ListClients_SelectedIndexChanged(object sender, EventArgs e)
@@ -37,8 +38,8 @@ namespace VendeBemVeiculos
         {
             if (this.SelectedClient != null)
             {
-                this.AllClients.DeleteItemFromRegister(this.SelectedClient);
-                UpdateAllClients();
+                this.RegisteredClients.DeleteItemFromRegister(this.SelectedClient);
+                this.LoadRegisteredClientsOnList();
             }
             else
             {
@@ -47,7 +48,7 @@ namespace VendeBemVeiculos
         }        
         private void ButtonNewClient_Click(object sender, EventArgs e)
         {
-            NewClientForm newClientForm = new NewClientForm(this);
+            var newClientForm = new NewClientForm(this);
             newClientForm.Show();
         }
         private void ButtonSelect_Click(object sender, EventArgs e)
@@ -65,28 +66,24 @@ namespace VendeBemVeiculos
 
         private void ButtonSearch_Click(object sender, EventArgs e)
         {
-            if (CPFIsEmpty())
+            if (textCPF.Text == EMPTY_CPF)
             {
-                LoadOnList(this.AllClients.Items);
+                this.LoadOnList(this.RegisteredClients.Items);
             }
             else
             {
-                SearchClientByCPF();
+                this.SearchClientByCPF();
             }
         }
-        private bool CPFIsEmpty()
-        {
-            return this.textCPF.Text == "   .   .   -";
-        }
+        
         private void LoadOnList(Client[] clientsList)
         {
             this.listClients.Items.Clear();
             this.listClients.Items.AddRange(clientsList);
         }
-
         private void SearchClientByCPF()
         {
-            Client[] searchedCPF = this.AllClients.FilterByCPF(this.textCPF.Text);
+            Client[] searchedCPF = this.RegisteredClients.FilterByCPF(this.textCPF.Text);
             if (searchedCPF.Length == 0)
             {
                 MessageBox.Show("Nenhum Cliente com o CPF buscado");
@@ -96,11 +93,10 @@ namespace VendeBemVeiculos
                 LoadOnList(searchedCPF);
             }
         }
-
-        public void UpdateAllClients()
+        public void LoadRegisteredClientsOnList()
         {
-            this.AllClients = new PersonRegister<Client>("Cliente.txt");
-            LoadOnList(this.AllClients.Items);
+            this.RegisteredClients = new PersonRegister<Client>("Cliente.txt");
+            this.LoadOnList(this.RegisteredClients.Items);
         }
     }
 }

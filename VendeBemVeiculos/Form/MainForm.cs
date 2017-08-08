@@ -20,17 +20,17 @@ namespace VendeBemVeiculos
 
         private void ButtonSale_Click(object sender, EventArgs e)
         {
-            SaleForm saleForm = new SaleForm();
+            var saleForm = new SaleForm();
             saleForm.Show();
         }
         private void ButtonSalesman_Click(object sender, EventArgs e)
         {
-            NewSalesmanForm newSalesmanForm = new NewSalesmanForm();
+            var newSalesmanForm = new NewSalesmanForm();
             newSalesmanForm.Show();
         }
         private void ButtonHistory_Click(object sender, EventArgs e)
         {
-            HistoryForm historyForm = new HistoryForm();
+            var historyForm = new HistoryForm();
             historyForm.Show();
         }
     }

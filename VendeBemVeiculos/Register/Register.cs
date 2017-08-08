@@ -8,12 +8,10 @@ using System.Threading.Tasks;
 namespace VendeBemVeiculos
 {
     public abstract class Register<T> 
-    {        
-        protected string allData;
-
-        public Register(string archiveName)
+    {
+        public Register(string fileName)
         {
-            this.FileName = archiveName;
+            this.FileName = fileName;
             if (File.Exists(FileName))
             {
                 LoadData();
@@ -25,36 +23,30 @@ namespace VendeBemVeiculos
         }
 
         public string FileName { get; protected set; }
-
-        public T[] Items { get { return this.DataGroup.ToArray(); } }
-        protected abstract ICollection<T> DataGroup { get; }
+        public T[] Items { get { return this.Data.ToArray(); } }
+        protected abstract ICollection<T> Data { get; }
 
         public virtual void AddItemToRegister(T item)
         {
-            this.DataGroup.Add(item);
-            UpdateArchive();
+            this.Data.Add(item);
+            this.UpdateFile();
         }
         public void DeleteItemFromRegister(T item)
         {
-            this.DataGroup.Remove(item);
-            UpdateArchive();
+            this.Data.Remove(item);
+            this.UpdateFile();
         }
-        public void UpdateArchive()
+        public void UpdateFile()
         {
             using (var dataStream = File.Open(this.FileName, FileMode.Create))
             using (var dataWriter = new StreamWriter(dataStream))
             {
-                LoadItemsString();
-                dataWriter.Write(allData);
+                var fileContent = this.GetFileContent();
+                dataWriter.Write(fileContent);
             }
-            DeleteString();
-        }
-        private void DeleteString()
-        {
-            this.allData = "";
         }
         
         protected abstract void LoadData();
-        protected abstract void LoadItemsString();
+        protected abstract string GetFileContent();
     }
 }

@@ -17,7 +17,7 @@ namespace VendeBemVeiculos
         public VehicleRegister(string fileName)
             : base(fileName) { }
 
-        protected override ICollection<T> DataGroup { get; } =  new List<T>();
+        protected override ICollection<T> Data { get; } =  new List<T>();
 
         protected override void LoadData()
         {
@@ -29,7 +29,7 @@ namespace VendeBemVeiculos
                     string line = reader.ReadLine();
                     while (string.IsNullOrEmpty(line) == false)
                     {
-                        Load(line);                        
+                        this.Load(line);                        
                         line = reader.ReadLine();
                     }
                 }
@@ -42,25 +42,20 @@ namespace VendeBemVeiculos
             var name = data[NAME];
             var year = data[YEAR];
             var price = data[PRICE];
-            var activatedVehicle = (T)Activator.CreateInstance(typeof(T), brand, name, year, Convert.ToDouble(price));
-            this.DataGroup.Add(activatedVehicle);
+            var loadedVehicle = (T)Activator.CreateInstance(typeof(T), brand, name, year, Convert.ToDouble(price));
+            this.Data.Add(loadedVehicle);
         }
 
-        protected override void LoadItemsString()
+        protected override string GetFileContent()
         {
-            foreach (T v in this.DataGroup)
+            var content = string.Empty;
+            foreach (T vehicle in this.Data)
             {
-                CreateStringLine(v);
+                content += $"{vehicle.Brand}%{vehicle.Name}%{vehicle.Year}%{vehicle.Price}\r\n";
             }
+            return content;
         }
-        private void CreateStringLine(T vehicle)
-        {
-            if (vehicle != null)
-            {
-                this.allData += $"{vehicle.Brand}%{vehicle.Name}%{vehicle.Year}%{vehicle.Price}\r\n";
-            }
-        }
-
+       
         public T[] FilterByBrand(string selectedBrand)
         {            
             return this.Items.Where(v => v.Brand == selectedBrand).ToArray();

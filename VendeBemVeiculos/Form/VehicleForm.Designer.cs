@@ -93,7 +93,7 @@
             this.listVehicles.Name = "listVehicles";
             this.listVehicles.Size = new System.Drawing.Size(568, 356);
             this.listVehicles.TabIndex = 6;
-            this.listVehicles.SelectedIndexChanged += new System.EventHandler(this.ListVeiculos_SelectedIndexChanged);
+            this.listVehicles.SelectedIndexChanged += new System.EventHandler(this.ListVehicles_SelectedIndexChanged);
             // 
             // buttonNew
             // 

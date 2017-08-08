@@ -46,7 +46,7 @@ namespace VendeBemVeiculos
         {
             this.client = this.saleForm.Client;
             this.salesman = this.saleForm.Salesman;
-            this.vehicle = this.saleForm.vehicle;
+            this.vehicle = this.saleForm.Vehicle;
         }
         private void ValuesInTextFormat()
         {

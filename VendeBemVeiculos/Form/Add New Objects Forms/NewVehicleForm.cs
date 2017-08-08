@@ -14,13 +14,13 @@ namespace VendeBemVeiculos
     {
         private VehicleForm vehicleForm;
         private Vehicle newVehicle;
-        private VehicleRegister<Vehicle> allVehicles;
+        private VehicleRegister<Vehicle> registeredVehicles;
 
         public NewVehicleForm(VehicleForm vehicleForm)
         {
             InitializeComponent();
             this.vehicleForm = vehicleForm;
-            LoadComboBox();
+            this.LoadComboBox();
         }
 
         private void ButtonCancel_Click(object sender, EventArgs e)
@@ -32,8 +32,8 @@ namespace VendeBemVeiculos
         {
             if (AllFieldsComplete())
             {
-                AddNewVehicleToRegister();            
-                this.vehicleForm.UpdateAllVehicles();
+                this.AddNewVehicleToRegister();            
+                this.vehicleForm.LoadRegisteredVehiclesOnList();
                 this.Close();
             }
             else
@@ -50,8 +50,8 @@ namespace VendeBemVeiculos
         {
             string file = $"{this.comboVehicle.SelectedItem}.txt";
             this.newVehicle = new Vehicle(textBrand.Text, textName.Text, textYear.Text, Convert.ToDouble(textPrice.Text));
-            this.allVehicles = new VehicleRegister<Vehicle>(file);
-            this.allVehicles.AddItemToRegister(newVehicle);
+            this.registeredVehicles = new VehicleRegister<Vehicle>(file);
+            this.registeredVehicles.AddItemToRegister(newVehicle);
         }
 
         private void LoadComboBox()

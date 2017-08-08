@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace VendeBemVeiculos
 {
-    public class SaleRegister<T> : Register<T> where T : Sale
+    public class SaleRegister : Register<Sale>
     {
         private const int CLIENT_FIRST_NAME = 0;
         private const int CLIENT_LAST_NAME = 1;
@@ -24,7 +24,7 @@ namespace VendeBemVeiculos
         public SaleRegister(string fileName)
             : base(fileName) { }
 
-        protected override ICollection<T> DataGroup { get; } = new List<T>();
+        protected override ICollection<Sale> Data { get; } = new List<Sale>();
 
         protected override void LoadData()
         {
@@ -33,10 +33,10 @@ namespace VendeBemVeiculos
                 using (var saleStream = File.Open(this.FileName, FileMode.Open))
                 using (var reader = new StreamReader(saleStream))
                 {
-                    string line = reader.ReadLine();
+                    var line = reader.ReadLine();
                     while (string.IsNullOrEmpty(line) == false)
                     {
-                        Load(line);
+                        this.Load(line);
                         line = reader.ReadLine();
                     }
                 }
@@ -45,21 +45,21 @@ namespace VendeBemVeiculos
         private void Load(string linhaLida)
         {
             string[] data = linhaLida.Split('%');
-            var client = ActivateClient(data);
-            var vehicle = ActivateVehicle(data);
-            var salesMan = ActivateSalesMan(data);
+            var client = this.LoadClient(data);
+            var vehicle = this.LoadVehicle(data);
+            var salesman = this.LoadSalesman(data);
             var date = data[DATE];
-            var sale = (T)Activator.CreateInstance(typeof(T), client, vehicle, salesMan, data);
-            this.DataGroup.Add(sale);
+            var sale = new Sale(client, vehicle, salesman, date);
+            this.Data.Add(sale);
         }
-        private Client ActivateClient(string[] data)
+        private Client LoadClient(string[] data)
         {
             var clientFirstName = data[CLIENT_FIRST_NAME];
             var clientLastName = data[CLIENT_LAST_NAME];
             var clientCpf = data[CLIENT_CPF];
             return new Client(clientFirstName, clientLastName, clientCpf);
         }
-        private Vehicle ActivateVehicle(string[] data)
+        private Vehicle LoadVehicle(string[] data)
         {
             var vehicleBrand = data[VEHICLE_BRAND];
             var vehicleName = data[VEHICLE_NAME];
@@ -67,7 +67,7 @@ namespace VendeBemVeiculos
             var vehiclePrice = data[VEHICLE_PRICE];
             return new Vehicle(vehicleBrand, vehicleName, vehicleYear, Convert.ToDouble(vehiclePrice));
         }
-        private Salesman ActivateSalesMan(string[] data)
+        private Salesman LoadSalesman(string[] data)
         {
             var salesManFirstName = data[SALESMAN_FIRST_NAME];
             var salesManLastName = data[SALESMAN_LAST_NAME];
@@ -75,23 +75,26 @@ namespace VendeBemVeiculos
             return new Salesman(salesManFirstName, salesManLastName, salesManCpf);
         }
 
-        protected override void LoadItemsString()
+        protected override string GetFileContent()
         {
-            foreach (T v in this.DataGroup)
+            var content = string.Empty;
+            foreach (Sale sale in this.Data)
             {
-                CreateStringLine(v);
+                content += this.GetLineContent(sale);
             }
+            return content;
         }
-        private void CreateStringLine(T sale)
+        private string GetLineContent(Sale sale)
         {
-            if (sale != null)
+            if (sale == null)
             {
-                var client = $"{sale.Client.FirstName}%{sale.Client.LastName}%{sale.Client.CPF}";
-                var vehicle = $"{sale.Vehicle.Brand}%{sale.Vehicle.Name}%{sale.Vehicle.Year}%{sale.Vehicle.Price}";
-                var salesMan = $"{sale.Salesman.FirstName}%{sale.Salesman.LastName}%{sale.Salesman.CPF}";
-                var date = $"{sale.Date}";
-                this.allData += $"{client}%{vehicle}%{salesMan}%{date}\r\n";
+                throw new NullReferenceException();
             }
+            var client = $"{sale.Client.FirstName}%{sale.Client.LastName}%{sale.Client.CPF}";
+            var vehicle = $"{sale.Vehicle.Brand}%{sale.Vehicle.Name}%{sale.Vehicle.Year}%{sale.Vehicle.Price}";
+            var salesMan = $"{sale.Salesman.FirstName}%{sale.Salesman.LastName}%{sale.Salesman.CPF}";
+            var date = sale.Date.ToString("dd/MM/yyyy");
+            return $"{client}%{vehicle}%{salesMan}%{date}\r\n";            
         }        
     }    
 }

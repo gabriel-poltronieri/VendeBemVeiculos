@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="StringExtensions.cs" />
     <Compile Include="Vehicle\Car.cs" />
     <Compile Include="Person\Client.cs" />
     <Compile Include="Form\ClientForm.cs">
@@ -71,16 +72,16 @@
     <Compile Include="Form\VehicleForm.Designer.cs">
       <DependentUpon>VehicleForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form\Adicionar Novos\NewClientForm.cs">
+    <Compile Include="Form\Add New Objects Forms\NewClientForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\Adicionar Novos\NewClientForm.Designer.cs">
+    <Compile Include="Form\Add New Objects Forms\NewClientForm.Designer.cs">
       <DependentUpon>NewClientForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form\Adicionar Novos\NewSalesmanForm.cs">
+    <Compile Include="Form\Add New Objects Forms\NewSalesmanForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\Adicionar Novos\NewSalesmanForm.Designer.cs">
+    <Compile Include="Form\Add New Objects Forms\NewSalesmanForm.Designer.cs">
       <DependentUpon>NewSalesmanForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Form\PaymentForm.cs">
@@ -101,10 +102,10 @@
     <Compile Include="Form\SaleForm.Designer.cs">
       <DependentUpon>SaleForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form\Adicionar Novos\NewVehicleForm.cs">
+    <Compile Include="Form\Add New Objects Forms\NewVehicleForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\Adicionar Novos\NewVehicleForm.Designer.cs">
+    <Compile Include="Form\Add New Objects Forms\NewVehicleForm.Designer.cs">
       <DependentUpon>NewVehicleForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AlreadyCreatedException.cs" />
@@ -131,10 +132,10 @@
     <EmbeddedResource Include="Form\VehicleForm.resx">
       <DependentUpon>VehicleForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\Adicionar Novos\NewClientForm.resx">
+    <EmbeddedResource Include="Form\Add New Objects Forms\NewClientForm.resx">
       <DependentUpon>NewClientForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\Adicionar Novos\NewSalesmanForm.resx">
+    <EmbeddedResource Include="Form\Add New Objects Forms\NewSalesmanForm.resx">
       <DependentUpon>NewSalesmanForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\PaymentForm.resx">
@@ -146,7 +147,7 @@
     <EmbeddedResource Include="Form\SaleForm.resx">
       <DependentUpon>SaleForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\Adicionar Novos\NewVehicleForm.resx">
+    <EmbeddedResource Include="Form\Add New Objects Forms\NewVehicleForm.resx">
       <DependentUpon>NewVehicleForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

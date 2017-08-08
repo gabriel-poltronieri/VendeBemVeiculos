@@ -18,13 +18,13 @@ namespace VendeBemVeiculos
         {
             InitializeComponent();
             this.sale = sale;
-            LoadValues();
+            this.LoadValues();
         }
 
         private void LoadValues()
         {
             this.labelClientValue.Text = this.sale.Client.ToString();
-            this.labelDateValue.Text = this.sale.Date;
+            this.labelDateValue.Text = this.sale.Date.ToString("dd/MM/yyyy");
             this.labelVehicleValue.Text = this.sale.Vehicle.ToString();
             this.labelSalesmanValue.Text = this.sale.Salesman.ToString();
             this.LbelPriceValue.Text = $"RS{string.Format("{0:0.00}", this.sale.Vehicle.Price)}";

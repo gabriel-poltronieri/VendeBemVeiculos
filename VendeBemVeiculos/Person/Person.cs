@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ExtensionsMethods;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,32 +20,32 @@ namespace VendeBemVeiculos
         public string LastName { get; private set; }
         public string CPF { get; private set; }
 
-        public override int GetHashCode()
-        {
-            return (int)(Convert.ToUInt64(CPF) / 20051);
-        }
         public override string ToString()
         {
             return $"{this.FirstName} {this.LastName}     CPF:{this.CPF}";
         }
+
         public int CompareTo(object obj)
         {
-            var person = (Person)obj;
-            return string.Compare(this.CPF, person.CPF);
+            if (obj.IsPerson())
+            {
+                var person = (Person)obj;
+                return string.Compare(this.CPF, person.CPF);
+            }
+            throw new ArgumentException();
         }
-
         public override bool Equals(object obj)
         {
-            if (IsPerson(obj))
+            if (obj.IsPerson())
             {
                 var comparedPerson = (Person)obj;
                 return this.CPF == comparedPerson.CPF;
             }
             return false;
         }
-        private bool IsPerson(object obj)
+        public override int GetHashCode()
         {
-            return obj is Person;
-        }        
+            return Convert.ToInt32(this.CPF) / 100;
+        }
     }
 }

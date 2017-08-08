@@ -12,13 +12,13 @@ namespace VendeBemVeiculos
 {
     public partial class NewClientForm : Form
     {
-        private PersonRegister<Client> allClients;
+        private PersonRegister<Client> registeredClients;
         private ClientForm clientForm;
 
         public NewClientForm(ClientForm clientForm)
         {
             InitializeComponent();
-            this.allClients = new PersonRegister<Client>("Cliente.txt");
+            this.registeredClients = new PersonRegister<Client>("Cliente.txt");
             this.clientForm = clientForm;
         }
 
@@ -39,7 +39,7 @@ namespace VendeBemVeiculos
             }
             else
             {
-                AddClient();
+                this.AddClient();
             }
         }
         private bool FirstAndLastNameHaveData()
@@ -48,15 +48,15 @@ namespace VendeBemVeiculos
         }
         private bool CPFIsIncomplete()
         {
-            return this.textCPF.Text.Contains(' '); // == TAMANHO_CPF;
+            return this.textCPF.Text.Contains(' '); 
         }
         private void AddClient()
         {
             try
             {
                 var client = new Client(this.textFirstName.Text, this.textLastName.Text, this.textCPF.Text);
-                this.allClients.AddItemToRegister(client);
-                this.clientForm.UpdateAllClients();
+                this.registeredClients.AddItemToRegister(client);
+                this.clientForm.LoadRegisteredClientsOnList();
                 this.Close();
             }
             catch (AlreadyCreatedException)

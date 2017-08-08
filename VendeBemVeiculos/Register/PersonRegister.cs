@@ -13,14 +13,14 @@ namespace VendeBemVeiculos
         private const int LAST_NAME = 1;
         private const int CPF = 2;
 
-        public PersonRegister(string archiveName)
-            : base(archiveName) { }
+        public PersonRegister(string fileName)
+            : base(fileName) { }
 
-        protected override ICollection<T> DataGroup { get; } = new SortedSet<T>();
+        protected override ICollection<T> Data { get; } = new SortedSet<T>();
 
         public override void AddItemToRegister(T item)
         {
-            if (this.DataGroup.Contains(item))
+            if (this.Data.Contains(item))
             {
                 throw new AlreadyCreatedException();
             }
@@ -39,8 +39,8 @@ namespace VendeBemVeiculos
                 {
                     string line = reader.ReadLine();
                     while (string.IsNullOrEmpty(line) == false)
-                    {
-                        Load(line);                        
+                    {                        
+                        this.Load(line);                        
                         line = reader.ReadLine();
                     }
                 }
@@ -52,36 +52,31 @@ namespace VendeBemVeiculos
             var firstName = data[FIRST_NAME];
             var lastName = data[LAST_NAME];
             var cpf = data[CPF];
-            var activatedPerson = (T)Activator.CreateInstance(typeof(T), firstName, lastName, cpf);
-            this.DataGroup.Add(activatedPerson);
+            var loadedPerson = (T)Activator.CreateInstance(typeof(T), firstName, lastName, cpf);
+            this.Data.Add(loadedPerson);
         }
 
-        protected override void LoadItemsString()
+        protected override string GetFileContent()
         {
-            foreach (T p in this.DataGroup)
+            var content = string.Empty;
+            foreach (T person in this.Data)
             {
-                CreateStringLine(p);
+                content += $"{person.FirstName}%{person.LastName}%{person.CPF}\r\n";
             }
-        }
-        private void CreateStringLine(T person)
-        {
-            if (person != null)
-            {
-                this.allData += $"{person.FirstName}%{person.LastName}%{person.CPF}\r\n";
-            }
+            return content;
         }
 
         public T[] FilterByFirstName(string firstName)
         {
-            return this.Items.Where(v => v.FirstName == firstName).ToArray();
+            return this.Items.Where(p => p.FirstName == firstName).ToArray();
         }
         public T[] FilterByLastName(string lastName)
         {
-            return this.Items.Where(v => v.LastName == lastName).ToArray();
+            return this.Items.Where(p => p.LastName == lastName).ToArray();
         }
         public T[] FilterByCPF(string cpf)
         {
-            return this.Items.Where(v => v.CPF == cpf).ToArray();
+            return this.Items.Where(p => p.CPF == cpf).ToArray();
         }
     }
 }

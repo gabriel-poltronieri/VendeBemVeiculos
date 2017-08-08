@@ -13,29 +13,29 @@ namespace VendeBemVeiculos
     public partial class VehicleForm : Form
     {
         private SaleForm saleForm;        
-        private Vehicle[] filtered;
+        private Vehicle[] filteredVehicles;
 
         public VehicleForm(SaleForm saleForm)
         {
             this.saleForm = saleForm;
             InitializeComponent();
             this.radioCar.Checked = true;
-            this.WishedFile = "Carro.txt";
-            this.AllVehicles = new VehicleRegister<Vehicle>(this.WishedFile);
-            LoadOnList(this.AllVehicles.Items);        
+            this.VehicleFile = "Carro.txt";
+            this.RegisteredVehicles = new VehicleRegister<Vehicle>(this.VehicleFile);
+            this.LoadOnList(this.RegisteredVehicles.Items);        
         }
 
-        public VehicleRegister<Vehicle> AllVehicles { get; private set; }
+        public VehicleRegister<Vehicle> RegisteredVehicles { get; private set; }
         public Vehicle SelectedVehicle { get; private set; }
-        public string WishedFile { get; private set; }
+        public string VehicleFile { get; private set; }
 
-        private void ListVeiculos_SelectedIndexChanged(object sender, EventArgs e)
+        private void ListVehicles_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (this.listVehicles.SelectedItem != null)
             {
                 this.SelectedVehicle = (Vehicle)this.listVehicles.SelectedItem;
                 this.labelPriceValue.Text = $"RS{string.Format("{0:0.00}", this.SelectedVehicle.Price)}";
-                this.labelQuantityValue.Text = Convert.ToString(this.AllVehicles.Items.Count(v => v.Equals(SelectedVehicle)));
+                this.labelQuantityValue.Text = Convert.ToString(this.RegisteredVehicles.Items.Count(v => v.Equals(SelectedVehicle)));
             }
         }
 
@@ -52,7 +52,7 @@ namespace VendeBemVeiculos
         {
             if (this.SelectedVehicle != null)
             {
-                this.saleForm.DefineVehicle(this.SelectedVehicle, this.WishedFile);
+                this.saleForm.DefineVehicle(this.SelectedVehicle, this.VehicleFile);
                 this.Close();
             }
             else
@@ -63,14 +63,14 @@ namespace VendeBemVeiculos
 
         private void ButtonFilter_Click(object sender, EventArgs e)
         {
-            LoadOnList(this.filtered);
+            this.LoadOnList(this.filteredVehicles);
         }
         private void ButtonDelete_Click(object sender, EventArgs e)
         {
             if (this.SelectedVehicle != null)
             {
-                this.AllVehicles.DeleteItemFromRegister(this.SelectedVehicle);
-                UpdateAllVehicles();
+                this.RegisteredVehicles.DeleteItemFromRegister(this.SelectedVehicle);
+                this.LoadRegisteredVehiclesOnList();
             }
             else
             {
@@ -80,34 +80,34 @@ namespace VendeBemVeiculos
 
         private void RadioCar_CheckedChanged(object sender, EventArgs e)
         {
-            this.WishedFile = "Carro.txt";
-            UpdateAllVehicles();
+            this.VehicleFile = "Carro.txt";
+            this.LoadRegisteredVehiclesOnList();
         }
         private void RadioMotorcycle_CheckedChanged(object sender, EventArgs e)
         {
-            this.WishedFile = "Moto.txt";
-            UpdateAllVehicles();
+            this.VehicleFile = "Moto.txt";
+            this.LoadRegisteredVehiclesOnList();
         }
                 
         private void ComboBrand_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.filtered = this.AllVehicles.FilterByBrand(this.comboBrand.SelectedItem.ToString());
-            CleanComboName();
-            CleanComboYear();
-            LoadComboName();
+            this.filteredVehicles = this.RegisteredVehicles.FilterByBrand(this.comboBrand.SelectedItem.ToString());
+            this.ClearComboName();
+            this.ClearComboYear();
+            this.LoadComboName();
         }
         private void ComboName_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.filtered = this.AllVehicles.FilterByBrand(this.comboBrand.SelectedItem.ToString());
-            this.filtered = this.AllVehicles.FilterByName(this.comboName.SelectedItem.ToString());
-            CleanComboYear();
-            LoadComboYear();
+            this.filteredVehicles = this.RegisteredVehicles.FilterByBrand(this.comboBrand.SelectedItem.ToString());
+            this.filteredVehicles = this.RegisteredVehicles.FilterByName(this.comboName.SelectedItem.ToString());
+            this.ClearComboYear();
+            this.LoadComboYear();
         }
         private void ComboYear_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.filtered = this.AllVehicles.FilterByBrand(this.comboBrand.SelectedItem.ToString());
-            this.filtered = this.AllVehicles.FilterByName(this.comboName.SelectedItem.ToString());
-            this.filtered = this.AllVehicles.FilterByYear(this.comboYear.SelectedItem.ToString());
+            this.filteredVehicles = this.RegisteredVehicles.FilterByBrand(this.comboBrand.SelectedItem.ToString());
+            this.filteredVehicles = this.RegisteredVehicles.FilterByName(this.comboName.SelectedItem.ToString());
+            this.filteredVehicles = this.RegisteredVehicles.FilterByYear(this.comboYear.SelectedItem.ToString());
         }
 
         private void LoadOnList(Vehicle[] vehicleList)
@@ -116,28 +116,28 @@ namespace VendeBemVeiculos
             this.listVehicles.Items.Clear();
             this.listVehicles.Items.AddRange(vehicleList);
         }
-        public void UpdateAllVehicles()
+        public void LoadRegisteredVehiclesOnList()
         {
-            this.AllVehicles = new VehicleRegister<Vehicle>(this.WishedFile);
-            this.filtered = this.AllVehicles.Items;
-            LoadOnList(this.AllVehicles.Items);
-            CleanComboBrand();
-            CleanComboName();
-            CleanComboYear();
-            LoadComboBrand();
+            this.RegisteredVehicles = new VehicleRegister<Vehicle>(this.VehicleFile);
+            this.filteredVehicles = this.RegisteredVehicles.Items;
+            this.LoadOnList(this.RegisteredVehicles.Items);
+            this.ClearComboBrand();
+            this.ClearComboName();
+            this.ClearComboYear();
+            this.LoadComboBrand();
         }
 
-        private void CleanComboBrand()
+        private void ClearComboBrand()
         {
             this.comboBrand.Items.Clear();
             this.comboBrand.Text = "";
         }
-        private void CleanComboName()
+        private void ClearComboName()
         {
             this.comboName.Items.Clear();
             this.comboName.Text = "";
         }
-        private void CleanComboYear()
+        private void ClearComboYear()
         {
             this.comboYear.Items.Clear();
             this.comboYear.Text = "";
@@ -145,17 +145,17 @@ namespace VendeBemVeiculos
 
         private void LoadComboBrand()
         {
-            var brands = this.AllVehicles.Items.Select(veiculo => veiculo.Brand).Distinct().ToArray();
+            var brands = this.RegisteredVehicles.Items.Select(veiculo => veiculo.Brand).Distinct().ToArray();
             this.comboBrand.Items.AddRange(brands);
         }
         private void LoadComboName()
         {
-            var names = this.filtered.Select(veiculo => veiculo.Name).Distinct().ToArray();
+            var names = this.filteredVehicles.Select(veiculo => veiculo.Name).Distinct().ToArray();
             this.comboName.Items.AddRange(names);
         }
         private void LoadComboYear()
         {
-            var years = this.filtered.Select(v => v.Year).Distinct().ToArray();
+            var years = this.filteredVehicles.Select(v => v.Year).Distinct().ToArray();
             this.comboYear.Items.AddRange(years);
         }        
     }

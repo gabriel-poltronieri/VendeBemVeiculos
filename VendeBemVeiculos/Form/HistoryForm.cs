@@ -12,13 +12,13 @@ namespace VendeBemVeiculos
 {
     public partial class HistoryForm : Form
     {
-        private SaleRegister<Sale> allSales = new SaleRegister<Sale>("Venda.txt");
+        private SaleRegister salesControl = new SaleRegister("Venda.txt");
         private Sale selectedSale;
 
         public HistoryForm()
         {
             InitializeComponent();
-            LoadHistory();
+            this.LoadHistory();
         }
 
         private void ListHistory_SelectedIndexChanged(object sender, EventArgs e)
@@ -48,7 +48,7 @@ namespace VendeBemVeiculos
 
         private void LoadHistory()
         {
-            this.listHistory.Items.AddRange(allSales.Items);
+            this.listHistory.Items.AddRange(salesControl.Items);
         }
     }
 }
